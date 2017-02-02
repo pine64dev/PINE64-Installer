@@ -80,6 +80,8 @@ fi
 # The `-t` and TERM setup is needed to display coloured output.
 docker run -t \
   --env "TERM=xterm-256color" \
+  --env "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" \
+  --env "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY" \
   --cap-add SYS_ADMIN \
   --device /dev/fuse:/dev/fuse:mrw \
   --volume "$ARGV_SOURCE_CODE_DIRECTORY:/etcher" \

@@ -34,7 +34,7 @@ install:
   - set PATH=C:\MinGW\bin;%PATH%
   - set PATH=C:\MinGW\msys\1.0\bin;%PATH%
   - gem install scss_lint
-  - pip install codespell
+  - pip install codespell awscli
   - make info
   - make electron-develop
 
@@ -45,6 +45,10 @@ test_script:
   - npm --version
   - bash .\scripts\ci\ensure-staged-sass.sh
   - cmd: npm test
+  - cmd: make publish-aws-s3
+
+deploy_script:
+  - ps: IF $env:APPVEYOR_REPO_BRANCH -eq "master" { make publish-aws-s3 }
 
 notifications:
 

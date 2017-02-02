@@ -37,9 +37,9 @@ before_install:
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      pip install codespell;
+      pip install codespell awscli;
       gem install scss_lint;
-      npm install -g bower;
+      npm install -g bower asar;
       brew install afsctool;
       brew install jq;
     fi
@@ -59,6 +59,16 @@ script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       ./scripts/build/docker/run-command.sh -r ${TARGET_ARCH} -s ${PWD} -c "xvfb-run --server-args=$XVFB_ARGS npm test && ./scripts/ci/ensure-staged-sass.sh";
     fi
+
+deploy:
+  provider: script
+  script: if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+            ./scripts/build/docker/run-command.sh -r ${TARGET_ARCH} -s ${PWD} -c "make publish-aws-s3";
+          else
+            make publish-aws-s3;
+          fi
+  on:
+    branch: master
 
 notifications:
   email: false

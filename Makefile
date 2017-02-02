@@ -26,17 +26,18 @@ APPLICATION_COPYRIGHT = $(shell jq -r '.copyright' package.json)
 APPLICATION_CATEGORY = public.app-category.developer-tools
 APPLICATION_BUNDLE_ID = io.resin.etcher
 APPLICATION_FILES = lib,assets
-S3_BUCKET = resin-production-downloads
 
 # Add the current commit to the version if release type is "snapshot"
 RELEASE_TYPE ?= snapshot
 PACKAGE_JSON_VERSION = $(shell jq -r '.version' package.json)
 ifeq ($(RELEASE_TYPE),production)
 APPLICATION_VERSION = $(PACKAGE_JSON_VERSION)
+S3_BUCKET = resin-production-downloads
 endif
 ifeq ($(RELEASE_TYPE),snapshot)
 CURRENT_COMMIT_HASH = $(shell git log -1 --format="%h")
 APPLICATION_VERSION = $(PACKAGE_JSON_VERSION)+$(CURRENT_COMMIT_HASH)
+S3_BUCKET = resin-nightly-downloads
 endif
 ifndef APPLICATION_VERSION
 $(error Invalid release type: $(RELEASE_TYPE))
@@ -141,13 +142,7 @@ ifeq ($(TARGET_ARCH),x64)
 	TARGET_ARCH_DEBIAN = amd64
 endif
 
-ifeq ($(RELEASE_TYPE),production)
-	PRODUCT_NAME = etcher
-endif
-ifeq ($(RELEASE_TYPE),snapshot)
-	PRODUCT_NAME = etcher-snapshots
-endif
-
+PRODUCT_NAME = etcher
 APPLICATION_NAME_LOWERCASE = $(shell echo $(APPLICATION_NAME) | tr A-Z a-z)
 APPLICATION_VERSION_DEBIAN = $(shell echo $(APPLICATION_VERSION) | tr "-" "~")
 
@@ -374,11 +369,20 @@ endif
 
 ifdef PUBLISH_AWS_S3
 publish-aws-s3: $(PUBLISH_AWS_S3)
+ifeq ($(RELEASE_TYPE),production)
 	$(foreach publishable,$^,$(call execute-command,./scripts/publish/aws-s3.sh \
 		-f $(publishable) \
 		-b $(S3_BUCKET) \
 		-v $(APPLICATION_VERSION) \
 		-p $(PRODUCT_NAME)))
+else
+	$(foreach publishable,$^,$(call execute-command,./scripts/publish/aws-s3.sh \
+		-f $(publishable) \
+		-b $(S3_BUCKET) \
+		-v $(APPLICATION_VERSION) \
+		-p $(PRODUCT_NAME) \
+		-d))
+endif
 
 TARGETS += publish-aws-s3
 endif

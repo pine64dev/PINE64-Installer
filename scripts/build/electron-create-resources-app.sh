@@ -59,6 +59,10 @@ mkdir -p "$ARGV_OUTPUT"
 
 jq ".version = \"$ARGV_APPLICATION_VERSION\"" "$ARGV_SOURCE_DIRECTORY/package.json" > "$ARGV_OUTPUT/package.json"
 
+echo "DEBUG: Copying files..."
+
 for file in $(echo "$ARGV_FILES" | sed "s/,/ /g"); do
   cp -rf "$file" "$ARGV_OUTPUT"
 done
+
+echo "DEBUG: Done"
