@@ -19,6 +19,7 @@ BUILD_OUTPUT_DIRECTORY = $(BUILD_DIRECTORY)/out
 # ---------------------------------------------------------------------
 
 ELECTRON_VERSION = $(shell jq -r '.devDependencies["electron-prebuilt"]' package.json)
+NODE_VERSION = 6.1.0
 COMPANY_NAME = $(shell jq -r '.companyName' package.json)
 APPLICATION_NAME = $(shell jq -r '.displayName' package.json)
 APPLICATION_DESCRIPTION = $(shell jq -r '.description' package.json)
@@ -170,6 +171,9 @@ $(BUILD_TEMPORARY_DIRECTORY): | $(BUILD_DIRECTORY)
 $(BUILD_DIRECTORY)/electron-$(TARGET_PLATFORM)-$(TARGET_ARCH)-dependencies: | $(BUILD_DIRECTORY)
 	mkdir $@
 
+$(BUILD_DIRECTORY)/node-$(TARGET_PLATFORM)-$(TARGET_ARCH)-dependencies: | $(BUILD_DIRECTORY)
+	mkdir $@
+
 $(BUILD_OUTPUT_DIRECTORY): | $(BUILD_DIRECTORY)
 	mkdir $@
 
@@ -180,6 +184,15 @@ $(BUILD_DIRECTORY)/electron-$(TARGET_PLATFORM)-$(TARGET_ARCH)-dependencies/node_
 		-v "$(ELECTRON_VERSION)" \
 		-x $| \
 		-t electron \
+		-s "$(TARGET_PLATFORM)"
+
+$(BUILD_DIRECTORY)/node-$(TARGET_PLATFORM)-$(TARGET_ARCH)-dependencies/node_modules: package.json npm-shrinkwrap.json \
+	| $(BUILD_DIRECTORY)/node-$(TARGET_PLATFORM)-$(TARGET_ARCH)-dependencies
+	./scripts/build/dependencies-npm.sh -p -f \
+		-r "$(TARGET_ARCH)" \
+		-v "$(NODE_VERSION)" \
+		-x $| \
+		-t node \
 		-s "$(TARGET_PLATFORM)"
 
 $(BUILD_DIRECTORY)/electron-$(TARGET_PLATFORM)-$(TARGET_ARCH)-dependencies/bower_components: bower.json \
@@ -207,6 +220,28 @@ $(BUILD_DIRECTORY)/electron-$(ELECTRON_VERSION)-$(TARGET_PLATFORM)-$(TARGET_ARCH
 		-v "$(ELECTRON_VERSION)" \
 		-s "$(TARGET_PLATFORM)" \
 		-o $@
+
+$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-cli-$(TARGET_PLATFORM)-$(APPLICATION_VERSION)-$(TARGET_ARCH)-app: \
+	package.json lib \
+	$(BUILD_DIRECTORY)/node-$(TARGET_PLATFORM)-$(TARGET_ARCH)-dependencies/node_modules \
+	| $(BUILD_DIRECTORY)
+	mkdir $@
+	$(foreach prerequisite,$^,$(call execute-command,cp -rf $(prerequisite) $@))
+
+$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-cli-$(TARGET_PLATFORM)-$(APPLICATION_VERSION)-$(TARGET_ARCH).js: \
+	$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-cli-$(TARGET_PLATFORM)-$(APPLICATION_VERSION)-$(TARGET_ARCH)-app \
+	| $(BUILD_DIRECTORY)
+	./scripts/build/concatenate-javascript.sh -e $</lib/cli/etcher.js -o $@
+
+$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-cli-$(APPLICATION_VERSION)-$(TARGET_PLATFORM)-$(TARGET_ARCH): \
+	$(BUILD_DIRECTORY)/node-$(TARGET_PLATFORM)-$(TARGET_ARCH)-dependencies/node_modules \
+	$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-cli-$(TARGET_PLATFORM)-$(APPLICATION_VERSION)-$(TARGET_ARCH).js \
+	| $(BUILD_DIRECTORY)
+	./scripts/build/node-package-cli.sh -o $@ -m $< \
+		-n $(APPLICATION_NAME) \
+		-e $(word 2,$^) \
+		-r $(TARGET_ARCH) \
+		-s $(TARGET_PLATFORM)
 
 $(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-$(TARGET_PLATFORM)-$(TARGET_ARCH): \
 	$(BUILD_DIRECTORY)/electron-$(TARGET_PLATFORM)-$(APPLICATION_VERSION)-$(TARGET_ARCH)-app.asar \
@@ -332,10 +367,13 @@ TARGETS = \
 	info \
 	clean \
 	distclean \
-	package \
+	package-electron \
+	package-cli \
+	cli-develop \
 	electron-develop
 
-package: $(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-$(TARGET_PLATFORM)-$(TARGET_ARCH)
+package-electron: $(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-$(TARGET_PLATFORM)-$(TARGET_ARCH)
+package-cli: $(BUILD_DIRECTORY)/$(APPLICATION_NAME)-cli-$(APPLICATION_VERSION)-$(TARGET_PLATFORM)-$(TARGET_ARCH)
 
 ifeq ($(TARGET_PLATFORM),darwin)
 electron-installer-app-zip: $(BUILD_OUTPUT_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-$(TARGET_PLATFORM)-$(TARGET_ARCH).zip
@@ -396,7 +434,7 @@ endif
 
 .PHONY: $(TARGETS)
 
-electron-develop:
+# Note that we need to remove `node_modules` every time.
 # Since we use an `npm-shrinkwrap.json` file, if you pull changes
 # that update a dependency and try to `npm install` directly, npm
 # will complain that your `node_modules` tree is not equal to what
@@ -405,6 +443,16 @@ electron-develop:
 # The `node_modules` directory also needs to be wiped out if you're
 # changing between target architectures, since compiled add-ons
 # will not work otherwise.
+
+cli-develop:
+	rm -rf node_modules
+	./scripts/build/dependencies-npm.sh \
+		-r "$(TARGET_ARCH)" \
+		-v "$(ELECTRON_VERSION)" \
+		-t node \
+		-s "$(TARGET_PLATFORM)"
+
+electron-develop:
 	rm -rf node_modules
 	./scripts/build/dependencies-npm.sh \
 		-r "$(TARGET_ARCH)" \
