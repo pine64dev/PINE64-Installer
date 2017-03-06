@@ -2,9 +2,9 @@
   <div class="col-xs" ng-controller="ImageSelectionController as image">
     <div class="box text-center relative" os-dropzone="image.selectImage($file)">
 
-      <svg-icon
-        class="center-block"
-        path="{{ main.selection.getImageLogo() || '../../../assets/image.svg' }}"></svg-icon>
+      <img
+        class="center-block image-icon"
+        src="{{ main.selection.getImageLogo() || 'assets/image.svg' }}"></img>
 
       <div class="space-vertical-large">
         <div ng-hide="main.selection.hasImage()">
@@ -25,6 +25,9 @@
               class="step-image step-name"
               ng-bind="main.selection.getImageName() || main.selection.getImagePath() | basename | middleEllipses:20"
               uib-tooltip="{{ main.selection.getImagePath() | basename }}"></span>
+          </div>
+          <div>
+            <span ng-if="main.selection.getOSVersion()" class="step-image step-size">build {{ main.selection.getOSVersion() }} | </span>
             <span class="step-image step-size">{{ main.selection.getImageSize() | gigabyte | number:1 }} GB</span>
           </div>
 
@@ -62,6 +65,8 @@
               'text-disabled': main.shouldDriveStepBeDisabled()
             }">
             <span class="step-drive step-name">{{ main.selection.getDrive().name }}</span>
+          </div>
+          <div>
             <span class="step-drive step-size">{{ main.selection.getDrive().size | gigabyte | number:1 }} GB</span>
           </div>
           <button class="button button-link step-footer"
