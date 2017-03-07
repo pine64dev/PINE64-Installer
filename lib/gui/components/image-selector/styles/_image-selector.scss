@@ -53,7 +53,7 @@
     border: 0px;
     text-align: left;
     display: block;
-    height: 70px;
+    height: 50px;
     width: 100%; }
   .caret{
     color: #ffe400;
@@ -78,6 +78,7 @@
   }
 
   .list-group-title{
+    font-weight: normal;
     padding: 18px;
   }
 
@@ -115,6 +116,7 @@
       width: 30px;
       height: 30px;
       padding: -1px;
+      border-radius: 37%;
       color: #ffe400;
     }
 
