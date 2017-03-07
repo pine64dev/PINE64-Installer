@@ -85,6 +85,10 @@
     padding-bottom:20px;
   }
 
+  .list-group-item:hover {
+    background: #201d1d;
+  }
+
   .list-group-item .list-group-item-tick-icon{
     padding: 0px;
     width: 30px;
@@ -104,6 +108,16 @@
     width: auto;
     height: auto;
     margin-right: 15px;
+  }
+
+  .list-group-item-folder-icon{
+    max-width: 45px;
+    max-height: 45px;
+    text-align: center;
+    margin-right: 25px;
+    .glyphicon {
+      font-size: 35px;
+    }
   }
 
   .list-group-item-ver {

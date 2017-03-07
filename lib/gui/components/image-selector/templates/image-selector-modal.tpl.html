@@ -43,32 +43,17 @@
               <i class="glyphicon glyphicon-info-sign" os-open-external="{{ image.releaseNotesUrl }}"></i>
           </span>
         </li>
-        <li class="list-group-item">
-          <span class="list-group-item-tick-icon">
-            <i class="tick tick--success" ng-show="{{n==1?true:false}}"></i>
-          </span>
-          <span class="list-group-item-image-icon">
-            <i class="glyphicon glyphicon-fire"></i>
-          </span>
-          <div class="list-group-item-label">
-                <h4 class="list-group-item-heading">Select file</h4>
-                <p class="list-group-item-text">Select an image</p>
-          </div>
-          <div class="btn-group list-group-item-ver" uib-dropdown keyboard-nav>
-            <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
-                Board Type <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-                <li role="menuitem" ><a href="#">Android</a></li>
-                <li role="menuitem" ><a href="#">Linux</a></li>
-                <li role="menuitem" ><a href="#">Ubuntu</a></li>
-                <li role="menuitem" ><a href="#">Browse from local</a></li>
-            </ul>
-          </div>
-          <span class="list-group-item-info-icon">
-              <i class="glyphicon glyphicon-info-sign"></i>
-          </span>
-        </li>
+        <li class="list-group-item" ng-click="modal.browseLocalImage()">
+        <span class="list-group-item-tick-icon">
+        </span>
+        <span class="list-group-item-folder-icon">
+          <i class="glyphicon glyphicon-folder-open"></i>
+        </span>
+        <div class="list-group-item-label">
+              <h4 class="list-group-item-heading">Browse from local</h4>
+              <p class="list-group-item-text">Browse image from local drive</p>
+        </div>
+      </li>
       </ul>
     </div>
 </div>
