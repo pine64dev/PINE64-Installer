@@ -88,12 +88,17 @@
     padding-top:20px;
     padding-bottom:20px;
     .dropdown-menu{
-    top: initial }
+      top: initial
+    }
   }
 
   .list-group-item:first-child {
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
+  }
+
+  .list-group-item:last-child {
+    border-top: 1px solid #201d1d;
   }
 
   .list-group-item:hover {
@@ -110,6 +115,12 @@
       width: 30px;
       height: 30px;
       padding: -1px;
+      color: #ffe400;
+    }
+
+    .tick--success{
+      background: #5a5a5a;
+      border-color: #5a5a5a;
     }
   }
 
