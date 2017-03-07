@@ -59,7 +59,8 @@
 </div>
 <div class="modal-footer">
     <button class="button button-primary"
-    ng-click="modal.closeModal()">OK</button>
+    ng-click="modal.closeModal()"
+    ng-disabled="modal.shouldOKButtonDisabled()">OK</button>
     <button class="button button-primary"
     ng-click="modal.closeModal()">Cancel</button>
 </div>
