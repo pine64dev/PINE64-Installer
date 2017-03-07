@@ -6,44 +6,42 @@
     <!-- Single button with keyboard nav -->
     <div class="btn-group dropdown-block" uib-dropdown keyboard-nav>
         <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
-            Board Type <span class="caret"></span>
+            {{ modal.selectedBoard.name || 'Board Type' }}<span class="caret"></span>
         </button>
         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-            <li role="menuitem" ><a href="#">PINE A64+ (1GB/2GB)</a></li>
-            <li role="menuitem" ><a href="#">PINE A64 (512MB)</a></li>
-            <li role="menuitem" ><a href="#">SOPINE</a></li>
-            <li role="menuitem" ><a href="#">PINEBOOK</a></li>
+            <li role="menuitem"
+              ng-repeat="board in modal.boards"
+              ng-click="modal.getBoardImages(board)"><a href="#">{{board.name}}</a></li>
         </ul>
     </div>
-    <h4 class="list-group-title">Select an image</h4>
-    <ul class="list-group">
-      <li class="list-group-item" ng-repeat="n in [1, 2, 3, 4] track by $index">
-        <span class="list-group-item-tick-icon">
-          <i class="tick tick--success" ng-show="{{n==1?true:false}}"></i>
-        </span>
-        <span class="list-group-item-image-icon">
-          <i class="glyphicon glyphicon-fire"></i>
-        </span>
-        <div class="list-group-item-label">
-              <h4 class="list-group-item-heading">Select an image</h4>
-              <p class="list-group-item-text">Select an image</p>
-        </div>
-        <div class="btn-group list-group-item-ver" uib-dropdown keyboard-nav>
-          <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
-              Board Type <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-              <li role="menuitem" ><a href="#">Android</a></li>
-              <li role="menuitem" ><a href="#">Linux</a></li>
-              <li role="menuitem" ><a href="#">Ubuntu</a></li>
-              <li role="menuitem" ><a href="#">Browse from local</a></li>
-          </ul>
-        </div>
-        <span class="list-group-item-info-icon">
-            <i class="glyphicon glyphicon-info-sign"></i>
-        </span>
-      </li>
-      <li class="list-group-item" ng-click="modal.browseLocalImage()">
+
+    <div ng-show="modal.boardImages">
+      <h4 class="list-group-title">Select an image</h4>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="image in modal.boardImages">
+          <span class="list-group-item-tick-icon">
+            <i class="tick tick--success" ng-show="{{ modal.selectedImage == image }}"></i>
+          </span>
+          <span class="list-group-item-image-icon">
+            <img class="list-group-item-image-icon" src="{{ modal.getImageLogo(image.logo) }}" />
+          </span>
+          <div class="list-group-item-label">
+                <h4 class="list-group-item-heading">{{ image.name }}</h4>
+                <p class="list-group-item-text">{{ image.instructions }}</p>
+          </div>
+          <div class="btn-group list-group-item-ver" uib-dropdown keyboard-nav>
+            <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
+                build {{ image.versions[0].version }}<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                <li role="menuitem" ng-repeat="version in image.versions"><a href="#">{{ version.version }}</a></li>
+            </ul>
+          </div>
+          <span class="list-group-item-info-icon">
+              <i class="glyphicon glyphicon-info-sign" os-open-external="{{ image.releaseNotesUrl }}"></i>
+          </span>
+        </li>
+        <li class="list-group-item" ng-click="modal.browseLocalImage()">
         <span class="list-group-item-tick-icon">
         </span>
         <span class="list-group-item-search-icon">
@@ -54,7 +52,8 @@
               <p class="list-group-item-text">Browse image from local drive</p>
         </div>
       </li>
-    </ul>
+      </ul>
+    </div>
 </div>
 <div class="modal-footer">
     <button class="button button-primary"

@@ -97,12 +97,11 @@
   }
 
   .list-group-item-image-icon{
-    width: 80px;
-    height: 30px;
-    text-align: center;
-    .glyphicon {
-      font-size: 40px;
-    }
+    max-width: 45px;
+    max-height: 45px;
+    width: auto;
+    height: auto;
+    margin-right: 15px;
   }
 
   .list-group-item-search-icon{
@@ -115,19 +114,27 @@
   }
 
   .list-group-item-ver {
-    button{
+    button {
       background: transparent;
       border: 0px;
+    }
+
+    .caret {
+      margin-left: 10px;
     }
   }
 
   .list-group-item-info-icon{
-    margin-left: 20px;
+    margin-left: 10px;
     font-size: 15px;
   }
 
   .list-group-item-label{
     flex-grow: 3;
+
+    .list-group-item-text {
+      width: 540px;
+    }
   }
 
   .list-group-item-heading,
