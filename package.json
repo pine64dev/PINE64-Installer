@@ -119,6 +119,7 @@
     "jsonfile": "^2.3.1",
     "mochainon": "^1.0.0",
     "node-sass": "^3.8.0",
+    "nodemon": "^1.11.0",
     "tmp": "0.0.31",
     "versionist": "^2.1.0"
   }
