@@ -20,9 +20,9 @@
       <ul class="list-group">
         <li class="list-group-item"
           ng-repeat="image in modal.boardImages"
-          ng-click="modal.setCurrentOnlineImage(image)">
+          ng-click="modal.setCurrentOS(image)">
           <span class="list-group-item-tick-icon">
-            <i class="tick tick--success" ng-show="modal.isImageSelected(image)"></i>
+            <i class="tick tick--success" ng-show="modal.isOSSelected(image)"></i>
           </span>
           <span class="list-group-item-image-icon">
             <img class="list-group-item-image-icon" src="{{ modal.getImageLogo(image.logo) }}" />
@@ -33,10 +33,10 @@
           </div>
           <div class="btn-group list-group-item-ver" uib-dropdown keyboard-nav>
             <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
-                build {{ modal.getCurrentImageVersion(image) || image.versions[0].version }}<span class="caret"></span>
+                build {{ modal.getCurrentOSVersion(image) || image.versions[0].version }}<span class="caret"></span>
             </button>
             <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-                <li role="menuitem" ng-repeat="version in image.versions"><a href="#" ng-click="modal.setCurrentImageVersion(version.version)">{{ version.version }}</a></li>
+                <li role="menuitem" ng-repeat="version in image.versions"><a href="#" ng-click="modal.setCurrentOSVersion(version.version)">{{ version.version }}</a></li>
             </ul>
           </div>
           <span class="list-group-item-info-icon">
