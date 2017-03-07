@@ -33,7 +33,9 @@
     padding-bottom: 20px;
     border: 0px;
       button{
-        min-width: 100px;
+        background: #ffe400;
+        color: #000;
+        min-width: 200px;
       }
     }
 }
@@ -83,6 +85,13 @@
     border: 0px;
     padding-top:20px;
     padding-bottom:20px;
+    .dropdown-menu{
+    top: initial }
+  }
+
+  .list-group-item:first-child {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
   }
 
   .list-group-item:hover {
@@ -117,6 +126,7 @@
     margin-right: 25px;
     .glyphicon {
       font-size: 35px;
+      color: #ec1558;
     }
   }
 
@@ -150,11 +160,13 @@
   }
 
   .list-group-item-heading {
-    font-size: 13px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
   }
 
   .list-group-item-text {
-    font-size: 11px;
-    color: $palette-theme-light-soft-foreground;
+    color: #5a5a5a;
+    font-size: 12px;
   }
 }
