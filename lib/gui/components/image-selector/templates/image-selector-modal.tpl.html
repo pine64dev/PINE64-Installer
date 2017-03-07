@@ -2,7 +2,7 @@
   <h4 class="modal-title"></h4>
   <button class="close" ng-click="modal.closeModal()">&times;</button>
 </div>
-<div class="modal-body">
+<div class="modal-body" ng-init="modal.init()">
     <!-- Single button with keyboard nav -->
     <div class="btn-group dropdown-block" uib-dropdown keyboard-nav>
         <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
@@ -18,9 +18,11 @@
     <div ng-show="modal.boardImages">
       <h4 class="list-group-title">Select an image</h4>
       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="image in modal.boardImages">
+        <li class="list-group-item"
+          ng-repeat="image in modal.boardImages"
+          ng-click="modal.setCurrentOnlineImage(image)">
           <span class="list-group-item-tick-icon">
-            <i class="tick tick--success" ng-show="{{ modal.selectedImage == image }}"></i>
+            <i class="tick tick--success" ng-show="modal.isImageSelected(image)"></i>
           </span>
           <span class="list-group-item-image-icon">
             <img class="list-group-item-image-icon" src="{{ modal.getImageLogo(image.logo) }}" />
