@@ -13,3 +13,125 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+.modal-image-selector-modal .modal-content {
+  width: 951px;
+  height: 620px;
+}
+
+.modal-image-selector-modal {
+  .modal-header {
+    border: 0px; }
+  .modal-body {
+    max-height: 100%;
+    padding-left: 60px;
+    padding-right: 60px;
+    border: 0px; }
+  .modal-footer {
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+    border: 0px;
+      button{
+        min-width: 100px;
+      }
+    }
+}
+
+.modal-image-selector-modal .dropdown-block {
+  width: 100%;
+  .dropdown-menu{
+    width: 100% }
+  button {
+    font-size: 14px;
+    color: #5a5a5a;
+    background: #201d1d;
+    padding-left: 20px;
+    border: 0px;
+    text-align: left;
+    display: block;
+    height: 70px;
+    width: 100%; }
+  .caret{
+    position: absolute;
+    margin-top: 7px;
+    left: 97%; }
+}
+
+.modal-image-selector-modal {
+
+  .list-group-item-footer {
+    margin-top: 8px;
+  }
+
+  .list-group-item-heading,
+  .list-group-item-text {
+    word-break: break-all;
+  }
+
+  .list-group {
+    margin-bottom: 0;
+  }
+
+  .list-group-title{
+    padding: 18px;
+  }
+
+  .list-group-item {
+    display: flex;
+    background: transparent;
+    border: 0px;
+    padding-top:20px;
+    padding-bottom:20px;
+  }
+
+  .list-group-item .list-group-item-tick-icon{
+    padding: 0px;
+    width: 30px;
+    .tick{
+      font-size: 20px;
+      width: 30px;
+      height: 30px;
+      padding: -1px;
+    }
+  }
+
+  .list-group-item-image-icon{
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    .glyphicon {
+      font-size: 40px;
+    }
+  }
+
+  .list-group-item-ver {
+    button{
+      background: transparent;
+      border: 0px;
+    }
+  }
+
+  .list-group-item-info-icon{
+    margin-left: 20px;
+    font-size: 15px;
+  }
+
+  .list-group-item-label{
+    flex-grow: 3;
+  }
+
+  .list-group-item-heading,
+  .list-group-item-text {
+    word-break: break-all;
+  }
+
+  .list-group-item-heading {
+    font-size: 13px;
+  }
+
+  .list-group-item-text {
+    font-size: 11px;
+    color: $palette-theme-light-soft-foreground;
+  }
+}
