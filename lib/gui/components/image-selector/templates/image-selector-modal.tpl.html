@@ -11,15 +11,15 @@
         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
             <li role="menuitem"
               ng-repeat="board in modal.boards"
-              ng-click="modal.getBoardImages(board)"><a href="#">{{board.name}}</a></li>
+              ng-click="modal.getBoardOSes(board)"><a href="#">{{board.name}}</a></li>
         </ul>
     </div>
 
-    <div ng-show="modal.boardImages">
+    <div ng-show="modal.os">
       <h4 class="list-group-title">Select an image</h4>
       <ul class="list-group">
         <li class="list-group-item"
-          ng-repeat="image in modal.boardImages"
+          ng-repeat="image in modal.os"
           ng-click="modal.setCurrentOS(image)">
           <span class="list-group-item-tick-icon">
             <i class="tick tick--success" ng-show="modal.isOSSelected(image)"></i>
