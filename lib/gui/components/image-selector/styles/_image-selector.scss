@@ -23,6 +23,7 @@
   .modal-header {
     border: 0px; }
   .modal-body {
+    overflow-y: overlay;
     max-height: 100%;
     padding-left: 60px;
     padding-right: 60px;
@@ -55,6 +56,7 @@
     height: 70px;
     width: 100%; }
   .caret{
+    color: #ffe400;
     position: absolute;
     margin-top: 7px;
     left: 97%; }
@@ -100,7 +102,7 @@
 
   .list-group-item .list-group-item-tick-icon{
     padding: 0px;
-    width: 30px;
+    width: 40px;
     margin-right: 10px;
 
     .tick{
@@ -137,6 +139,7 @@
     }
 
     .caret {
+      color: #ffe400;
       margin-left: 10px;
     }
   }
@@ -144,6 +147,9 @@
   .list-group-item-info-icon{
     margin-left: 10px;
     font-size: 15px;
+    :hover{
+      color: #fff;
+    }
   }
 
   .list-group-item-label{
@@ -162,7 +168,7 @@
   .list-group-item-heading {
     color: #fff;
     font-size: 14px;
-    font-weight: normal;
+    font-weight: 300;
   }
 
   .list-group-item-text {
