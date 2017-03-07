@@ -105,6 +105,15 @@
     }
   }
 
+  .list-group-item-search-icon{
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    .glyphicon {
+      font-size: 40px;
+    }
+  }
+
   .list-group-item-ver {
     button{
       background: transparent;
