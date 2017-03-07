@@ -86,8 +86,8 @@
     display: flex;
     background: transparent;
     border: 0px;
-    padding-top:20px;
-    padding-bottom:20px;
+    padding-top:15px;
+    padding-bottom:15px;
     .dropdown-menu{
       top: initial
     }
@@ -112,17 +112,17 @@
     margin-right: 10px;
 
     .tick{
-      font-size: 20px;
-      width: 30px;
-      height: 30px;
+      font-size: 15px;
+      width: 25px;
+      height: 25px;
       padding: -1px;
-      border-radius: 37%;
-      color: #ffe400;
+      border-radius: 40%;
+      color: #ec1558;
     }
 
     .tick--success{
-      background: #5a5a5a;
-      border-color: #5a5a5a;
+      background: #fff;
+      border-color: #fff;
     }
   }
 
@@ -160,6 +160,7 @@
   .list-group-item-info-icon{
     margin-left: 10px;
     font-size: 15px;
+    color: #ffe400;
     :hover{
       color: #fff;
     }
