@@ -33,10 +33,10 @@
           </div>
           <div class="btn-group list-group-item-ver" uib-dropdown keyboard-nav>
             <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
-                build {{ image.versions[0].version }}<span class="caret"></span>
+                build {{ modal.getCurrentImageVersion(image) || image.versions[0].version }}<span class="caret"></span>
             </button>
             <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-                <li role="menuitem" ng-repeat="version in image.versions"><a href="#">{{ version.version }}</a></li>
+                <li role="menuitem" ng-repeat="version in image.versions"><a href="#" ng-click="modal.setCurrentImageVersion(version.version)">{{ version.version }}</a></li>
             </ul>
           </div>
           <span class="list-group-item-info-icon">
