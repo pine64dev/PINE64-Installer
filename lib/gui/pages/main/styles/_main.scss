@@ -18,7 +18,8 @@ $icon-highlight: #00B8FF;
 
 .page-main {
   margin: 0 30px;
-  margin-top: 168px;
+  margin-top: 152px;
+  font-size: 16px;
 }
 
 .indicator-icon path {
@@ -40,6 +41,7 @@ $icon-highlight: #00B8FF;
 
 .page-main .step-selection-text {
   color: $palette-theme-dark-foreground;
+  padding-bottom: 3px;
 }
 
 .page-main .text-disabled > span {
@@ -105,7 +107,7 @@ $icon-highlight: #00B8FF;
 }
 
 .page-main .button.step-footer {
-  font-size: 12px;
+  font-size: 15px;
   color: $palette-theme-primary-background;
   border-radius: 0;
   padding: 0;
@@ -116,11 +118,12 @@ $icon-highlight: #00B8FF;
 }
 
 .page-main .step-name {
-  color: $palette-theme-dark-foreground;
+  color: $palette-theme-dark-disabled-foreground;
 }
 
 .page-main .step-size {
-  color: $palette-theme-dark-disabled-foreground;
+  color: $palette-theme-dark-disabled-background;
+  font-size: 14px;
 }
 
 .page-main .step-margin {
