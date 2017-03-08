@@ -90,6 +90,9 @@ body {
 .wrapper {
   height: 100%;
   margin: 20px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .section-header {

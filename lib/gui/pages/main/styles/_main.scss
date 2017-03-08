@@ -15,11 +15,15 @@
  */
 
 .page-main {
-  margin-top: 75px;
+  margin-top: -75px;
 }
 
 .svg-icon[disabled] path {
   fill: $palette-theme-dark-disabled-foreground;
+}
+
+.page-main .col-xs {
+  width: 90rem;
 }
 
 .page-main .image-icon {
@@ -44,10 +48,14 @@
 }
 
 %step-border {
-  height: 2px;
-  background-color: $palette-theme-dark-foreground;
+  height: 10px;
+  // background-color: $palette-theme-dark-foreground;
+  background: radial-gradient(ellipse at center, #fff 0%, #fff 30%, transparent 30%);
+  background-color: transparent;
+  background-repeat: repeat-x;
+  background-size: 25px 25px;
   position: absolute;
-  width: 124px;
+  width: 267px;
   top: 19px;
 
   &[disabled] {
@@ -57,12 +65,12 @@
 
 .page-main .step-border-left {
   @extend %step-border;
-  left: -67px;
+  left: -140px;
 }
 
 .page-main .step-border-right {
   @extend %step-border;
-  right: -67px;
+  right: -140px;
 }
 
 .page-main .step-tooltip {
