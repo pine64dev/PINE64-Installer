@@ -31,17 +31,19 @@
                 <h4 class="list-group-item-heading">{{ os.name }}</h4>
                 <p class="list-group-item-text">{{ os.instructions }}</p>
           </div>
-          <div class="btn-group list-group-item-ver" uib-dropdown keyboard-nav>
-            <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
-                build {{ modal.getCurrentOSVersion(os) || os.versions[0].version }}<span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-                <li role="menuitem" ng-repeat="version in os.versions"><a href="#" ng-click="modal.setCurrentOSVersion(version.version)">{{ version.version }}</a></li>
-            </ul>
+          <div class="list-group-item-ver">
+            <div class="btn-group" uib-dropdown keyboard-nav>
+              <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
+                  build {{ modal.getCurrentOSVersion(os) || os.versions[0].version }}<span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                  <li role="menuitem" ng-repeat="version in os.versions"><a href="#" ng-click="modal.setCurrentOSVersion(version.version)">{{ version.version }}</a></li>
+              </ul>
+            </div>
           </div>
-          <span class="list-group-item-info-icon">
-              <i class="glyphicon glyphicon-info-sign" os-open-external="{{ os.releaseNotesUrl }}"></i>
-          </span>
+          <div class="list-group-item-info-icon">
+            <svg-icon path="../../../assets/info.svg" width="20px" height="20px"></svg-icon>
+          </div>
         </li>
         <li class="list-group-item" ng-click="modal.browseLocalImage()">
         <span class="list-group-item-tick-icon">
