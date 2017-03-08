@@ -17,6 +17,7 @@
 $icon-highlight: #00B8FF;
 
 .page-main {
+  margin: 0 30px;
   margin-top: 168px;
 }
 
@@ -58,7 +59,7 @@ $icon-highlight: #00B8FF;
   background: url('../assets/dots-white.svg');
   background-repeat: repeat-x;
   position: absolute;
-  width: 185px;
+  width: 121px;
   top: 38px;
 
   &[disabled] {
@@ -68,12 +69,12 @@ $icon-highlight: #00B8FF;
 
 .page-main .step-border-left {
   @extend %step-border;
-  left: -93px;
+  left: -69px;
 }
 
 .page-main .step-border-right {
   @extend %step-border;
-  right: -93px;
+  right: -69px;
 }
 
 .page-main .step-tooltip {
@@ -115,10 +116,18 @@ $icon-highlight: #00B8FF;
 }
 
 .page-main .step-name {
-  font-weight: bold;
-  color: $palette-theme-primary-foreground;
+  color: $palette-theme-dark-foreground;
 }
 
 .page-main .step-size {
   color: $palette-theme-dark-disabled-foreground;
+}
+
+.page-main .step-margin {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.page-main .inline-block {
+   display: inline-block;
 }
