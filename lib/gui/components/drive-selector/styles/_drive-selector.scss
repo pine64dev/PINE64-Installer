@@ -60,7 +60,7 @@
       padding: -1px;
       border-radius: 40%;
       color: #649519;
-      margin-right: 15px;
+      margin: 0px 15px;
 
       &[disabled] {
         visibility: hidden;
@@ -84,9 +84,11 @@
       color: $palette-theme-dark-foreground;
     }
 
-    :hover{
-      background: #201d1d;
-    }
+
+  }
+
+  .list-group-item:hover{
+    background: #2B2929;
   }
 
   .list-group-item-heading {
