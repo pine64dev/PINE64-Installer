@@ -63,9 +63,10 @@
       margin-right: 15px;
 
       &[disabled] {
-        color: #fff;
+        visibility: hidden;
       }
     }
+
     .tick--success{
       background: #fff;
       border-color: #fff;
@@ -81,6 +82,10 @@
 
     &[disabled] .list-group-item-heading {
       color: $palette-theme-dark-foreground;
+    }
+
+    :hover{
+      background: #201d1d;
     }
   }
 
