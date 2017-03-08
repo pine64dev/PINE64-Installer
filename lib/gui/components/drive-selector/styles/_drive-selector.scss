@@ -60,12 +60,13 @@
       padding: -1px;
       border-radius: 40%;
       color: #649519;
-      margin-right: 15px;
+      margin: 0px 15px;
 
       &[disabled] {
-        color: #fff;
+        visibility: hidden;
       }
     }
+
     .tick--success{
       background: #fff;
       border-color: #fff;
@@ -82,6 +83,12 @@
     &[disabled] .list-group-item-heading {
       color: $palette-theme-dark-foreground;
     }
+
+
+  }
+
+  .list-group-item:hover{
+    background: #2B2929;
   }
 
   .list-group-item-heading {
