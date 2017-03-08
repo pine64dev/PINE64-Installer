@@ -14,12 +14,22 @@
  * limitations under the License.
  */
 
+$icon-highlight: #00B8FF;
+
 .page-main {
-  margin-top: 75px;
+  margin-top: 168px;
+}
+
+.indicator-icon path {
+  fill: $icon-highlight;
 }
 
 .svg-icon[disabled] path {
   fill: $palette-theme-dark-disabled-foreground;
+}
+
+.page-main .col-xs {
+  width: 90rem;
 }
 
 .page-main .image-icon {
@@ -44,25 +54,26 @@
 }
 
 %step-border {
-  height: 2px;
-  background-color: $palette-theme-dark-foreground;
+  height: 15px;
+  background: url('../assets/dots-white.svg');
+  background-repeat: repeat-x;
   position: absolute;
-  width: 124px;
-  top: 19px;
+  width: 185px;
+  top: 38px;
 
   &[disabled] {
-    background-color: $palette-theme-dark-disabled-foreground;
+    background: url('../assets/dots-grey.svg');
   }
 }
 
 .page-main .step-border-left {
   @extend %step-border;
-  left: -67px;
+  left: -93px;
 }
 
 .page-main .step-border-right {
   @extend %step-border;
-  right: -67px;
+  right: -93px;
 }
 
 .page-main .step-tooltip {

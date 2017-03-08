@@ -23,39 +23,17 @@
   </head>
   <body ng-app="Etcher">
     <header class="section-header" ng-controller="HeaderController as header">
-      <button class="button button-link" ng-click="header.openHelpPage()">
-        <span class="glyphicon glyphicon-question-sign"></span>
-      </button>
-
-      <button class="button button-link" ui-sref="settings" hide-if-state="settings">
-        <span class="glyphicon glyphicon-cog"></span>
-      </button>
-
-      <button class="button button-link" ui-sref="main" show-if-state="settings">
-        <span class="glyphicon glyphicon-chevron-left"></span> Back
-      </button>
+      <svg-icon class="rock64" width="151" height="39" path="../../../assets/rock64_logo.svg" />
     </header>
 
     <main class="wrapper" ui-view></main>
 
     <footer class="section-footer">
-      <svg-icon path="../../../assets/etcher.svg"
+      <span class="caption">Powered by </span><svg-icon path="../../../assets/etcher.svg"
         width="83px"
         height="13px"
         os-open-external="https://etcher.io?ref=etcher_footer"></svg-icon>
 
-      <span class="caption">
-        is <span class="caption" os-open-external="https://github.com/resin-io/etcher">an open source project</span> by
-      </span>
-
-      <svg-icon path="../../../assets/resin.svg"
-        width="79px"
-        height="23px"
-        os-open-external="https://resin.io?ref=etcher"></svg-icon>
-
-      <span class="caption footer-right"
-        manifest-bind="version"
-        os-open-external="https://github.com/resin-io/etcher/blob/master/CHANGELOG.md"></span>
     </footer>
   </body>
 </html>
