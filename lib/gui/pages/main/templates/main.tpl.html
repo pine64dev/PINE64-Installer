@@ -4,7 +4,9 @@
 
       <img
         class="center-block image-icon"
-        src="{{ main.selection.getImageLogo() || 'assets/image.svg' }}"></img>
+        src="{{ main.selection.getImageLogo() }}" ng-show="main.selection.getImageLogo()"></img>
+      <svg-icon class="center-block indicator-icon" width="95" height="95"
+        path="../../../assets/image.svg" ng-hide="main.selection.getImageLogo()"></svg-icon>
 
       <div class="space-vertical-large">
         <div ng-hide="main.selection.hasImage()">
@@ -23,7 +25,7 @@
             <span
               ng-click="main.showSelectedImageDetails()"
               class="step-image step-name"
-              ng-bind="main.selection.getImageName() || main.selection.getImagePath() | basename | middleEllipses:20"
+              ng-bind="main.selection.getImageName() || main.selection.getImagePath() | basename | middleEllipses:30"
               uib-tooltip="{{ main.selection.getImagePath() | basename }}"></span>
           </div>
           <div>
@@ -44,8 +46,9 @@
       <div class="step-border-left" ng-disabled="main.shouldDriveStepBeDisabled()"></div>
       <div class="step-border-right" ng-disabled="main.shouldFlashStepBeDisabled()"></div>
 
-      <svg-icon class="center-block"
+      <svg-icon class="center-block indicator-icon"
         path="../../../assets/drive.svg"
+        width="95" height="95"
         ng-disabled="main.shouldDriveStepBeDisabled()"></svg-icon>
 
       <div class="space-vertical-large">
@@ -79,8 +82,9 @@
 
   <div class="col-xs" ng-controller="FlashController as flash">
     <div class="box text-center">
-      <svg-icon class="center-block"
+      <svg-icon class="center-block indicator-icon"
         path="../../../assets/flash.svg"
+        width="95" height="95"
         ng-disabled="main.shouldFlashStepBeDisabled()"></svg-icon>
 
       <div class="space-vertical-large">
