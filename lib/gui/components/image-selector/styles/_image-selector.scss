@@ -34,9 +34,7 @@
     padding-right: 60px;
     padding-bottom: 20px;
     border: 0px;
-      button{
-        background: #ffe400;
-        color: #000;
+      .button{
         min-width: 200px;
       }
     }
@@ -57,10 +55,9 @@
     height: 50px;
     width: 100%; }
   .caret{
-    color: #ffe400;
-    position: absolute;
-    margin-top: 7px;
-    left: 97%; }
+    margin-top: 5px;
+    left: 97%;
+    position: absolute;}
 }
 
 .modal-image-selector-modal {
@@ -118,7 +115,7 @@
       height: 25px;
       padding: -1px;
       border-radius: 40%;
-      color: #ec1558;
+      color: #649519;
     }
 
     .tick--success{
