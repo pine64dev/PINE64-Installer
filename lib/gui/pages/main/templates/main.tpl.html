@@ -92,7 +92,7 @@
       <div class="space-vertical-large step-margin">
         <progress-button class="button-brick"
           percentage="main.state.getFlashState().percentage"
-          striped="{{ main.state.getFlashState().type == 'check' }}"
+          striped="{{ main.state.getFlashState().type == 'check' || main.state.getFlashState.type == 'write' }}"
           ng-attr-active="{{ main.state.isFlashing() }}"
           ng-click="flash.flashImageToDrive(main.selection.getImagePath(), main.selection.getDrive())"
           ng-disabled="main.shouldFlashStepBeDisabled() || main.state.getLastFlashErrorCode()">
