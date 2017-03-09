@@ -52,13 +52,14 @@ body {
 
   position: fixed;
   bottom: 20px;
-  left: 0;
-  right: 0;
   color: $palette-theme-dark-disabled-foreground;
-  margin: 0 30px;
-  padding-top: 15px;
+  padding: 0 30px;
   padding-bottom: 12px;
   text-align: right;
+  height: 43px;
+  width: 100%;
+
+  border: 1px solid red;
 
   // Override default column padding
   // set by flexboxgrid.
@@ -79,11 +80,15 @@ body {
     }
   }
 
+  .footer-left {
+    left: 0;
+    position: absolute;
+  }
+
   .footer-right {
     font-size: 10px;
     position: absolute;
     right: 0;
-    top: 50%;
   }
 }
 

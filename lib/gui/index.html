@@ -23,17 +23,28 @@
   </head>
   <body ng-app="Etcher">
     <header class="section-header" ng-controller="HeaderController as header">
-      <svg-icon class="rock64" width="151" height="39" path="../../../assets/rock64_logo.svg" />
+      <div hide-if-state="settings">
+        <svg-icon class="rock64" width="151" height="39" path="../../../assets/rock64_logo.svg" />
+      </div>
+
+      <button class="button button-link" ui-sref="main" show-if-state="settings">
+        <span class="glyphicon glyphicon-chevron-left"></span> Back
+      </button>
     </header>
 
     <main class="wrapper" ui-view></main>
 
     <footer class="section-footer">
-      <span class="caption">Powered by </span><svg-icon path="../../../assets/etcher.svg"
-        width="83px"
-        height="13px"
-        os-open-external="https://etcher.io?ref=etcher_footer"></svg-icon>
+      <button class="footer-left button button-link" ui-sref="settings" hide-if-state="settings">
+        <span class="glyphicon glyphicon-cog"></span>
+      </button>
 
+      <div class="footer-right">
+        <span class="caption">Powered by </span><svg-icon path="../../../assets/etcher.svg"
+          width="83px"
+          height="13px"
+          os-open-external="https://etcher.io?ref=etcher_footer"></svg-icon>
+      </div>
     </footer>
   </body>
 </html>
