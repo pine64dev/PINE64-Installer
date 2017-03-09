@@ -215,6 +215,15 @@
   .list-group-item-text {
     word-break: break-all;
   }
+  .list-group-loading{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    fill: #B6E13F;
+  }
 
   .list-group-item-heading {
     color: #fff;
