@@ -78,6 +78,7 @@
     "etcher-image-write": "^9.0.0",
     "etcher-latest-version": "^1.0.0",
     "file-tail": "^0.3.0",
+    "filenamify": "^2.0.0",
     "flexboxgrid": "^6.3.0",
     "gzip-uncompressed-size": "^1.0.0",
     "immutable": "^3.8.1",
