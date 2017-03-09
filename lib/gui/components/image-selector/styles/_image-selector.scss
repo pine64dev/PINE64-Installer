@@ -36,13 +36,23 @@
       .button{
         min-width: 200px;
       }
-    }
+  }
 }
 
 .modal-image-selector-modal .dropdown-block {
   width: 100%;
   .dropdown-menu{
-    width: 100% }
+    width: 100% ;
+  }
+
+  .dropdown-menu:hover{
+    background:white;
+  }
+
+  .dropdown-menu a:hover{
+    background: #ddd;
+  }
+
   button {
     font-size: 14px;
     color: #5a5a5a;
@@ -88,6 +98,18 @@
     .dropdown-menu{
       top: initial
     }
+
+    .dropdown-menu:hover{
+      background:white;
+    }
+
+    .dropdown-menu a:hover{
+      background: #ddd;
+    }
+
+    :hover {
+      background: #2B2929;
+    }
   }
 
   .list-group-item:first-child {
@@ -102,6 +124,8 @@
   .list-group-item:hover {
     background: #2B2929;
   }
+
+
 
   .list-group-item .list-group-item-tick-icon{
     padding: 0px;
@@ -159,6 +183,12 @@
       color: #ffe400;
       margin-left: 10px;
     }
+
+    a{
+      :hover{
+        background: red;
+      }
+    }
   }
 
   .list-group-item-info-icon {
@@ -167,9 +197,9 @@
     align-items: center;
     svg{
       fill: #ffe400;
-      :hover{
-        color: #fff;
-      }
+    }
+    svg:hover{
+      fill: #fff;
     }
   }
 
