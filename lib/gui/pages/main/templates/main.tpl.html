@@ -8,7 +8,7 @@
       <svg-icon class="center-block indicator-icon" width="95" height="95"
         path="../../../assets/image.svg" ng-hide="main.selection.getImageLogo()"></svg-icon>
 
-      <div class="space-vertical-medium step-margin">
+      <div class="space-vertical-large step-margin">
         <div ng-hide="main.selection.hasImage()">
           <button
             class="button button-primary button-brick"
@@ -51,7 +51,7 @@
         width="95" height="95"
         ng-disabled="main.shouldDriveStepBeDisabled()"></svg-icon>
 
-      <div class="space-vertical-medium step-margin">
+      <div class="space-vertical-large step-margin">
         <div ng-hide="main.selection.hasDrive()">
 
           <div>
@@ -88,7 +88,7 @@
         width="95" height="95"
         ng-disabled="main.shouldFlashStepBeDisabled()"></svg-icon>
 
-      <div class="space-vertical-medium step-margin">
+      <div class="space-vertical-large step-margin">
         <progress-button class="button-brick"
           percentage="main.state.getFlashState().percentage"
           striped="{{ main.state.getFlashState().type == 'check' }}"
