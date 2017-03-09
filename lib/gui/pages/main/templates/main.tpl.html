@@ -4,34 +4,33 @@
 
       <img
         class="center-block image-icon"
-        src="{{ main.selection.getImageLogo() }}" ng-show="main.selection.getImageLogo()"></img>
+        src="{{ image.getImageLogo() }}" ng-show=" main.selection.getImageLogo()"></img>
       <svg-icon class="center-block indicator-icon" width="95" height="95"
         path="../../../assets/image.svg" ng-hide="main.selection.getImageLogo()"></svg-icon>
 
-      <div class="space-vertical-medium step-margin">
-        <div ng-hide="main.selection.hasImage()">
+      <div class="space-vertical-large step-margin">
+        <div ng-hide="main.selection.hasImage() || main.selection.hasOS()">
           <button
             class="button button-primary button-brick"
-            ng-click="image.openImageSelector()">Select image</button>
+            ng-click="image.openImageSelector()">Choose an OS</button>
 
           <p class="step-footer">
-            {{ ::image.mainSupportedExtensions.join(', ') }}, and
-            <span class="step-footer-underline"
-              uib-tooltip="{{ image.extraSupportedExtensions.join(', ') }}">others</span>
+            or drag a local image file.
           </p>
         </div>
         <div class="inline-block">
-          <div ng-if="main.selection.hasImage()" class="text-left">
+          <div ng-if="main.selection.hasImage() || main.selection.hasOS() " class="text-left">
             <div class="step-selection-text">
               <span
                 ng-click="main.showSelectedImageDetails()"
                 class="step-image step-name"
                 ng-bind="main.selection.getImageName() || main.selection.getImagePath() | basename | middleEllipses:23"
-                uib-tooltip="{{ main.selection.getImagePath() | basename }}"></span>
+                uib-tooltip="{{ main.selection.getImagePath() || main.selection.getImageName() | basename }}"></span>
             </div>
             <div>
-              <span ng-if="main.selection.getOSVersion()" class="step-image step-size">build {{ main.selection.getOSVersion() }} | </span>
-              <span class="step-image step-size">{{ main.selection.getImageSize() | gigabyte | number:1 }} GB</span>
+              <span ng-if="main.selection.getOSVersion()" class="step-image step-size">build {{ main.selection.getOSVersion() }}</span>
+              <span ng-if="main.selection.getOSVersion() && main.selection.getImageSize()"> | </span>
+              <span ng-show="main.selection.getImageSize()" class="step-image step-size">{{ main.selection.getImageSize() | gigabyte | number:1 }} GB</span>
             </div>
 
             <button class="button button-link step-footer"
@@ -53,7 +52,7 @@
         width="95" height="95"
         ng-disabled="main.shouldDriveStepBeDisabled()"></svg-icon>
 
-      <div class="space-vertical-medium step-margin">
+      <div class="space-vertical-large step-margin">
         <div ng-hide="main.selection.hasDrive()">
 
           <div>
@@ -90,7 +89,7 @@
         width="95" height="95"
         ng-disabled="main.shouldFlashStepBeDisabled()"></svg-icon>
 
-      <div class="space-vertical-medium step-margin">
+      <div class="space-vertical-large step-margin">
         <progress-button class="button-brick"
           percentage="main.state.getFlashState().percentage"
           striped="{{ main.state.getFlashState().type == 'check' }}"
