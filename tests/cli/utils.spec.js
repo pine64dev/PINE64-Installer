@@ -54,7 +54,6 @@ describe('CLI: Utils', function() {
 
   });
 
-
   describe('.extractNameFromURL()', function() {
 
     it('should extract name given ordinary http link with ext', function() {
