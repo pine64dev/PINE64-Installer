@@ -14,16 +14,34 @@
  * limitations under the License.
  */
 
+$icon-highlight: #00B8FF;
+
 .page-main {
-  margin-top: 75px;
+  margin: 0 30px;
+  margin-top: 134px;
+  font-size: 16px;
+}
+
+.indicator-icon path {
+  fill: $icon-highlight;
 }
 
 .svg-icon[disabled] path {
   fill: $palette-theme-dark-disabled-foreground;
 }
 
+.page-main .col-xs {
+  width: 90rem;
+}
+
+.page-main .image-icon {
+  width: 95px;
+  height: 95px;
+}
+
 .page-main .step-selection-text {
   color: $palette-theme-dark-foreground;
+  padding-bottom: 3px;
 }
 
 .page-main .text-disabled > span {
@@ -39,25 +57,26 @@
 }
 
 %step-border {
-  height: 2px;
-  background-color: $palette-theme-dark-foreground;
+  height: 15px;
+  background: url('../assets/dots-white.svg');
+  background-repeat: repeat-x;
   position: absolute;
-  width: 124px;
-  top: 19px;
+  width: 121px;
+  top: 38px;
 
   &[disabled] {
-    background-color: $palette-theme-dark-disabled-foreground;
+    background: url('../assets/dots-grey.svg');
   }
 }
 
 .page-main .step-border-left {
   @extend %step-border;
-  left: -67px;
+  left: -69px;
 }
 
 .page-main .step-border-right {
   @extend %step-border;
-  right: -67px;
+  right: -69px;
 }
 
 .page-main .step-tooltip {
@@ -71,7 +90,7 @@
   margin-top: 10px;
   margin-bottom: -40px;
   color: $palette-theme-dark-disabled-foreground;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .page-main .step-footer-split {
@@ -88,7 +107,7 @@
 }
 
 .page-main .button.step-footer {
-  font-size: 12px;
+  font-size: 15px;
   color: $palette-theme-primary-background;
   border-radius: 0;
   padding: 0;
@@ -99,10 +118,19 @@
 }
 
 .page-main .step-name {
-  font-weight: bold;
-  color: $palette-theme-primary-foreground;
+  color: $palette-theme-dark-disabled-foreground;
 }
 
 .page-main .step-size {
-  color: $palette-theme-dark-disabled-foreground;
+  color: $palette-theme-dark-disabled-background;
+  font-size: 14px;
+}
+
+.page-main .step-margin {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.page-main .inline-block {
+   display: inline-block;
 }
