@@ -47,48 +47,17 @@ body {
 
 .section-footer {
   display: flex;
+  position: absolute;
   align-items: center;
-  justify-content: flex-end;
-
-  position: fixed;
-  bottom: 20px;
-  color: $palette-theme-dark-disabled-foreground;
   padding: 0 30px;
-  padding-bottom: 12px;
-  text-align: right;
-  height: 43px;
+  bottom: 20px;
   width: 100%;
-
-  border: 1px solid red;
-
-  // Override default column padding
-  // set by flexboxgrid.
-  .col-xs {
-    padding: 0;
-  }
-
-  .svg-icon {
-    margin: 0 13px;
-  }
-
-  .caption[os-open-external] {
-    border-bottom: 1px dashed;
-    padding-bottom: 2px;
-
-    &:hover {
-      color: lighten($palette-theme-dark-disabled-foreground, 5%);
-    }
-  }
-
-  .footer-left {
-    left: 0;
-    position: absolute;
-  }
+  height: 43px;
 
   .footer-right {
+    display: flex;
     font-size: 10px;
-    position: absolute;
-    right: 0;
+    margin-left: auto;
   }
 }
 
