@@ -14,7 +14,7 @@
               ng-click="modal.getBoardOSes(board)"><a href="#">{{board.name}}</a></li>
         </ul>
     </div>
-
+    <svg-icon ng-show="modal.isLoading" class="list-group-loading" path="../../../assets/rolling.svg" width="20px" height="20px"></svg-icon>
     <div ng-show="modal.os">
       <h4 class="list-group-title">Choose an OS</h4>
       <ul class="list-group">
