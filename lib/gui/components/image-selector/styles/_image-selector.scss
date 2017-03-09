@@ -15,7 +15,6 @@
  */
 
 .modal-image-selector-modal .modal-content {
-  background-color: #171414 !important;
   width: 951px;
   height: 620px;
 }
@@ -47,7 +46,7 @@
   button {
     font-size: 14px;
     color: #5a5a5a;
-    background: #201d1d;
+    background: #2B2929;
     padding-left: 20px;
     border: 0px;
     text-align: left;
@@ -84,8 +83,8 @@
     display: flex;
     background: transparent;
     border: 0px;
-    padding-top:15px;
-    padding-bottom:15px;
+    padding-top:13px;
+    padding-bottom:13px;
     .dropdown-menu{
       top: initial
     }
@@ -108,6 +107,9 @@
     padding: 0px;
     width: 40px;
     margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .tick{
       font-size: 15px;
@@ -144,6 +146,10 @@
   }
 
   .list-group-item-ver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px;
     button {
       background: transparent;
       border: 0px;
@@ -155,12 +161,15 @@
     }
   }
 
-  .list-group-item-info-icon{
-    margin-left: 10px;
-    font-size: 15px;
-    color: #ffe400;
-    :hover{
-      color: #fff;
+  .list-group-item-info-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+      fill: #ffe400;
+      :hover{
+        color: #fff;
+      }
     }
   }
 
@@ -168,7 +177,7 @@
     flex-grow: 3;
 
     .list-group-item-text {
-      width: 540px;
+      width: 500px;
     }
   }
 
