@@ -55,13 +55,20 @@
       <div class="space-vertical-large step-margin">
         <div ng-hide="main.selection.hasDrive()">
 
-          <div>
+          <div ng-show="main.drives.hasAvailableDrive()">
             <button class="button button-primary button-brick"
               ng-disabled="main.shouldDriveStepBeDisabled()"
               ng-click="drive.openDriveSelector()">Select drive</button>
           </div>
 
+          <div ng-hide="main.drives.hasAvailableDrive()">
+              <button class="button button-primary button-brick"
+                ng-disabled="main.shouldDriveStepBeDisabled()"
+                ng-click="drive.openDriveSelector()">Connect a drive</button>
+          </div>
+
         </div>
+
         <div class="inline-block">
           <div ng-show="main.selection.hasDrive()" class="text-left">
             <div class="step-selection-text"
