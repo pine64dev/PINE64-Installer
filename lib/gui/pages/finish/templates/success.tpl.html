@@ -1,5 +1,5 @@
 <div class="page-finish row around-xs">
-  <div class="col-xs box-container" ng-controller="ImageSelectionController as image">
+  <div class="col-xs box-container">
     <div class="box">
       <div class="row center-xs space-bottom-super-large">
         <div class="header-content">
@@ -14,9 +14,9 @@
         <div class="col-xs-4 space-medium">
           <div class="box">
             <img class="center-block image-icon space-bottom-medium" width="95" height="95"
-              path="{{ image.getImageLogo() }}" ng-show="main.selection.getImageLogo()"></img>
+              src="{{ finish.getImageLogo() }}" ng-show="finish.selection.getImageLogo()"></img>
             <svg-icon class="center-block indicator-icon space-bottom-medium" width="95" height="95"
-              path="../../../assets/image.svg" ng-hide="main.selection.getImageLogo()"></svg-icon>
+              path="../../../assets/image.svg" ng-hide="finish.selection.getImageLogo()"></svg-icon>
             <p class="button-label">Would you like to flash the same image?</p>
 
             <button class="button button-primary button-brick" ng-click="finish.restart({ preserveImage: true })">
