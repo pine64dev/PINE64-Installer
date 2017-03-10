@@ -29,7 +29,7 @@
           </span>
           <div class="list-group-item-label">
                 <h4 class="list-group-item-heading">{{ os.name }}</h4>
-                <p class="list-group-item-text">{{ os.instructions }}</p>
+                <p class="list-group-item-text">{{ os.description }}</p>
           </div>
           <div class="list-group-item-ver">
             <div class="btn-group" uib-dropdown keyboard-nav>
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="list-group-item-info-icon">
-            <svg-icon path="../../../assets/info.svg" width="20px" height="20px"></svg-icon>
+            <svg-icon path="../../../assets/info.svg" width="20px" height="20px" os-open-external="{{ os.releaseNotesUrl }}"></svg-icon>
           </div>
         </li>
         <li class="list-group-item" ng-click="modal.browseLocalImage()">
@@ -62,8 +62,9 @@
 </div>
 <div class="modal-footer">
     <button class="button button-primary"
-    ng-click="modal.closeModal()"
+    ng-click="modal.closeModal(modal)"
     ng-disabled="modal.shouldOKButtonDisabled()">OK</button>
+
     <button class="button button-primary"
     ng-click="modal.closeModal()">Cancel</button>
 </div>
