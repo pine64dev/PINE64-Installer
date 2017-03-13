@@ -122,7 +122,7 @@
   }
 
   .list-group-item:last-child {
-    border-top: 1px solid #201d1d;
+    border-top: 1px solid darken($palette-theme-light-soft-foreground, 20%);;
   }
 
   .list-group-item:hover {
