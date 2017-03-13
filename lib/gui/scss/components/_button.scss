@@ -42,14 +42,13 @@
   }
 }
 
-.dropdown-toggle .caret{
+.dropdown-toggle .caret {
   margin-top: -5px;
-  border: solid #ffe400;
+  border: solid $palette-theme-primary-background;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
   transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
 }
 
 .button-link {
