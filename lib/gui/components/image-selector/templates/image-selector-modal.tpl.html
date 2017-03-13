@@ -34,7 +34,7 @@
           <div class="list-group-item-ver">
             <div class="btn-group" uib-dropdown keyboard-nav>
               <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
-                  build {{ modal.getCurrentOSVersion(os) || os.versions[0].version }}<span class="caret"></span>
+                  <div class="button-text">build {{ modal.getCurrentOSVersion(os) || os.versions[0].version }}</div><span class="caret"></span>
               </button>
               <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
                   <li role="menuitem" ng-repeat="version in os.versions"><a href="#" ng-click="modal.setCurrentOSVersion(version.version)">{{ version.version }}</a></li>

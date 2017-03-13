@@ -189,6 +189,11 @@
         background: red;
       }
     }
+
+    .button-text{
+      display: inline-flex;
+      min-width: 95px;
+    }
   }
 
   .list-group-item-info-icon {
