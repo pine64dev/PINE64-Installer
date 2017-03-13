@@ -31,7 +31,7 @@
                 <h4 class="list-group-item-heading">{{ os.name }}</h4>
                 <p class="list-group-item-text">{{ os.description }}</p>
           </div>
-          <div class="list-group-item-ver">
+          <div class="list-group-item-ver" ng-show="{{ os.instructionsUrl == null && os.instructions == null }}">
             <div class="btn-group" uib-dropdown keyboard-nav>
               <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
                   <div class="button-text">build {{ modal.getCurrentOSVersion(os) || os.versions[0].version }}</div><span class="caret"></span>
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="list-group-item-info-icon">
-            <svg-icon path="../../../assets/info.svg" width="20px" height="20px" os-open-external="{{ os.releaseNotesUrl }}"></svg-icon>
+            <svg-icon path="../../../assets/info.svg" width="20px" height="20px" os-open-external="{{ os.releaseNotesUrl || os.instructionsUrl }}"></svg-icon>
           </div>
         </li>
         <li class="list-group-item" ng-click="modal.browseLocalImage()">
