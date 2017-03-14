@@ -5964,10 +5964,10 @@ button.close {
  * limitations under the License.
  */
 html {
-  background-color: #535760; }
+  background-color: #161414; }
 
 body {
-  background-color: #535760; }
+  background-color: #161414; }
 
 .checkbox input[type="checkbox"] {
   position: initial;
@@ -6021,6 +6021,9 @@ body {
 .space-right-tiny {
   margin-right: 5px; }
 
+.space-right-medium, .page-finish .header-content img {
+  margin-right: 15px; }
+
 /*
  * Copyright 2016 resin.io
  *
@@ -6045,7 +6048,7 @@ body {
   padding: 8px 25px; }
 
 .label-inset {
-  background-color: #3b3e45;
+  background-color: black;
   color: #919191; }
 
 .label-danger {
@@ -6117,13 +6120,22 @@ body {
   border: 0;
   letter-spacing: .5px;
   outline: none;
-  position: relative; }
+  position: relative;
+  font-size: 16px; }
   .button > .glyphicon, .progress-button > .glyphicon, .button > .tick, .progress-button > .tick {
     top: 2px;
     margin-right: 2px; }
   .button[disabled], [disabled].progress-button {
     background-color: #313339;
     color: #787c7f; }
+
+.dropdown-toggle .caret {
+  margin-top: -5px;
+  border: solid #ffcb02;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg); }
 
 .button-block {
   display: block;
@@ -6145,13 +6157,13 @@ body {
 .button-primary, .progress-button,
 .button-primary:focus,
 .progress-button:focus {
-  background-color: #5793db;
-  color: #fff;
+  background-color: #ffcb02;
+  color: #000;
   outline: none; }
 
 .button-primary:hover, .progress-button:hover {
-  background-color: #2d78d2;
-  color: #fff; }
+  background-color: #cea400;
+  color: #000; }
 
 .button-danger,
 .button-danger:focus {
@@ -6215,7 +6227,7 @@ body {
  * limitations under the License.
  */
 .modal-content {
-  background-color: #fff;
+  background-color: #1e1c1c;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -6223,24 +6235,27 @@ body {
 
 .modal-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   font-size: 12px;
-  color: #b3b3b3;
-  padding: 11px 20px;
-  flex-grow: 0; }
+  color: #5a5a5a;
+  padding: 11px 0px;
+  flex-grow: 0;
+  border-color: #5a5a5a;
+  margin: 0px 10px;
+  height: 55px; }
 
 .modal-title {
-  font-size: inherit;
-  flex-grow: 1; }
+  font-size: 18px;
+  flex-grow: 1;
+  margin-left: 10px; }
 
 .modal-body {
   flex-grow: 1;
   color: #666;
   padding: 20px;
-  max-height: 250px;
   overflow: auto; }
   .modal-body a {
-    color: #5793db; }
+    color: #ffcb02; }
   .modal-body > p {
     white-space: pre-line; }
   .modal-body > p:last-child {
@@ -6270,9 +6285,14 @@ body {
     color: #787c7f; }
 
 .modal-dialog {
+  width: 100%;
   margin: 0;
   position: initial;
-  max-width: 50%; }
+  max-width: 100%; }
+
+.close {
+  margin-right: 10px;
+  color: #fff; }
 
 /*
  * Copyright 2016 resin.io
@@ -6290,7 +6310,7 @@ body {
  * limitations under the License.
  */
 .modal-update-notifier .checkbox {
-  color: #b3b3b3;
+  color: #5a5a5a;
   font-size: 11px;
   margin-bottom: 0; }
 
@@ -6336,15 +6356,15 @@ body {
  * </button>
  */
 .progress-button[active="true"] {
-  background-color: #ff912f; }
+  background-color: #5fb835; }
 
 .progress-button .progress-button__bar {
-  background-color: #ff9e49; }
+  background-color: #adff87; }
 
 .progress-button.progress-button--striped {
-  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, #bd6415), color-stop(0.26, #fa9134), color-stop(0.5, #fa9134), color-stop(0.51, #bd6415), color-stop(0.75, #bd6415), color-stop(0.76, #fa9134), to(#fa9134)); }
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, #53a92a), color-stop(0.26, #5dbe2f), color-stop(0.5, #5dbe2f), color-stop(0.51, #53a92a), color-stop(0.75, #53a92a), color-stop(0.76, #5dbe2f), to(#5dbe2f)); }
   .progress-button.progress-button--striped .progress-button__bar {
-    background-color: #ff9e49; }
+    background-color: #adff87; }
 
 .progress-button__content {
   position: relative;
@@ -6359,7 +6379,7 @@ body {
   transition: width 0.3s; }
 
 .progress-button--striped {
-  background-size: 20px 20px;
+  background-size: 35px 35px;
   animation: progress-button-stripes 1s linear infinite;
   overflow: hidden; }
 
@@ -6367,7 +6387,7 @@ body {
   0% {
     background-position: 0 0; }
   100% {
-    background-position: 20px 20px; } }
+    background-position: 35px 35px; } }
 
 /*
  * Copyright 2016 resin.io
@@ -6385,8 +6405,8 @@ body {
  * limitations under the License.
  */
 .modal-drive-selector-modal .modal-content {
-  width: 300px;
-  height: 320px; }
+  width: 387px;
+  height: 416px; }
 
 .modal-drive-selector-modal .modal-body {
   padding-top: 0;
@@ -6411,24 +6431,227 @@ body {
   border-left: 0;
   border-right: 0;
   border-radius: 0;
-  border-color: #ededed;
-  padding: 12px 0; }
+  border-color: #272727;
+  padding: 12px 0;
+  background: #1e1c1c; }
   .modal-drive-selector-modal .list-group-item > .tick {
-    font-size: 11px; }
-  .modal-drive-selector-modal .list-group-item :first-child {
+    font-size: 13px;
+    width: 22px;
+    height: 22px;
+    padding: -1px;
+    border-radius: 40%;
+    color: #649519;
+    margin: 0px 15px; }
+    .modal-drive-selector-modal .list-group-item > .tick[disabled] {
+      visibility: hidden; }
+  .modal-drive-selector-modal .list-group-item .tick--success {
+    background: #fff;
+    border-color: #fff; }
+  .modal-drive-selector-modal .list-group-item :nth-child(2) {
     flex-grow: 1; }
   .modal-drive-selector-modal .list-group-item:first-child {
     border-top: 0; }
   .modal-drive-selector-modal .list-group-item[disabled] .list-group-item-heading {
-    color: #b3b3b3; }
+    color: #fff; }
+
+.modal-drive-selector-modal .list-group-item:hover {
+  background: #2B2929; }
 
 .modal-drive-selector-modal .list-group-item-heading {
-  font-size: 13px; }
+  font-size: 13px;
+  color: #fff; }
 
 .modal-drive-selector-modal .list-group-item-text {
   line-height: 1;
   font-size: 11px;
-  color: #b3b3b3; }
+  color: #5a5a5a; }
+
+/*
+ * Copyright 2017 Pine64
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.modal-image-selector-modal .modal-content {
+  width: 951px;
+  height: 620px; }
+
+.modal-image-selector-modal .modal-header {
+  border: 0px; }
+
+.modal-image-selector-modal .modal-body {
+  overflow-y: overlay;
+  height: 100%;
+  padding-left: 60px;
+  padding-right: 60px;
+  border: 0px; }
+
+.modal-image-selector-modal .modal-footer {
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 20px;
+  border: 0px; }
+  .modal-image-selector-modal .modal-footer .button, .modal-image-selector-modal .modal-footer .progress-button {
+    min-width: 200px; }
+
+.modal-image-selector-modal .dropdown-block {
+  width: 100%; }
+  .modal-image-selector-modal .dropdown-block .dropdown-menu {
+    width: 100%; }
+  .modal-image-selector-modal .dropdown-block .dropdown-menu:hover {
+    background: white; }
+  .modal-image-selector-modal .dropdown-block .dropdown-menu a:hover {
+    background: #ddd; }
+  .modal-image-selector-modal .dropdown-block button {
+    font-size: 14px;
+    color: #5a5a5a;
+    background: #2B2929;
+    padding-left: 20px;
+    border: 0px;
+    text-align: left;
+    display: block;
+    height: 50px;
+    width: 100%; }
+  .modal-image-selector-modal .dropdown-block .caret {
+    margin-top: 5px;
+    left: 97%;
+    position: absolute; }
+
+.modal-image-selector-modal .list-group-item-footer {
+  margin-top: 8px; }
+
+.modal-image-selector-modal .list-group-item-heading,
+.modal-image-selector-modal .list-group-item-text {
+  word-break: break-all; }
+
+.modal-image-selector-modal .list-group {
+  margin-bottom: 0; }
+
+.modal-image-selector-modal .list-group-title {
+  font-weight: normal;
+  padding: 18px; }
+
+.modal-image-selector-modal .list-group-item {
+  display: flex;
+  background: transparent;
+  border: 0px;
+  padding: 13px 0px; }
+  .modal-image-selector-modal .list-group-item .dropdown-menu {
+    top: initial; }
+  .modal-image-selector-modal .list-group-item .dropdown-menu:hover {
+    background: white; }
+  .modal-image-selector-modal .list-group-item .dropdown-menu a:hover {
+    background: #ddd; }
+  .modal-image-selector-modal .list-group-item .btn-group.open .dropdown-toggle {
+    box-shadow: none; }
+  .modal-image-selector-modal .list-group-item :hover {
+    background: #2B2929; }
+
+.modal-image-selector-modal .list-group-item:first-child {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px; }
+
+.modal-image-selector-modal .list-group-item:last-child {
+  border-top: 1px solid #272727; }
+
+.modal-image-selector-modal .list-group-item:hover {
+  background: #2B2929; }
+
+.modal-image-selector-modal .list-group-item .list-group-item-tick-icon {
+  padding: 0px;
+  width: 40px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .modal-image-selector-modal .list-group-item .list-group-item-tick-icon .tick {
+    font-size: 15px;
+    width: 25px;
+    height: 25px;
+    padding: -1px;
+    border-radius: 40%;
+    color: #649519; }
+  .modal-image-selector-modal .list-group-item .list-group-item-tick-icon .tick--success {
+    background: #fff;
+    border-color: #fff; }
+
+.modal-image-selector-modal .list-group-item-image-icon {
+  max-width: 45px;
+  max-height: 45px;
+  width: auto;
+  height: auto;
+  margin-right: 15px; }
+
+.modal-image-selector-modal .list-group-item-folder-icon {
+  max-width: 45px;
+  max-height: 45px;
+  text-align: center;
+  margin-right: 25px; }
+  .modal-image-selector-modal .list-group-item-folder-icon .glyphicon, .modal-image-selector-modal .list-group-item-folder-icon .tick {
+    font-size: 35px;
+    color: #ec1558; }
+
+.modal-image-selector-modal .list-group-item-ver {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px; }
+  .modal-image-selector-modal .list-group-item-ver button {
+    background: transparent;
+    border: 0px; }
+  .modal-image-selector-modal .list-group-item-ver .caret {
+    color: #ffe400;
+    margin-left: 10px; }
+  .modal-image-selector-modal .list-group-item-ver a :hover {
+    background: red; }
+  .modal-image-selector-modal .list-group-item-ver .button-text {
+    display: inline-flex;
+    min-width: 95px; }
+
+.modal-image-selector-modal .list-group-item-info-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .modal-image-selector-modal .list-group-item-info-icon svg {
+    fill: #ffe400; }
+  .modal-image-selector-modal .list-group-item-info-icon svg:hover {
+    fill: #fff; }
+
+.modal-image-selector-modal .list-group-item-label {
+  flex-grow: 3; }
+  .modal-image-selector-modal .list-group-item-label .list-group-item-text {
+    width: 500px; }
+
+.modal-image-selector-modal .list-group-item-heading,
+.modal-image-selector-modal .list-group-item-text {
+  word-break: break-all; }
+
+.modal-image-selector-modal .list-group-loading {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0;
+  right: 0px;
+  margin: auto;
+  fill: #B6E13F; }
+
+.modal-image-selector-modal .list-group-item-heading {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300; }
+
+.modal-image-selector-modal .list-group-item-text {
+  color: #5a5a5a;
+  font-size: 12px; }
 
 /*
  * Copyright 2016 resin.io
@@ -6449,7 +6672,7 @@ body {
   text-align: center;
   margin: 15px;
   color: #666;
-  background-color: #f2f2f2;
+  background-color: #111010;
   word-wrap: break-word; }
 
 /*
@@ -6489,13 +6712,26 @@ body {
  * limitations under the License.
  */
 .page-main {
-  margin-top: 75px; }
+  margin: 0 30px;
+  margin-top: 134px;
+  font-size: 16px; }
+
+.indicator-icon path {
+  fill: #00B8FF; }
 
 .svg-icon[disabled] path {
   fill: #787c7f; }
 
+.page-main .col-xs {
+  width: 90rem; }
+
+.page-main .image-icon {
+  width: 95px;
+  height: 95px; }
+
 .page-main .step-selection-text {
-  color: #fff; }
+  color: #fff;
+  padding-bottom: 3px; }
 
 .page-main .text-disabled > span {
   color: #787c7f; }
@@ -6507,19 +6743,20 @@ body {
   min-width: 170px; }
 
 .page-main .step-border-left, .page-main .step-border-right {
-  height: 2px;
-  background-color: #fff;
+  height: 15px;
+  background: url("../assets/dots-white.svg");
+  background-repeat: repeat-x;
   position: absolute;
-  width: 124px;
-  top: 19px; }
+  width: 121px;
+  top: 38px; }
   .page-main [disabled].step-border-left, .page-main [disabled].step-border-right {
-    background-color: #787c7f; }
+    background: url("../assets/dots-grey.svg"); }
 
 .page-main .step-border-left {
-  left: -67px; }
+  left: -69px; }
 
 .page-main .step-border-right {
-  right: -67px; }
+  right: -69px; }
 
 .page-main .step-tooltip {
   display: block;
@@ -6531,7 +6768,7 @@ body {
   margin-top: 10px;
   margin-bottom: -40px;
   color: #787c7f;
-  font-size: 10px; }
+  font-size: 12px; }
 
 .page-main .step-footer-split {
   margin-left: auto;
@@ -6545,8 +6782,8 @@ body {
   padding-bottom: 2px; }
 
 .page-main .button.step-footer, .page-main .step-footer.progress-button {
-  font-size: 12px;
-  color: #5793db;
+  font-size: 15px;
+  color: #ffcb02;
   border-radius: 0;
   padding: 0; }
 
@@ -6554,11 +6791,18 @@ body {
   vertical-align: text-top; }
 
 .page-main .step-name {
-  font-weight: bold;
-  color: #fff; }
+  color: #787c7f; }
 
 .page-main .step-size {
-  color: #787c7f; }
+  color: #313339;
+  font-size: 14px; }
+
+.page-main .step-margin {
+  margin-left: 50px;
+  margin-right: 50px; }
+
+.page-main .inline-block {
+  display: inline-block; }
 
 /*
  * Copyright 2016 resin.io
@@ -6589,6 +6833,12 @@ body {
   margin-top: 30px;
   margin-bottom: 15px; }
 
+.page-settings .setting-label {
+  color: #fff;
+  font-weight: normal;
+  margin-top: 30px;
+  margin-bottom: 15px; }
+
 /*
  * Copyright 2016 resin.io
  *
@@ -6604,6 +6854,13 @@ body {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+.page-finish {
+  height: 72%; }
+
+.page-finish .box-container {
+  margin-bottom: auto;
+  margin-top: auto; }
+
 .page-finish .button-label {
   margin: 0 auto 15px;
   max-width: 165px; }
@@ -6611,8 +6868,27 @@ body {
 .page-finish .button-primary, .page-finish .progress-button {
   min-width: 170px; }
 
+.page-finish .header-content img {
+  width: 58px;
+  height: 58px; }
+
+.page-finish .header-content {
+  display: inherit;
+  width: 600px;
+  border-bottom: 1px solid #272727; }
+
+.page-finish .space-bottom-super-large {
+  margin-bottom: 84px; }
+
 .page-finish .title {
-  color: #fff; }
+  color: #fff;
+  text-align: left; }
+
+.page-finish .description {
+  color: #5a5a5a; }
+
+.page-finish .button-label {
+  color: #ddd; }
 
 .page-finish .label {
   display: inline-block; }
@@ -6625,50 +6901,39 @@ body {
 
 .page-finish .separator-xs {
   flex-grow: 0;
-  background-color: #64686a;
+  background-color: #272727;
   padding: 0px;
-  min-width: 2px; }
+  min-width: 1px; }
+
+.page-finish .flash-diff-image-icon svg {
+  fill: #787c7f; }
 
 body {
   letter-spacing: 1px; }
 
 .section-footer {
   display: flex;
+  position: absolute;
   align-items: center;
-  justify-content: center;
-  position: fixed;
+  padding: 0 30px;
   bottom: 20px;
-  left: 0;
-  right: 0;
-  color: #787c7f;
-  margin: 0 60px;
-  padding-top: 15px;
-  border-top: 2px solid #64686a;
-  text-align: center; }
-  .section-footer .col-xs {
-    padding: 0; }
-  .section-footer .svg-icon {
-    margin: 0 13px; }
-  .section-footer .caption[os-open-external] {
-    border-bottom: 1px dashed;
-    padding-bottom: 2px; }
-    .section-footer .caption[os-open-external]:hover {
-      color: #85898c; }
+  width: 100%;
+  height: 43px; }
   .section-footer .footer-right {
+    display: flex;
     font-size: 10px;
-    position: absolute;
-    right: 0;
-    top: 50%; }
+    margin-left: auto; }
 
 .wrapper {
   height: 100%;
   margin: 20px 60px; }
 
 .section-header {
-  text-align: right;
-  padding: 5px 8px;
-  font-size: 15px; }
-  .section-header > .button, .section-header > .progress-button {
-    padding-left: 3px;
-    padding-right: 3px; }
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 30px;
+  margin-top: 25px; }
+  .section-header .pine64 {
+    margin-right: -25px; }
 
