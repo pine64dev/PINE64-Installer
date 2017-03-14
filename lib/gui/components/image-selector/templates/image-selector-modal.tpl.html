@@ -25,7 +25,7 @@
             <i class="tick tick--success" ng-show="modal.isOSSelected(os)"></i>
           </span>
           <span class="list-group-item-image-icon">
-            <img class="list-group-item-image-icon" src="{{ modal.getOSLogo(os.logo) }}" />
+            <img class="list-group-item-image-icon" ng-src="{{ modal.getOSLogo(os.logo) }}" />
           </span>
           <div class="list-group-item-label">
                 <h4 class="list-group-item-heading">{{ os.name }}</h4>
