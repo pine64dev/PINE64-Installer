@@ -59,12 +59,3 @@ script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       ./scripts/build/docker/run-command.sh -r ${TARGET_ARCH} -s ${PWD} -c "xvfb-run --server-args=$XVFB_ARGS npm test && ./scripts/ci/ensure-staged-sass.sh";
     fi
-
-notifications:
-  email: false
-  webhooks:
-    urls:
-      - https://webhooks.gitter.im/e/0a019c8b9828eb9f6a72
-    on_success: change
-    on_failure: always
-    on_start: never
