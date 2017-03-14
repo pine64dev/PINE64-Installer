@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title"></h4>
+  <div class="modal-title">&nbsp;</div>
   <button class="close" ng-click="modal.closeModal()">&times;</button>
 </div>
 <div class="modal-body" ng-init="modal.init()">
@@ -25,7 +25,7 @@
             <i class="tick tick--success" ng-show="modal.isOSSelected(os)"></i>
           </span>
           <span class="list-group-item-image-icon">
-            <img class="list-group-item-image-icon" ng-src="{{ modal.getOSLogo(os.logo) }}" />
+            <img alt="Image Logo" class="list-group-item-image-icon" ng-src="{{ modal.getOSLogo(os.logo) }}" />
           </span>
           <div class="list-group-item-label">
                 <h4 class="list-group-item-heading">{{ os.name }}</h4>
@@ -33,10 +33,10 @@
           </div>
           <div class="list-group-item-ver" ng-show="{{ os.instructionsUrl == null && os.instructions == null }}">
             <div class="btn-group" uib-dropdown keyboard-nav>
-              <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
-                  <div class="button-text">build {{ modal.getCurrentOSVersion(os) || os.versions[0].version }}</div><span class="caret"></span>
+              <button id="simple-btn-keyboard-nav-browse" type="button" uib-dropdown-toggle>
+                  <span class="button-text">build {{ modal.getCurrentOSVersion(os) || os.versions[0].version }}</span><span class="caret"></span>
               </button>
-              <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+              <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav-browse">
                   <li role="menuitem" ng-repeat="version in os.versions"><a href="#" ng-click="modal.setCurrentOSVersion(version.version)">{{ version.version }}</a></li>
               </ul>
             </div>
