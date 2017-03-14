@@ -3,7 +3,7 @@
     <div class="box">
       <div class="row center-xs space-bottom-super-large">
         <div class="header-content">
-          <img class="" src="assets/tick.svg"></img>
+          <img alt="Tick" class="" src="assets/tick.svg"/>
           <div>
             <h3 class="title">Flash Complete!</h3>
             <p class="description space-vertical-small">Safely ejected and ready for use</p>
@@ -13,8 +13,8 @@
       <div class="row center-xs">
         <div class="col-xs-4 space-medium">
           <div class="box">
-            <img class="center-block image-icon space-bottom-medium" width="95" height="95"
-              src="{{ finish.getImageLogo() }}" ng-show="finish.selection.getImageLogo()"></img>
+            <img alt="Image logo" class="center-block image-icon space-bottom-medium" width="95" height="95"
+              ng-src="{{ finish.getImageLogo() }}" ng-show="finish.selection.getImageLogo()"/>
             <svg-icon class="center-block indicator-icon space-bottom-medium" width="95" height="95"
               path="../../../assets/image.svg" ng-hide="finish.selection.getImageLogo()"></svg-icon>
             <p class="button-label">Would you like to flash the same image?</p>

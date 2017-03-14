@@ -3,8 +3,9 @@
     <div class="box text-center relative" os-dropzone="image.selectImage($file)">
 
       <img
+        alt="Image logo"
         class="center-block image-icon"
-        ng-src="{{ image.getImageLogo() }}" ng-show=" main.selection.getImageLogo()"></img>
+        ng-src="{{ image.getImageLogo() }}" ng-show=" main.selection.getImageLogo()"/>
       <svg-icon class="center-block indicator-icon" width="95" height="95"
         path="../../../assets/image.svg" ng-hide="main.selection.getImageLogo()"></svg-icon>
 
