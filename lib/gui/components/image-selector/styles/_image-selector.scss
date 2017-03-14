@@ -1,0 +1,247 @@
+/*
+ * Copyright 2017 Pine64
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.modal-image-selector-modal .modal-content {
+  width: 951px;
+  height: 620px;
+}
+
+.modal-image-selector-modal {
+  .modal-header {
+    border: 0px; }
+  .modal-body {
+    overflow-y: overlay;
+    height: 100%;
+    padding-left: 60px;
+    padding-right: 60px;
+    border: 0px; }
+  .modal-footer {
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+    border: 0px;
+      .button{
+        min-width: 200px;
+      }
+  }
+
+}
+
+.modal-image-selector-modal .dropdown-block {
+  width: 100%;
+  .dropdown-menu{
+    width: 100% ;
+  }
+
+  .dropdown-menu:hover{
+    background:white;
+  }
+
+  .dropdown-menu a:hover{
+    background: #ddd;
+  }
+
+  button {
+    font-size: 14px;
+    color: #5a5a5a;
+    background: #2B2929;
+    padding-left: 20px;
+    border: 0px;
+    text-align: left;
+    display: block;
+    height: 50px;
+    width: 100%; }
+  .caret{
+    margin-top: 5px;
+    left: 97%;
+    position: absolute;}
+}
+
+.modal-image-selector-modal {
+
+  .list-group-item-footer {
+    margin-top: 8px;
+  }
+
+  .list-group-item-heading,
+  .list-group-item-text {
+    word-break: break-all;
+  }
+
+  .list-group {
+    margin-bottom: 0;
+  }
+
+  .list-group-title{
+    font-weight: normal;
+    padding: 18px;
+  }
+
+  .list-group-item {
+    display: flex;
+    background: transparent;
+    border: 0px;
+    padding: 13px 0px;
+    .dropdown-menu{
+      top: initial
+    }
+
+    .dropdown-menu:hover{
+      background:white;
+    }
+
+    .dropdown-menu a:hover{
+      background: #ddd;
+    }
+
+    .btn-group.open .dropdown-toggle {
+      box-shadow: none ;
+    }
+
+    :hover {
+      background: #2B2929;
+    }
+  }
+
+  .list-group-item:first-child {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+
+  .list-group-item:last-child {
+    border-top: 1px solid darken($palette-theme-light-soft-foreground, 20%);;
+  }
+
+  .list-group-item:hover {
+    background: #2B2929;
+  }
+
+
+
+  .list-group-item .list-group-item-tick-icon{
+    padding: 0px;
+    width: 40px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .tick{
+      font-size: 15px;
+      width: 25px;
+      height: 25px;
+      padding: -1px;
+      border-radius: 40%;
+      color: #649519;
+    }
+
+    .tick--success{
+      background: #fff;
+      border-color: #fff;
+    }
+  }
+
+  .list-group-item-image-icon{
+    max-width: 45px;
+    max-height: 45px;
+    width: auto;
+    height: auto;
+    margin-right: 15px;
+  }
+
+  .list-group-item-folder-icon{
+    max-width: 45px;
+    max-height: 45px;
+    text-align: center;
+    margin-right: 25px;
+    .glyphicon {
+      font-size: 35px;
+      color: #ec1558;
+    }
+  }
+
+  .list-group-item-ver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px;
+    button {
+      background: transparent;
+      border: 0px;
+    }
+
+    .caret {
+      color: #ffe400;
+      margin-left: 10px;
+    }
+
+    a{
+      :hover{
+        background: red;
+      }
+    }
+
+    .button-text{
+      display: inline-flex;
+      min-width: 95px;
+    }
+  }
+
+  .list-group-item-info-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+      fill: #ffe400;
+    }
+    svg:hover{
+      fill: #fff;
+    }
+  }
+
+  .list-group-item-label{
+    flex-grow: 3;
+
+    .list-group-item-text {
+      width: 500px;
+    }
+  }
+
+  .list-group-item-heading,
+  .list-group-item-text {
+    word-break: break-all;
+  }
+  .list-group-loading{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    right: 0px;
+    margin: auto;
+    fill: #B6E13F;
+  }
+
+  .list-group-item-heading {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .list-group-item-text {
+    color: #5a5a5a;
+    font-size: 12px;
+  }
+}

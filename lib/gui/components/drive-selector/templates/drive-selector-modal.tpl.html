@@ -9,6 +9,9 @@
       ng-disabled="!modal.constraints.isDriveValid(drive, modal.state.getImage())"
       ng-dblclick="modal.selectDriveAndClose(drive)"
       ng-click="modal.toggleDrive(drive)">
+        <span class="tick tick--success"
+          ng-show="modal.constraints.isDriveValid(drive, modal.state.getImage())"
+          ng-disabled="!modal.state.isCurrentDrive(drive.device)"></span>
         <div>
           <h4 class="list-group-item-heading">{{ drive.description }} - {{ drive.size | gigabyte | number:1 }} GB</h4>
           <p class="list-group-item-text">{{ drive.name }}</p>
@@ -47,9 +50,6 @@
 
           </footer>
         </div>
-        <span class="tick tick--success"
-          ng-show="modal.constraints.isDriveValid(drive, modal.state.getImage())"
-          ng-disabled="!modal.state.isCurrentDrive(drive.device)"></span>
     </li>
     <li class="list-group-item"
       ng-show="!modal.drives.hasAvailableDrives()">

@@ -24,23 +24,26 @@
 
 .modal-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   font-size: 12px;
   color: $palette-theme-light-soft-foreground;
-  padding: 11px 20px;
+  padding: 11px 0px;
   flex-grow: 0;
+  border-color: $palette-theme-light-soft-foreground;
+  margin: 0px 10px;
+  height: 55px;
 }
 
 .modal-title {
-  font-size: inherit;
+  font-size: 18px;
   flex-grow: 1;
+  margin-left: 10px;
 }
 
 .modal-body {
   flex-grow: 1;
   color: $palette-theme-light-foreground;
   padding: 20px;
-  max-height: 250px;
   overflow: auto;
 
   a {
@@ -99,7 +102,13 @@
 }
 
 .modal-dialog {
+  width: 100%;
   margin: 0;
   position: initial;
-  max-width: 50%;
+  max-width: 100%;
+}
+
+.close {
+  margin-right: 10px;
+  color: #fff;
 }

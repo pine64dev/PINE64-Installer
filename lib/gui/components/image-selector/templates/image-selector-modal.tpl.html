@@ -1,0 +1,70 @@
+<div class="modal-header">
+  <h4 class="modal-title"></h4>
+  <button class="close" ng-click="modal.closeModal()">&times;</button>
+</div>
+<div class="modal-body" ng-init="modal.init()">
+    <!-- Single button with keyboard nav -->
+    <div class="btn-group dropdown-block" uib-dropdown keyboard-nav>
+        <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
+            {{ modal.selectedBoard.name || 'Board Type' }}<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+            <li role="menuitem"
+              ng-repeat="board in modal.boards"
+              ng-click="modal.getBoardOSes(board)"><a href="#">{{board.name}}</a></li>
+        </ul>
+    </div>
+    <svg-icon ng-show="modal.isLoading" class="list-group-loading" path="../../../assets/rolling.svg" width="20px" height="20px"></svg-icon>
+    <div ng-show="modal.os">
+      <h4 class="list-group-title">Choose an OS</h4>
+      <ul class="list-group">
+        <li class="list-group-item"
+          ng-repeat="os in modal.os"
+          ng-click="modal.setCurrentOS(os)">
+          <span class="list-group-item-tick-icon">
+            <i class="tick tick--success" ng-show="modal.isOSSelected(os)"></i>
+          </span>
+          <span class="list-group-item-image-icon">
+            <img class="list-group-item-image-icon" ng-src="{{ modal.getOSLogo(os.logo) }}" />
+          </span>
+          <div class="list-group-item-label">
+                <h4 class="list-group-item-heading">{{ os.name }}</h4>
+                <p class="list-group-item-text">{{ os.description }}</p>
+          </div>
+          <div class="list-group-item-ver" ng-show="{{ os.instructionsUrl == null && os.instructions == null }}">
+            <div class="btn-group" uib-dropdown keyboard-nav>
+              <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
+                  <div class="button-text">build {{ modal.getCurrentOSVersion(os) || os.versions[0].version }}</div><span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                  <li role="menuitem" ng-repeat="version in os.versions"><a href="#" ng-click="modal.setCurrentOSVersion(version.version)">{{ version.version }}</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="list-group-item-info-icon">
+            <svg-icon path="../../../assets/info.svg" width="20px" height="20px" os-open-external="{{ os.releaseNotesUrl || os.instructionsUrl }}"></svg-icon>
+          </div>
+        </li>
+        <li class="list-group-item" ng-click="modal.browseLocalImage()">
+        <span class="list-group-item-tick-icon">
+            <i class="tick tick--success" ng-show="modal.hasCurrentSelectedImageFile()"></i>
+        </span>
+        <span class="list-group-item-folder-icon">
+          <i class="glyphicon glyphicon-folder-open"></i>
+        </span>
+        <div class="list-group-item-label">
+              <h4 class="list-group-item-heading">Browse image file from local drive</h4>
+              <p class="list-group-item-text">Supported format: {{ modal.supportedExtensions.join(', ') }}</p>
+        </div>
+      </li>
+      </ul>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="button button-primary"
+    ng-click="modal.closeModal(modal)"
+    ng-disabled="modal.shouldOKButtonDisabled()">OK</button>
+
+    <button class="button button-primary"
+    ng-click="modal.closeModal()">Cancel</button>
+</div>

@@ -2,35 +2,41 @@
   <div class="col-xs" ng-controller="ImageSelectionController as image">
     <div class="box text-center relative" os-dropzone="image.selectImage($file)">
 
-      <svg-icon
-        class="center-block"
-        path="{{ main.selection.getImageLogo() || '../../../assets/image.svg' }}"></svg-icon>
+      <img
+        class="center-block image-icon"
+        ng-src="{{ image.getImageLogo() }}" ng-show=" main.selection.getImageLogo()"></img>
+      <svg-icon class="center-block indicator-icon" width="95" height="95"
+        path="../../../assets/image.svg" ng-hide="main.selection.getImageLogo()"></svg-icon>
 
-      <div class="space-vertical-large">
-        <div ng-hide="main.selection.hasImage()">
+      <div class="space-vertical-large step-margin">
+        <div ng-hide="main.selection.hasImage() || main.selection.hasOS()">
           <button
             class="button button-primary button-brick"
-            ng-click="image.openImageSelector()">Select image</button>
+            ng-click="image.openImageSelector()">Choose an OS</button>
 
           <p class="step-footer">
-            {{ ::image.mainSupportedExtensions.join(', ') }}, and
-            <span class="step-footer-underline"
-              uib-tooltip="{{ image.extraSupportedExtensions.join(', ') }}">others</span>
+            or drag a local image file.
           </p>
         </div>
-        <div ng-if="main.selection.hasImage()">
-          <div class="step-selection-text">
-            <span
-              ng-click="main.showSelectedImageDetails()"
-              class="step-image step-name"
-              ng-bind="main.selection.getImageName() || main.selection.getImagePath() | basename | middleEllipses:20"
-              uib-tooltip="{{ main.selection.getImagePath() | basename }}"></span>
-            <span class="step-image step-size">{{ main.selection.getImageSize() | gigabyte | number:1 }} GB</span>
-          </div>
+        <div class="inline-block">
+          <div ng-if="main.selection.hasImage() || main.selection.hasOS() " class="text-left">
+            <div class="step-selection-text">
+              <span
+                ng-click="main.showSelectedImageDetails()"
+                class="step-image step-name"
+                ng-bind="main.selection.getImageName() || main.selection.getImagePath() | basename | middleEllipses:23"
+                uib-tooltip="{{ main.selection.getImagePath() || main.selection.getImageName() | basename }}"></span>
+            </div>
+            <div>
+              <span ng-if="main.selection.getOSVersion()" class="step-image step-size">build {{ main.selection.getOSVersion() }}</span>
+              <span ng-if="main.selection.getOSVersion() && main.selection.getImageSize()"> | </span>
+              <span ng-show="main.selection.getImageSize()" class="step-image step-size">{{ main.selection.getImageSize() | gigabyte | number:1 }} GB</span>
+            </div>
 
-          <button class="button button-link step-footer"
-            ng-click="image.reselectImage()"
-            ng-hide="main.state.isFlashing()">Change</button>
+            <button class="button button-link step-footer"
+              ng-click="image.reselectImage()"
+              ng-hide="main.state.isFlashing()">Change</button>
+          </div>
         </div>
       </div>
     </div>
@@ -41,32 +47,43 @@
       <div class="step-border-left" ng-disabled="main.shouldDriveStepBeDisabled()"></div>
       <div class="step-border-right" ng-disabled="main.shouldFlashStepBeDisabled()"></div>
 
-      <svg-icon class="center-block"
+      <svg-icon class="center-block indicator-icon"
         path="../../../assets/drive.svg"
+        width="95" height="95"
         ng-disabled="main.shouldDriveStepBeDisabled()"></svg-icon>
 
-      <div class="space-vertical-large">
+      <div class="space-vertical-large step-margin">
         <div ng-hide="main.selection.hasDrive()">
 
-          <div>
+          <div ng-show="main.drives.hasAvailableDrive()">
             <button class="button button-primary button-brick"
               ng-disabled="main.shouldDriveStepBeDisabled()"
               ng-click="drive.openDriveSelector()">Select drive</button>
           </div>
 
-        </div>
-        <div ng-show="main.selection.hasDrive()">
-
-          <div class="step-selection-text"
-            ng-class="{
-              'text-disabled': main.shouldDriveStepBeDisabled()
-            }">
-            <span class="step-drive step-name">{{ main.selection.getDrive().name }}</span>
-            <span class="step-drive step-size">{{ main.selection.getDrive().size | gigabyte | number:1 }} GB</span>
+          <div ng-hide="main.drives.hasAvailableDrive()">
+              <button class="button button-primary button-brick"
+                ng-disabled="main.shouldDriveStepBeDisabled()"
+                ng-click="drive.openDriveSelector()">Connect a drive</button>
           </div>
-          <button class="button button-link step-footer"
-            ng-click="drive.reselectDrive()"
-            ng-hide="main.state.isFlashing()">Change</button>
+
+        </div>
+
+        <div class="inline-block">
+          <div ng-show="main.selection.hasDrive()" class="text-left">
+            <div class="step-selection-text"
+              ng-class="{
+                'text-disabled': main.shouldDriveStepBeDisabled()
+              }">
+              <span class="step-drive step-name">{{ main.selection.getDrive().name }}</span>
+            </div>
+            <div>
+              <span class="step-drive step-size">{{ main.selection.getDrive().size | gigabyte | number:1 }} GB</span>
+            </div>
+            <button class="button button-link step-footer"
+              ng-click="drive.reselectDrive()"
+              ng-hide="main.state.isFlashing()">Change</button>
+          </div>
         </div>
       </div>
     </div>
@@ -74,21 +91,22 @@
 
   <div class="col-xs" ng-controller="FlashController as flash">
     <div class="box text-center">
-      <svg-icon class="center-block"
+      <svg-icon class="center-block indicator-icon"
         path="../../../assets/flash.svg"
+        width="95" height="95"
         ng-disabled="main.shouldFlashStepBeDisabled()"></svg-icon>
 
-      <div class="space-vertical-large">
+      <div class="space-vertical-large step-margin">
         <progress-button class="button-brick"
           percentage="main.state.getFlashState().percentage"
-          striped="{{ main.state.getFlashState().type == 'check' }}"
+          striped="{{ main.state.getFlashState().type !== undefined }}"
           ng-attr-active="{{ main.state.isFlashing() }}"
-          ng-click="flash.flashImageToDrive(main.selection.getImagePath(), main.selection.getDrive())"
+          ng-click="flash.flashImageToDrive(main.selection.getImage(), main.selection.getDrive())"
           ng-disabled="main.shouldFlashStepBeDisabled() || main.state.getLastFlashErrorCode()">
             <span ng-bind="flash.getProgressButtonLabel()"></span>
         </progress-button>
 
-        <p class="step-footer step-footer-split" ng-show="main.state.getFlashState().speed && main.state.getFlashState().percentage != 100">
+        <p class="step-footer step-footer-split" ng-show="main.state.getFlashState().speed != -1 && main.state.getFlashState().percentage != 100">
           <span>ETA: {{ main.state.getFlashState().eta | secondsToDate | amDateFormat:'m[m]ss[s]' }}</span>
           <span ng-bind="main.state.getFlashState().speed.toFixed(2) + ' MB/s'"></span>
         </p>

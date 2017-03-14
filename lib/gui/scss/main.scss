@@ -34,6 +34,7 @@ $link-color: #ddd;
 @import "../components/update-notifier/styles/update-notifier";
 @import "../components/progress-button/styles/progress-button";
 @import "../components/drive-selector/styles/drive-selector";
+@import "../components/image-selector/styles/image-selector";
 @import "../components/tooltip-modal/styles/tooltip-modal";
 @import "../components/warning-modal/styles/warning-modal";
 @import "../pages/main/styles/main";
@@ -46,43 +47,17 @@ body {
 
 .section-footer {
   display: flex;
+  position: absolute;
   align-items: center;
-  justify-content: center;
-
-  position: fixed;
+  padding: 0 30px;
   bottom: 20px;
-  left: 0;
-  right: 0;
-  color: $palette-theme-dark-disabled-foreground;
-  margin: 0 60px;
-  padding-top: 15px;
-  border-top: 2px solid $palette-theme-dark-soft-background;
-  text-align: center;
-
-  // Override default column padding
-  // set by flexboxgrid.
-  .col-xs {
-    padding: 0;
-  }
-
-  .svg-icon {
-    margin: 0 13px;
-  }
-
-  .caption[os-open-external] {
-    border-bottom: 1px dashed;
-    padding-bottom: 2px;
-
-    &:hover {
-      color: lighten($palette-theme-dark-disabled-foreground, 5%);
-    }
-  }
+  width: 100%;
+  height: 43px;
 
   .footer-right {
+    display: flex;
     font-size: 10px;
-    position: absolute;
-    right: 0;
-    top: 50%;
+    margin-left: auto;
   }
 }
 
@@ -92,12 +67,13 @@ body {
 }
 
 .section-header {
-  text-align: right;
-  padding: 5px 8px;
-  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 30px;
+  margin-top: 25px;
 
-  > .button {
-    padding-left: 3px;
-    padding-right: 3px;
+  .pine64 {
+    margin-right: -25px;
   }
 }
