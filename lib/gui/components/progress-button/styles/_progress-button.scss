@@ -43,7 +43,7 @@
 
 $progress-button-stripes-width: 35px;
 $progress-button-stripes-animation-duration: 1s;
-$progress-button-background-color: lighten( saturate($palette-theme-success-background, 55%) , 30%);
+$progress-button-background-color: #BDE547;
 
 .progress-button {
   @extend .button;
@@ -58,8 +58,8 @@ $progress-button-background-color: lighten( saturate($palette-theme-success-back
   }
 
   &.progress-button--striped {
-    $progress-button-stripes-background-color: saturate($palette-theme-success-background, 5%);
-    $progress-button-stripes-foreground-color: saturate(darken($palette-theme-success-background, 5%), 5%);
+    $progress-button-stripes-background-color: #89AC1E;
+    $progress-button-stripes-foreground-color: #9BC025;
 
     // Notice that we add `0.01` to certain gradient stop positions.
     // That workarounds a Chrome rendering issue where diagonal
@@ -86,6 +86,10 @@ $progress-button-background-color: lighten( saturate($palette-theme-success-back
 // when it has an active progress bar.
 .progress-button[active="true"] {
   @extend .button-no-hover;
+
+  .progress-button__content {
+    color: #FFF;
+  }
 }
 
 .progress-button__content {

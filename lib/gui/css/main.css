@@ -6359,12 +6359,15 @@ body {
   background-color: #5fb835; }
 
 .progress-button .progress-button__bar {
-  background-color: #adff87; }
+  background-color: #BDE547; }
 
 .progress-button.progress-button--striped {
-  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, #53a92a), color-stop(0.26, #5dbe2f), color-stop(0.5, #5dbe2f), color-stop(0.51, #53a92a), color-stop(0.75, #53a92a), color-stop(0.76, #5dbe2f), to(#5dbe2f)); }
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, #9BC025), color-stop(0.26, #89AC1E), color-stop(0.5, #89AC1E), color-stop(0.51, #9BC025), color-stop(0.75, #9BC025), color-stop(0.76, #89AC1E), to(#89AC1E)); }
   .progress-button.progress-button--striped .progress-button__bar {
-    background-color: #adff87; }
+    background-color: #BDE547; }
+
+.progress-button[active="true"] .progress-button__content {
+  color: #FFF; }
 
 .progress-button__content {
   position: relative;
@@ -6936,4 +6939,3 @@ body {
   margin-top: 25px; }
   .section-header .pine64 {
     margin-right: -25px; }
-
