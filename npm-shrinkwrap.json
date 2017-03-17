@@ -1248,6 +1248,20 @@
       "from": "node-cmd@>=1.1.1",
       "resolved": "https://registry.npmjs.org/node-cmd/-/node-cmd-1.1.1.tgz"
     },
+    "node-gyp": {
+      "version": "3.5.0",
+      "from": "node-gyp@3.5.0",
+      "resolved": "https://registry.npmjs.org/node-gyp/-/node-gyp-3.5.0.tgz",
+      "dev": true,
+      "dependencies": {
+        "graceful-fs": {
+          "version": "4.1.11",
+          "from": "graceful-fs@>=4.1.2 <5.0.0",
+          "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.1.11.tgz",
+          "dev": true
+        }
+      }
+    },
     "node-ipc": {
       "version": "8.9.2",
       "from": "node-ipc@latest",
