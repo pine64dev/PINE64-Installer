@@ -24,6 +24,12 @@
       "from": "angular-middle-ellipses@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/angular-middle-ellipses/-/angular-middle-ellipses-1.0.0.tgz"
     },
+    "angular-mocks": {
+      "version": "1.6.1",
+      "from": "angular-mocks@1.6.1",
+      "resolved": "https://registry.npmjs.org/angular-mocks/-/angular-mocks-1.6.1.tgz",
+      "dev": true
+    },
     "angular-moment": {
       "version": "1.0.1",
       "from": "angular-moment@1.0.1",
