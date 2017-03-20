@@ -4,6 +4,11 @@ const m = require('mochainon');
 const angular = require('angular');
 require('angular-mocks');
 
+/**
+ * spec changes and why
+ * - default speed is -1, because we don't want to show speed state when speed is -1
+ */
+
 describe('Browser: FlashStateModel', function() {
 
   beforeEach(angular.mock.module(
@@ -33,7 +38,7 @@ describe('Browser: FlashStateModel', function() {
 
         m.chai.expect(FlashStateModel.getFlashState()).to.deep.equal({
           percentage: 0,
-          speed: 0
+          speed: -1
         });
       });
 
@@ -222,7 +227,7 @@ describe('Browser: FlashStateModel', function() {
         const flashState = FlashStateModel.getFlashState();
         m.chai.expect(flashState).to.deep.equal({
           percentage: 0,
-          speed: 0
+          speed: -1
         });
       });
 
@@ -334,7 +339,7 @@ describe('Browser: FlashStateModel', function() {
 
         m.chai.expect(FlashStateModel.getFlashState()).to.not.deep.equal({
           percentage: 0,
-          speed: 0
+          speed: -1
         });
 
         FlashStateModel.unsetFlashingFlag({
@@ -344,7 +349,7 @@ describe('Browser: FlashStateModel', function() {
 
         m.chai.expect(FlashStateModel.getFlashState()).to.deep.equal({
           percentage: 0,
-          speed: 0
+          speed: -1
         });
       });
 
