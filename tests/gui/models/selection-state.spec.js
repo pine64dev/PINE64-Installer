@@ -79,6 +79,18 @@ describe('Browser: SelectionState', function() {
         m.chai.expect(hasImage).to.be.false;
       });
 
+      it('getOS should return undefined', function() {
+        m.chai.expect(SelectionStateModel.getOS()).to.be.undefined;
+      });
+
+      it('getOSVersion should return undefined', function() {
+        m.chai.expect(SelectionStateModel.getOSVersion()).to.be.undefined;
+      });
+
+      it('hasOS() should return false', function() {
+        m.chai.expect(SelectionStateModel.hasOS()).to.be.false;
+      });
+
     });
 
     describe('given a drive', function() {
@@ -716,6 +728,147 @@ describe('Browser: SelectionState', function() {
           m.chai.expect(SelectionStateModel.hasDrive()).to.be.false;
           SelectionStateModel.toggleSetDrive(drive.device);
           m.chai.expect(SelectionStateModel.getDrive()).to.deep.equal(drive);
+        });
+
+      });
+
+    });
+
+    describe('given an OS', function() {
+
+      beforeEach(function() {
+        SelectionStateModel.setOS({
+          name: 'Custom Operation System',
+          version: '1.0.0',
+          images: [
+            {
+              checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+              checksumType: 'md5',
+              recommendedDriveSize: 4000000000,
+              url: 'http://path.to/os/os.tar.gz'
+            }
+          ],
+          logo: 'http://path.to/image/logo'
+        });
+      });
+
+      describe('.hasOS()', function() {
+        it('should return true', function() {
+          m.chai.expect(SelectionStateModel.hasOS()).to.be.true;
+        });
+      });
+
+      describe('.getOS()', function() {
+        it('should return the selected OS', function() {
+          m.chai.expect(SelectionStateModel.getOS()).to.be.deep.equal({
+            name: 'Custom Operation System',
+            version: '1.0.0',
+            images: [
+              {
+                checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+                checksumType: 'md5',
+                recommendedDriveSize: 4000000000,
+                url: 'http://path.to/os/os.tar.gz'
+              }
+            ],
+            logo: 'http://path.to/image/logo'
+          });
+        });
+      });
+
+      describe('.getOSVersion()', function() {
+        it('should return current selected OS version', function() {
+          m.chai.expect(SelectionStateModel.getOSVersion()).to.be.equal('1.0.0');
+        });
+      });
+
+      describe('.getImageName()', function() {
+        it('should return current selected OS name', function() {
+          m.chai.expect(SelectionStateModel.getImageName()).to.be.equal('Custom Operation System');
+        });
+      });
+
+      describe('.getImageLogo()', function() {
+        it('should return current selected OS logo path', function() {
+          m.chai.expect(SelectionStateModel.getImageLogo()).to.be.equal('http://path.to/image/logo');
+        });
+      });
+
+      describe('.removeOS()', function() {
+        it('should remove current selected OS', function() {
+          SelectionStateModel.removeOS();
+
+          m.chai.expect(SelectionStateModel.hasOS()).to.be.false;
+          m.chai.expect(SelectionStateModel.getOS()).to.be.undefined;
+        });
+      });
+
+      describe('given a drive', function() {
+        beforeEach(function() {
+          DrivesModel.setDrives([
+            {
+              device: '/dev/disk1',
+              name: 'USB Drive',
+              size: 4000000000,
+              protected: false
+            }
+          ]);
+
+          SelectionStateModel.setDrive('/dev/disk1');
+        });
+
+        describe('.clear()', function() {
+
+          it('should clear all selections', function() {
+            m.chai.expect(SelectionStateModel.hasDrive()).to.be.true;
+            m.chai.expect(SelectionStateModel.hasOS()).to.be.true;
+
+            SelectionStateModel.clear();
+
+            m.chai.expect(SelectionStateModel.hasDrive()).to.be.false;
+            m.chai.expect(SelectionStateModel.hasOS()).to.be.false;
+          });
+
+        });
+
+        describe('given the preserveImage option', function() {
+
+          beforeEach(function() {
+            SelectionStateModel.clear({
+              preserveImage: true
+            });
+          });
+
+          it('getDrive() should return undefined', function() {
+            const drive = SelectionStateModel.getDrive();
+            m.chai.expect(drive).to.be.undefined;
+          });
+
+          it('getOS() should return previous selected OS', function() {
+            m.chai.expect(SelectionStateModel.getOS()).to.be.deep.equal({
+              name: 'Custom Operation System',
+              version: '1.0.0',
+              images: [
+                {
+                  checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+                  checksumType: 'md5',
+                  recommendedDriveSize: 4000000000,
+                  url: 'http://path.to/os/os.tar.gz'
+                }
+              ],
+              logo: 'http://path.to/image/logo'
+            });
+          });
+
+          it('hasDrive() should return false', function() {
+            const hasDrive = SelectionStateModel.hasDrive();
+            m.chai.expect(hasDrive).to.be.false;
+          });
+
+          it('hasOS() should return true', function() {
+            m.chai.expect(SelectionStateModel.hasOS()).to.be.true;
+          });
+
         });
 
       });
