@@ -554,6 +554,31 @@ describe('Shared: DriveConstraints', function() {
 
     });
 
+    describe('given user has selected OS image', function() {
+      beforeEach(function() {
+        this.drive.recommendedImage = {
+          checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+          checksumType: 'md5',
+          recommendedDriveSize: 4000000000,
+          url: 'http://path.to/os/4gb.os.tar.gz'
+        };
+      });
+
+      it('should return false if the drive has no recommended image', function() {
+        this.drive.recommendedImage = undefined;
+        m.chai.expect(constraints.isDriveValid(this.drive, {}, true)).to.be.false;
+      });
+
+      it('should return true if the drive has recommended image', function() {
+        m.chai.expect(constraints.isDriveValid(this.drive, {}, true)).to.be.true;
+      });
+
+      it('should return false if recommended image is larger than drive size', function() {
+        this.drive.size = 99;
+        m.chai.expect(constraints.isDriveValid(this.drive, {}, true)).to.be.false;
+      });
+    });
+
   });
 
 });
