@@ -4,6 +4,7 @@ const m = require('mochainon');
 const path = require('path');
 const angular = require('angular');
 require('angular-mocks');
+const _ = require('lodash');
 
 describe('Browser: DrivesModel', function() {
 
@@ -279,7 +280,25 @@ describe('Browser: DrivesModel', function() {
                   checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
                   checksumType: 'md5',
                   recommendedDriveSize: 4000000000,
-                  url: 'http://path.to/os/os.tar.gz'
+                  url: 'http://path.to/os/4gb.os.tar.gz'
+                },
+                {
+                  checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+                  checksumType: 'md5',
+                  recommendedDriveSize: 5000000000,
+                  url: 'http://path.to/os/5gb.os.tar.gz'
+                },
+                {
+                  checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+                  checksumType: 'md5',
+                  recommendedDriveSize: 8000000000,
+                  url: 'http://path.to/os/8gb.os.tar.gz'
+                },
+                {
+                  checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+                  checksumType: 'md5',
+                  recommendedDriveSize: 10000000000,
+                  url: 'http://path.to/os/10gb.os.tar.gz'
                 }
               ],
               logo: 'http://path.to/image/logo'
@@ -340,7 +359,7 @@ describe('Browser: DrivesModel', function() {
                 checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
                 checksumType: 'md5',
                 recommendedDriveSize: 4000000000,
-                url: 'http://path.to/os/os.tar.gz'
+                url: 'http://path.to/os/4gb.os.tar.gz'
               }
             });
           });
@@ -432,6 +451,69 @@ describe('Browser: DrivesModel', function() {
             ]);
 
             m.chai.expect(SelectionStateModel.hasDrive()).to.be.false;
+          });
+
+          it('should auto assign correct image size according to drive size', function() {
+            DrivesModel.setDrives([
+              {
+                device: '/dev/sdb',
+                name: 'Foo',
+                size: 4000000000,
+                mountpoint: '/mnt/foo',
+                system: false,
+                protected: false
+              },
+              {
+                device: '/dev/sdc',
+                name: 'Foo2',
+                size: 6000000000,
+                mountpoint: '/mnt/foo2',
+                system: false,
+                protected: false
+              },
+              {
+                device: '/dev/sde',
+                name: 'Foo3',
+                size: 300000000,
+                mountpoint: '/mnt/foo3',
+                system: false,
+                protected: false
+              },
+              {
+                device: '/dev/sdf',
+                name: 'Foo4',
+                size: 12000000000,
+                mountpoint: '/mnt/foo4',
+                system: false,
+                protected: false
+              }
+            ]);
+
+            const findDrive = (drivePath) => {
+              return _.find(DrivesModel.getDrives(), {
+                device: drivePath
+              });
+            };
+
+            m.chai.expect(findDrive('/dev/sdb').recommendedImage).to.be.deep.equal({
+              checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+              checksumType: 'md5',
+              recommendedDriveSize: 4000000000,
+              url: 'http://path.to/os/4gb.os.tar.gz'
+            });
+            m.chai.expect(findDrive('/dev/sdc').recommendedImage).to.be.deep.equal({
+              checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+              checksumType: 'md5',
+              recommendedDriveSize: 5000000000,
+              url: 'http://path.to/os/5gb.os.tar.gz'
+            });
+            m.chai.expect(findDrive('/dev/sde').recommendedImage).to.be.undefined;
+            m.chai.expect(findDrive('/dev/sdf').recommendedImage).to.be.deep.equal({
+              checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+              checksumType: 'md5',
+              recommendedDriveSize: 10000000000,
+              url: 'http://path.to/os/10gb.os.tar.gz'
+            });
           });
         });
 
