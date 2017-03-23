@@ -128,6 +128,82 @@ describe('Browser: MainPage', function() {
         m.chai.expect(controller.shouldFlashStepBeDisabled()).to.be.false;
       });
 
+      it('should return true when recommended OS image has being mapped to selected image', function() {
+        const controller = $controller('MainController', {
+          $scope: {}
+        });
+
+        SelectionStateModel.clear();
+
+        // by pooling every second, available drives is given
+        DrivesModel.setDrives([
+          {
+            device: '/dev/disk2',
+            description: 'Foo',
+            size: 99999,
+            mountpoint: '/mnt/foo',
+            system: false
+          }
+        ]);
+
+        // single drive is selected automatically
+        m.chai.expect(SelectionStateModel.hasDrive()).to.be.true;
+
+        // user selected an OS
+        SelectionStateModel.setOS({
+          name: 'Custom Operation System',
+          version: '1.0.0',
+          images: [
+            {
+              checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+              checksumType: 'md5',
+              recommendedDriveSize: 99999,
+              url: 'http://path.to/os/4gb.os.tar.gz'
+            }
+          ],
+          logo: 'http://path.to/image/logo'
+        });
+
+        // at this moment, recommended image is not mapped yet to every drive
+        m.chai.expect(controller.shouldFlashStepBeDisabled()).to.be.true;
+
+        // on the next second, available drives is given again
+        DrivesModel.setDrives([
+          {
+            device: '/dev/disk2',
+            description: 'Foo',
+            size: 99999,
+            mountpoint: '/mnt/foo',
+            system: false
+          }
+        ]);
+
+        // recommended image will be mapped on every drive
+        // single drive is selected automatically
+        m.chai.expect(SelectionStateModel.hasDrive()).to.be.true;
+
+        m.chai.expect(SelectionStateModel.getDrive().recommendedImage).to.be.deep.equal({
+          checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+          checksumType: 'md5',
+          recommendedDriveSize: 99999,
+          url: 'http://path.to/os/4gb.os.tar.gz'
+        });
+
+        // recommended image that has being mapped to the selected drive
+        // will be registered to selected image automatically
+        m.chai.expect(SelectionStateModel.getImage()).to.be.deep.equal({
+          path: 'http://path.to/os/4gb.os.tar.gz',
+          size: 99999,
+          logo: 'http://path.to/image/logo',
+          version: '1.0.0',
+          downloadChecksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+          downloadChecksumType: 'md5'
+        });
+
+        // thus, flash step should be enable
+        m.chai.expect(controller.shouldFlashStepBeDisabled()).to.be.false;
+      });
+
     });
 
   });
