@@ -1239,10 +1239,27 @@
       "from": "ms@0.7.2",
       "resolved": "https://registry.npmjs.org/ms/-/ms-0.7.2.tgz"
     },
+    "mt-downloader": {
+      "version": "2.2.2",
+      "from": "mt-downloader@latest",
+      "resolved": "https://registry.npmjs.org/mt-downloader/-/mt-downloader-2.2.2.tgz",
+      "dependencies": {
+        "graceful-fs": {
+          "version": "4.1.11",
+          "from": "graceful-fs@>=4.1.3 <5.0.0",
+          "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.1.11.tgz"
+        }
+      }
+    },
     "mute-stream": {
       "version": "0.0.5",
       "from": "mute-stream@0.0.5",
       "resolved": "https://registry.npmjs.org/mute-stream/-/mute-stream-0.0.5.tgz"
+    },
+    "muxer": {
+      "version": "1.0.1",
+      "from": "muxer@latest",
+      "resolved": "https://registry.npmjs.org/muxer/-/muxer-1.0.1.tgz"
     },
     "nan": {
       "version": "2.3.5",

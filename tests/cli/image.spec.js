@@ -20,27 +20,10 @@ const m = require('mochainon');
 const fs = require('fs');
 const path = require('path');
 const image = require('../../lib/cli/image');
-const utils = require('../../lib/cli/utils');
 const DATA_PATH = path.join(__dirname, 'data');
 const FILES_PATH = path.join(DATA_PATH, 'files');
 
 describe('CLI: Image', function() {
-
-  describe('.downloadImage()', function() {
-
-    it('should throw error for unsupported protocol type', function(done) {
-      const url = 'ftp://www.somedomain.net/file.img';
-      const localPath = path.join(FILES_PATH, 'file.img');
-      const progress = new utils.Progress(() => {
-        return null;
-      });
-
-      image.downloadImage(url, localPath, progress).catch(() => {
-        done();
-      });
-    });
-
-  });
 
   describe('.getImageFileSize()', function() {
 
@@ -58,61 +41,6 @@ describe('CLI: Image', function() {
       const invalidImagePath = path.join(FILES_PATH, 'invalid_path.img');
 
       image.getImageFileSize(invalidImagePath).catch(() => {
-        done();
-      });
-    });
-
-  });
-
-  describe('.verifyChecksum()', function() {
-
-    it('should return image path on success validation', function(done) {
-      const imagePath = path.join(FILES_PATH, 'raspberrypi.img');
-      const correctChecksum = 'df252f4323d637c05490f46faa2f3eae';
-      const progress = new utils.Progress(() => {
-        return null;
-      });
-
-      image.verifyChecksum(imagePath, correctChecksum, 'MD5', progress)
-        .then((result) => {
-          m.chai.expect(result).to.equal(imagePath);
-          done();
-        });
-
-    });
-
-    it('should throw error when invalid image path is given', function(done) {
-      const invalidImagePath = path.join(FILES_PATH, 'invalid_path.img');
-      const correctChecksum = 'df252f4323d637c05490f46faa2f3eae';
-      const progress = new utils.Progress(() => {
-        return null;
-      });
-
-      image.verifyChecksum(invalidImagePath, correctChecksum, 'MD5', progress).catch(() => {
-        done();
-      });
-    });
-
-    it('should throw error when invalid checksum type is given', function(done) {
-      const imagePath = path.join(FILES_PATH, 'raspberrypi.img');
-      const correctChecksum = 'df252f4323d637c05490f46faa2f3eae';
-      const progress = new utils.Progress(() => {
-        return null;
-      });
-
-      image.verifyChecksum(imagePath, correctChecksum, 'ABC', progress).catch(() => {
-        done();
-      });
-    });
-
-    it('should throw error when checksum does not match', function(done) {
-      const imagePath = path.join(FILES_PATH, 'raspberrypi.img');
-      const wrongChecksum = 'df252f4323d637c05490f46faa2f3abc';
-      const progress = new utils.Progress(() => {
-        return null;
-      });
-
-      image.verifyChecksum(imagePath, wrongChecksum, 'MD5', progress).catch(() => {
         done();
       });
     });
