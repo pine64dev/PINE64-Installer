@@ -577,6 +577,11 @@ describe('Shared: DriveConstraints', function() {
         this.drive.size = 99;
         m.chai.expect(constraints.isDriveValid(this.drive, {}, true)).to.be.false;
       });
+
+      it('should return false if the drive is locked', function() {
+        this.drive.protected = true;
+        m.chai.expect(constraints.isDriveValid(this.drive, {}, true)).to.be.false;
+      });
     });
 
   });
