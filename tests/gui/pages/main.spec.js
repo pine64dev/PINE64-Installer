@@ -206,6 +206,37 @@ describe('Browser: MainPage', function() {
 
     });
 
+    describe('.showDriveButtonLabel()', function() {
+      it('should set drive label as "Connect a drive" if drives is not available', function() {
+        const controller = $controller('MainController', {
+          $scope: {}
+        });
+
+        DrivesModel.setDrives([]);
+
+        m.chai.expect(controller.showDriveButtonLabel()).to.be.equal('Connect a drive');
+      });
+
+      it('should set drive label as "Select drive" if drives is available', function() {
+        const controller = $controller('MainController', {
+          $scope: {}
+        });
+
+        DrivesModel.setDrives([
+          {
+            device: '/dev/sdb',
+            name: 'Foo',
+            size: 2000000000,
+            mountpoint: '/mnt/foo',
+            system: true,
+            protected: false
+          }
+        ]);
+
+        m.chai.expect(controller.showDriveButtonLabel()).to.be.equal('Select drive');
+      });
+    });
+
   });
 
   describe('ImageSelectionController', function() {
