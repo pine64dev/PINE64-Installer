@@ -321,9 +321,8 @@
       "resolved": "https://registry.npmjs.org/esprima/-/esprima-2.7.2.tgz"
     },
     "etcher-image-write": {
-      "version": "9.0.0",
-      "from": "etcher-image-write@9.0.0",
-      "resolved": "https://registry.npmjs.org/etcher-image-write/-/etcher-image-write-9.0.0.tgz",
+      "version": "9.0.1",
+      "resolved": "https://github.com/pine64dev/etcher-image-write/tarball/9.0.1.1",
       "dependencies": {
         "isarray": {
           "version": "1.0.0",
@@ -1404,8 +1403,7 @@
     },
     "progress-stream": {
       "version": "1.2.0",
-      "from": "progress-stream@>=1.1.1 <2.0.0",
-      "resolved": "https://registry.npmjs.org/progress-stream/-/progress-stream-1.2.0.tgz"
+      "resolved": "https://github.com/pine64dev/progress-stream/tarball/v1.2.0.1"
     },
     "pseudomap": {
       "version": "1.0.2",
