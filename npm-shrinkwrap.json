@@ -322,7 +322,7 @@
     },
     "etcher-image-write": {
       "version": "9.0.1",
-      "resolved": "https://github.com/pine64dev/etcher-image-write/tarball/9.0.1.1",
+      "resolved": "https://github.com/pine64dev/etcher-image-write/releases/download/9.0.1.1/etcher-image-write-9.0.1.1-stripped.tgz",
       "dependencies": {
         "isarray": {
           "version": "1.0.0",
