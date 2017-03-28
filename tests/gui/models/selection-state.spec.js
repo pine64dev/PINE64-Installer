@@ -745,7 +745,25 @@ describe('Browser: SelectionState', function() {
               checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
               checksumType: 'md5',
               recommendedDriveSize: 4000000000,
-              url: 'http://path.to/os/os.tar.gz'
+              url: 'http://path.to/os/os.4gb.tar.gz'
+            },
+            {
+              checksum: '7b59f5efdb1bc2a9ea7f92adf3a91477',
+              checksumType: 'md5',
+              recommendedDriveSize: 2000000000,
+              url: 'http://path.to/os/os.2gb.tar.gz'
+            },
+            {
+              checksum: 'efc88c38dbba1ae202416c3330916549',
+              checksumType: 'md5',
+              recommendedDriveSize: 6000000000,
+              url: 'http://path.to/os/os.6gb.tar.gz'
+            },
+            {
+              checksum: 'aedba18eec9921a8fa4bee8bbf199b2b',
+              checksumType: 'md5',
+              recommendedDriveSize: 8000000000,
+              url: 'http://path.to/os/os.8gb.tar.gz'
             }
           ],
           logo: 'http://path.to/image/logo'
@@ -768,7 +786,25 @@ describe('Browser: SelectionState', function() {
                 checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
                 checksumType: 'md5',
                 recommendedDriveSize: 4000000000,
-                url: 'http://path.to/os/os.tar.gz'
+                url: 'http://path.to/os/os.4gb.tar.gz'
+              },
+              {
+                checksum: '7b59f5efdb1bc2a9ea7f92adf3a91477',
+                checksumType: 'md5',
+                recommendedDriveSize: 2000000000,
+                url: 'http://path.to/os/os.2gb.tar.gz'
+              },
+              {
+                checksum: 'efc88c38dbba1ae202416c3330916549',
+                checksumType: 'md5',
+                recommendedDriveSize: 6000000000,
+                url: 'http://path.to/os/os.6gb.tar.gz'
+              },
+              {
+                checksum: 'aedba18eec9921a8fa4bee8bbf199b2b',
+                checksumType: 'md5',
+                recommendedDriveSize: 8000000000,
+                url: 'http://path.to/os/os.8gb.tar.gz'
               }
             ],
             logo: 'http://path.to/image/logo'
@@ -800,6 +836,24 @@ describe('Browser: SelectionState', function() {
 
           m.chai.expect(SelectionStateModel.hasOS()).to.be.false;
           m.chai.expect(SelectionStateModel.getOS()).to.be.undefined;
+        });
+      });
+
+      describe('.getOSSmallestImage', function() {
+        it('should return the smallest image', function() {
+          m.chai.expect(SelectionStateModel.getOSSmallestImage()).to.be.deep.equal({
+            checksum: '7b59f5efdb1bc2a9ea7f92adf3a91477',
+            checksumType: 'md5',
+            recommendedDriveSize: 2000000000,
+            url: 'http://path.to/os/os.2gb.tar.gz'
+          });
+        });
+      });
+
+      describe('.getOSMinimumSize()', function() {
+
+        it('should return the smallest size of the image', function() {
+          m.chai.expect(SelectionStateModel.getOSMinimumSize()).to.be.equal(2000000000);
         });
       });
 
@@ -853,7 +907,25 @@ describe('Browser: SelectionState', function() {
                   checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
                   checksumType: 'md5',
                   recommendedDriveSize: 4000000000,
-                  url: 'http://path.to/os/os.tar.gz'
+                  url: 'http://path.to/os/os.4gb.tar.gz'
+                },
+                {
+                  checksum: '7b59f5efdb1bc2a9ea7f92adf3a91477',
+                  checksumType: 'md5',
+                  recommendedDriveSize: 2000000000,
+                  url: 'http://path.to/os/os.2gb.tar.gz'
+                },
+                {
+                  checksum: 'efc88c38dbba1ae202416c3330916549',
+                  checksumType: 'md5',
+                  recommendedDriveSize: 6000000000,
+                  url: 'http://path.to/os/os.6gb.tar.gz'
+                },
+                {
+                  checksum: 'aedba18eec9921a8fa4bee8bbf199b2b',
+                  checksumType: 'md5',
+                  recommendedDriveSize: 8000000000,
+                  url: 'http://path.to/os/os.8gb.tar.gz'
                 }
               ],
               logo: 'http://path.to/image/logo'

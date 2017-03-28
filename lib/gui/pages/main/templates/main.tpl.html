@@ -30,8 +30,9 @@
             </div>
             <div>
               <span ng-if="main.selection.getOSVersion()" class="step-image step-size">build {{ main.selection.getOSVersion() }}</span>
-              <span ng-if="main.selection.getOSVersion() && main.selection.getImageSize()"> | </span>
-              <span ng-show="main.selection.getImageSize()" class="step-image step-size">{{ main.selection.getImageSize() | gigabyte | number:1 }} GB</span>
+              <span> | </span>
+              <span ng-show="main.selection.getOSMinimumSize()" ng-hide="main.selection.hasDrive()" class="step-image step-size">&ge; {{ main.selection.getOSMinimumSize() | gigabyte | number:1 }} GB</span>
+              <span ng-show="main.selection.getImageSize()" ng-hide="main.selection.getOSMinimumSize()" class="step-image step-size">{{ main.selection.getImageSize() | gigabyte | number:1 }} GB</span>
             </div>
 
             <button class="button button-link step-footer"
