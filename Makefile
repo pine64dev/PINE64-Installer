@@ -255,7 +255,7 @@ endif
 $(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-$(TARGET_PLATFORM)-$(TARGET_ARCH)-rw.dmg: \
 	$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-darwin-$(TARGET_ARCH) \
 	| $(BUILD_DIRECTORY)
-	./scripts/build/electron-create-readwrite-dmg-darwin.sh -p $< -o $@ \
+	./scripts/build/electron-create-readwrite-dmg-darwin.sh -p "$<" -o "$@" \
 		-n "$(APPLICATION_DISPLAY_NAME)" \
 		-i assets/icon.icns \
 		-b assets/osx/installer.png
@@ -266,7 +266,7 @@ $(BUILD_OUTPUT_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-darwin-$(TA
 ifdef CODE_SIGN_IDENTITY
 	./scripts/build/electron-sign-app-darwin.sh -a "$</$(APPLICATION_DISPLAY_NAME).app" -i "$(CODE_SIGN_IDENTITY)"
 endif
-	./scripts/build/electron-installer-app-zip-darwin.sh -a "$</$(APPLICATION_DISPLAY_NAME).app" -o $@
+	./scripts/build/electron-installer-app-zip-darwin.sh -a "$</$(APPLICATION_DISPLAY_NAME).app" -o "$@"
 
 $(BUILD_OUTPUT_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-darwin-$(TARGET_ARCH).dmg: \
 	$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-$(TARGET_PLATFORM)-$(TARGET_ARCH)-rw.dmg \
@@ -277,12 +277,12 @@ ifdef CODE_SIGN_IDENTITY
 		-d $< \
 		-i "$(CODE_SIGN_IDENTITY)"
 endif
-	./scripts/build/electron-create-readonly-dmg-darwin.sh -d $< -o $@
+	./scripts/build/electron-create-readonly-dmg-darwin.sh -d "$<" -o "$@"
 
 $(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-linux-$(TARGET_ARCH).AppDir: \
 	$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-linux-$(TARGET_ARCH) \
 	| $(BUILD_DIRECTORY)
-	./scripts/build/electron-create-appdir.sh -p $< -o $@ \
+	./scripts/build/electron-create-appdir.sh -p "$<" -o "$@" \
 		-n "$(APPLICATION_DISPLAY_NAME)" \
 		-d "$(APPLICATION_DESCRIPTION)" \
 		-r "$(TARGET_ARCH)" \
@@ -292,25 +292,25 @@ $(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-linux-$(TARGET_ARC
 $(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-linux-$(TARGET_ARCH).AppImage: \
 	$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-linux-$(TARGET_ARCH).AppDir \
 	| $(BUILD_DIRECTORY) $(BUILD_TEMPORARY_DIRECTORY)
-	./scripts/build/electron-create-appimage-linux.sh -d $< -o $@ \
+	./scripts/build/electron-create-appimage-linux.sh -d "$<" -o "$@" \
 		-r "$(TARGET_ARCH)" \
 		-w "$(BUILD_TEMPORARY_DIRECTORY)"
 
 $(BUILD_OUTPUT_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-linux-$(TARGET_ARCH).zip: \
 	$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-linux-$(TARGET_ARCH).AppImage \
 	| $(BUILD_OUTPUT_DIRECTORY)
-	./scripts/build/electron-installer-appimage-zip.sh -i $< -o $@
+	./scripts/build/electron-installer-appimage-zip.sh -i "$<" -o "$@"
 
 $(BUILD_OUTPUT_DIRECTORY)/$(APPLICATION_NAME_LOWERCASE)-electron_$(APPLICATION_VERSION_DEBIAN)_$(TARGET_ARCH_DEBIAN).deb: \
 	$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-linux-$(TARGET_ARCH) \
 	| $(BUILD_OUTPUT_DIRECTORY)
-	./scripts/build/electron-installer-debian-linux.sh -p $< -r "$(TARGET_ARCH)" -o $| \
+	./scripts/build/electron-installer-debian-linux.sh -p "$<" -r "$(TARGET_ARCH)" -o "$|" \
 		-c scripts/build/debian/config.json
 
 $(BUILD_OUTPUT_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-win32-$(TARGET_ARCH).zip: \
 	$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-win32-$(TARGET_ARCH) \
 	| $(BUILD_OUTPUT_DIRECTORY)
-	./scripts/build/electron-installer-zip-win32.sh -a $< -o $@
+	./scripts/build/electron-installer-zip-win32.sh -a "$<" -o "$@"
 
 $(BUILD_OUTPUT_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-win32-$(TARGET_ARCH).exe: \
 	$(BUILD_DIRECTORY)/$(APPLICATION_NAME)-$(APPLICATION_VERSION)-win32-$(TARGET_ARCH) \
