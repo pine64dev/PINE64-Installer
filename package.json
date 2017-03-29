@@ -52,7 +52,7 @@
   ],
   "builder": {
     "win": {
-      "title": "PINE64-Etcher",
+      "title": "PINE64 Etcher",
       "version": "v2.0.0-beta.1",
       "publisher": "PINE64. Powered by Resin.io",
       "icon": "assets/icon.ico",
