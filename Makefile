@@ -20,7 +20,7 @@ BUILD_OUTPUT_DIRECTORY = $(BUILD_DIRECTORY)/out
 
 ELECTRON_VERSION = $(shell jq -r '.devDependencies["electron-prebuilt"]' package.json)
 COMPANY_NAME = $(shell jq -r '.companyName' package.json)
-APPLICATION_NAME = $(shell jq -r '.displayName' package.json)
+APPLICATION_NAME = $(shell jq -r '.name' package.json)
 APPLICATION_DESCRIPTION = $(shell jq -r '.description' package.json)
 APPLICATION_COPYRIGHT = $(shell jq -r '.copyright' package.json)
 APPLICATION_CATEGORY = public.app-category.developer-tools
