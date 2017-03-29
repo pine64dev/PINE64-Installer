@@ -102,10 +102,9 @@
           ng-disabled="main.shouldFlashStepBeDisabled() || main.state.getLastFlashErrorCode()">
             <span ng-bind="flash.getProgressButtonLabel()"></span>
         </progress-button>
-
         <p class="step-footer step-footer-split" ng-show="main.state.getFlashState().speed >= 0 && main.state.getFlashState().eta > 0">
-          <span>ETA: {{ flash.getDisplayETA(main.state.getFlashState().eta) }}</span>
-          <span ng-bind="flash.units.bytesToSize(main.state.getFlashState().speed) + ' /s'"></span>
+          <span ng-bind="flash.getProgressETALabel()"></span>
+          <span ng-bind="flash.getProgressSpeedLabel()"></span>
         </p>
       </div>
     </div>
