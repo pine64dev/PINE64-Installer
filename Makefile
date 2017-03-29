@@ -226,7 +226,7 @@ ifeq ($(TARGET_PLATFORM),darwin)
 endif
 ifeq ($(TARGET_PLATFORM),linux)
 	./scripts/build/electron-configure-package-linux.sh -p $(word 2,$^) -a $< \
-		-n "$(APPLICATION_DISPLAY_NAME)" \
+		-n "$(APPLICATION_NAME_LOWERCASE)" \
 		-v "$(APPLICATION_VERSION)" \
 		-l LICENSE \
 		-o $@
