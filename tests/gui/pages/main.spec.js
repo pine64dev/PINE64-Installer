@@ -204,6 +204,47 @@ describe('Browser: MainPage', function() {
         m.chai.expect(controller.shouldFlashStepBeDisabled()).to.be.false;
       });
 
+      it('should return false when recommended OS image has being mapped and single drive has being removed', function() {
+        const controller = $controller('MainController', {
+          $scope: {}
+        });
+
+        SelectionStateModel.clear();
+
+        // user selected an OS
+        SelectionStateModel.setOS({
+          name: 'Custom Operation System',
+          version: '1.0.0',
+          images: [
+            {
+              checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+              checksumType: 'md5',
+              recommendedDriveSize: 99999,
+              url: 'http://path.to/os/4gb.os.tar.gz'
+            }
+          ],
+          logo: 'http://path.to/image/logo'
+        });
+
+        // available drives is given
+        DrivesModel.setDrives([
+          {
+            device: '/dev/disk2',
+            description: 'Foo',
+            size: 99999,
+            mountpoint: '/mnt/foo',
+            system: false
+          }
+        ]);
+
+        m.chai.expect(controller.shouldFlashStepBeDisabled()).to.be.false;
+
+        // remove drive
+        DrivesModel.setDrives([]);
+
+        m.chai.expect(controller.shouldFlashStepBeDisabled()).to.be.true;
+      });
+
     });
 
     describe('.showDriveButtonLabel()', function() {
@@ -288,7 +329,7 @@ describe('Browser: MainPage', function() {
 
         beforeEach(function() {
           FlashStateModel.setFlashingFlag();
-          SettingsModel.set('unmountOnSuccess', true);
+          SettingsModel.set('unmountOnSuccess', false);
         });
 
         it('should report `Starting...` if type is other than `download`, `checksum`, `write` and `check`', function() {
@@ -394,6 +435,21 @@ describe('Browser: MainPage', function() {
           });
 
           m.chai.expect(controller.getProgressButtonLabel()).to.equal('50% Validating...');
+        });
+
+        it('should report `100% Validating...` if type = check and percentage = 100 with unmountOnSuccess = false', function() {
+          const controller = $controller('FlashController', {
+            $scope: {}
+          });
+
+          FlashStateModel.setProgressState({
+            type: 'check',
+            percentage: 100,
+            eta: 15,
+            speed: 100000000000000
+          });
+
+          m.chai.expect(controller.getProgressButtonLabel()).to.equal('100% Validating...');
         });
 
         it('should report `Unmounting` if type = check, percentage = 100 and unmountOnSuccess = true', function() {

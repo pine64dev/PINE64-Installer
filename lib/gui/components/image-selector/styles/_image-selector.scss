@@ -204,10 +204,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     svg{
       fill: #ffe400;
     }
+
     svg:hover{
+      fill: #fff;
+    }
+
+    .disabled{
+      opacity: 0.1;
       fill: #fff;
     }
   }
