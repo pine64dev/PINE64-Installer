@@ -839,7 +839,7 @@ describe('Browser: SelectionState', function() {
         });
       });
 
-      describe('.getOSSmallestImage', function() {
+      describe('.getOSSmallestImage()', function() {
         it('should return the smallest image', function() {
           m.chai.expect(SelectionStateModel.getOSSmallestImage()).to.be.deep.equal({
             checksum: '7b59f5efdb1bc2a9ea7f92adf3a91477',
