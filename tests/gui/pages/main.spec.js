@@ -329,7 +329,7 @@ describe('Browser: MainPage', function() {
 
         beforeEach(function() {
           FlashStateModel.setFlashingFlag();
-          SettingsModel.set('unmountOnSuccess', true);
+          SettingsModel.set('unmountOnSuccess', false);
         });
 
         it('should report `Starting...` if type is other than `download`, `checksum`, `write` and `check`', function() {
@@ -435,6 +435,21 @@ describe('Browser: MainPage', function() {
           });
 
           m.chai.expect(controller.getProgressButtonLabel()).to.equal('50% Validating...');
+        });
+
+        it('should report `100% Validating...` if type = check and percentage = 100 with unmountOnSuccess = false', function() {
+          const controller = $controller('FlashController', {
+            $scope: {}
+          });
+
+          FlashStateModel.setProgressState({
+            type: 'check',
+            percentage: 100,
+            eta: 15,
+            speed: 100000000000000
+          });
+
+          m.chai.expect(controller.getProgressButtonLabel()).to.equal('100% Validating...');
         });
 
         it('should report `Unmounting` if type = check, percentage = 100 and unmountOnSuccess = true', function() {
