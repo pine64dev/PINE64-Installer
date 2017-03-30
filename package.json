@@ -1,10 +1,10 @@
 {
-  "name": "pine64-etcher",
-  "displayName": "PINE64 Etcher",
+  "name": "pine64-installer",
+  "displayName": "PINE64 Installer",
   "version": "2.0.0-beta.1",
   "main": "lib/start.js",
   "description": "Flash PINE64 OS images to SD cards & USB drives, safely and easily.",
-  "productDescription": "PINE64 Etcher is a project forked from Resin.io Etcher. Etcher is a powerful OS image flasher built with web technologies to ensure flashing an SDCard or USB drive is a pleasant and safe experience. It protects you from accidentally writing to your hard-drives, ensures every byte of data was written correctly and much more.",
+  "productDescription": "PINE64 Installer is a project forked from Resin.io Etcher. Etcher is a powerful OS image flasher built with web technologies to ensure flashing an SDCard or USB drive is a pleasant and safe experience. It protects you from accidentally writing to your hard-drives, ensures every byte of data was written correctly and much more.",
   "homepage": "https://github.com/pine64dev/etcher",
   "repository": {
     "type": "git",
@@ -52,7 +52,7 @@
   ],
   "builder": {
     "win": {
-      "title": "PINE64 Etcher",
+      "title": "PINE64 Installer",
       "version": "v2.0.0-beta.1",
       "publisher": "PINE64. Powered by Resin.io",
       "icon": "assets/icon.ico",
