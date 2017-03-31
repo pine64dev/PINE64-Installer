@@ -473,6 +473,175 @@ describe('Browser: MainPage', function() {
 
     });
 
-  });
+    describe('.getProgressSpeedLabel()', function() {
 
+      it('should speed label empty if speed = -1', function() {
+        const controller = $controller('FlashController', {
+          $scope: {}
+        });
+
+        FlashStateModel.setProgressState({
+          type: 'download',
+          percentage: 50,
+          eta: 15,
+          speed: -1
+        });
+
+        m.chai.expect(controller.getProgressSpeedLabel()).to.be.empty;
+      });
+
+      it('should speed label contains `B` if speed > 0 ', function() {
+        const controller = $controller('FlashController', {
+          $scope: {}
+        });
+
+        FlashStateModel.setProgressState({
+          type: 'download',
+          percentage: 50,
+          eta: 15,
+          speed: 1
+        });
+
+        m.chai.expect(controller.getProgressSpeedLabel()).to.contain('B');
+      });
+
+      it('should speed label contains `B` if speed < 1000 ', function() {
+        const controller = $controller('FlashController', {
+          $scope: {}
+        });
+
+        FlashStateModel.setProgressState({
+          type: 'download',
+          percentage: 50,
+          eta: 15,
+          speed: 999
+        });
+
+        m.chai.expect(controller.getProgressSpeedLabel()).to.contain('B');
+      });
+
+      it('should speed label contains `KB` if speed >= 1000 ', function() {
+        const controller = $controller('FlashController', {
+          $scope: {}
+        });
+
+        FlashStateModel.setProgressState({
+          type: 'download',
+          percentage: 50,
+          eta: 15,
+          speed: 1000
+        });
+
+        m.chai.expect(controller.getProgressSpeedLabel()).to.contain('KB');
+      });
+
+      it('should speed label contains `KB` if speed < 1000000 ', function() {
+        const controller = $controller('FlashController', {
+          $scope: {}
+        });
+
+        FlashStateModel.setProgressState({
+          type: 'download',
+          percentage: 50,
+          eta: 15,
+          speed: 999999
+        });
+
+        m.chai.expect(controller.getProgressSpeedLabel()).to.contain('KB');
+      });
+
+      it('should speed label contains `MB` if speed >= 1000000 ', function() {
+        const controller = $controller('FlashController', {
+          $scope: {}
+        });
+
+        FlashStateModel.setProgressState({
+          type: 'download',
+          percentage: 50,
+          eta: 15,
+          speed: 1000000
+        });
+
+        m.chai.expect(controller.getProgressSpeedLabel()).to.contain('MB');
+      });
+
+      it('should speed label contains `MB` if speed < 1000000000 ', function() {
+        const controller = $controller('FlashController', {
+          $scope: {}
+        });
+
+        FlashStateModel.setProgressState({
+          type: 'download',
+          percentage: 50,
+          eta: 15,
+          speed: 999999999
+        });
+
+        m.chai.expect(controller.getProgressSpeedLabel()).to.contain('MB');
+      });
+    });
+
+    describe('.getProgressETALabel()', function() {
+
+      it('should eta label empty if eta <= 0', function() {
+        const controller = $controller('FlashController', {
+          $scope: {}
+        });
+
+        FlashStateModel.setProgressState({
+          type: 'download',
+          percentage: 50,
+          eta: 0,
+          speed: 0
+        });
+
+        m.chai.expect(controller.getProgressETALabel()).to.be.empty;
+      });
+
+      it('should eta label `ETA: 1s` if eta = 1', function() {
+        const controller = $controller('FlashController', {
+          $scope: {}
+        });
+
+        FlashStateModel.setProgressState({
+          type: 'download',
+          percentage: 50,
+          eta: 1,
+          speed: 0
+        });
+
+        m.chai.expect(controller.getProgressETALabel()).to.equal('ETA: 1s');
+      });
+
+      it('should eta label `ETA: 1m01s` if eta = 61', function() {
+        const controller = $controller('FlashController', {
+          $scope: {}
+        });
+
+        FlashStateModel.setProgressState({
+          type: 'download',
+          percentage: 50,
+          eta: 61,
+          speed: 0
+        });
+
+        m.chai.expect(controller.getProgressETALabel()).to.equal('ETA: 1m01s');
+      });
+
+      it('should eta label `ETA: 1h01m` if eta = 3700', function() {
+        const controller = $controller('FlashController', {
+          $scope: {}
+        });
+
+        FlashStateModel.setProgressState({
+          type: 'download',
+          percentage: 50,
+          eta: 3700,
+          speed: 0
+        });
+
+        m.chai.expect(controller.getProgressETALabel()).to.equal('ETA: 1h01m');
+      });
+    });
+  });
 });
