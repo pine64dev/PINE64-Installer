@@ -12,8 +12,8 @@ Prerequisites
 - [NodeJS](https://nodejs.org) (at least v6)
 - [Bower](http://bower.io)
 - [UPX](http://upx.sourceforge.net)
-- [Python](https://www.python.org)
-- [SCSS Lint](https://github.com/brigade/scss-lint/)
+- [Python 2.7.x](https://www.python.org)
+- [SCSS Lint](https://github.com/brigade/scss-lint/) (You need Ruby for this)
 - [jq](https://stedolan.github.io/jq/)
 - [Asar](https://github.com/electron/asar)
 - [Codespell](https://github.com/lucasdemarchi/codespell)
@@ -22,11 +22,12 @@ Prerequisites
 
 - [Rimraf](https://github.com/isaacs/rimraf)
 - [NSIS v2.51](http://nsis.sourceforge.net/Main_Page) (v3.x won't work)
-- [Visual Studio Community 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48146) (free) (other editions, like Professional and Enterprise, should work too)
+- [Visual Studio Community 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48146) (free) (other editions, like Professional and Enterprise, should work too) (To compile lzma-native module)
   - Visual Studio 2015 doesn't install C++ by default. You have to rerun the
     setup, select Modify and then check `Visual C++ -> Common Tools for Visual
     C++ 2015` (see http://stackoverflow.com/a/31955339)
-- [MinGW](http://www.mingw.org)
+  - Alternatively you can use [windows-build-tool](https://github.com/felixrieseberg/windows-build-tools).
+- [MinGW](http://www.mingw.org) (To run Makefile)
 
 The following MinGW packages are required:
 
@@ -81,5 +82,6 @@ npm start
 ### CLI
 
 ```sh
-node bin/etcher
+electron bin/etcher
 ```
+Use `electron` to run instead of `node` to ensure node version is compatible with the app.
