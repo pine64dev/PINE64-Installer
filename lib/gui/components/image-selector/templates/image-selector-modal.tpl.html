@@ -31,7 +31,7 @@
                 <h4 class="list-group-item-heading">{{ os.name }}</h4>
                 <p class="list-group-item-text">{{ os.description }}</p>
           </div>
-          <div class="list-group-item-ver" ng-show="{{ os.instructionsUrl == null && os.instructions == null }}">
+          <div class="list-group-item-ver" ng-show="{{ os.versions[0].version != null}}">
             <div class="btn-group" uib-dropdown keyboard-nav>
               <button id="simple-btn-keyboard-nav-browse" type="button" uib-dropdown-toggle>
                   <span class="button-text">build {{ modal.getCurrentOSVersion(os) || os.versions[0].version }}</span><span class="caret"></span>
