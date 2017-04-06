@@ -6628,6 +6628,9 @@ body {
     fill: #ffe400; }
   .modal-image-selector-modal .list-group-item-info-icon svg:hover {
     fill: #fff; }
+  .modal-image-selector-modal .list-group-item-info-icon .disabled {
+    opacity: 0.1;
+    fill: #fff; }
 
 .modal-image-selector-modal .list-group-item-label {
   flex-grow: 3; }
@@ -6636,7 +6639,7 @@ body {
 
 .modal-image-selector-modal .list-group-item-heading,
 .modal-image-selector-modal .list-group-item-text {
-  word-break: break-all; }
+  word-break: break-word; }
 
 .modal-image-selector-modal .list-group-loading {
   position: absolute;
@@ -6697,6 +6700,27 @@ body {
   width: 350px; }
 
 .modal-warning-modal .modal-title .glyphicon, .modal-warning-modal .modal-title .tick {
+  color: #d9534f; }
+
+/*
+ * Copyright 2016 resin.io
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.modal-instruction-modal .modal-content {
+  width: 350px; }
+
+.modal-instruction-modal .modal-title .glyphicon, .modal-instruction-modal .modal-title .tick {
   color: #d9534f; }
 
 /*
