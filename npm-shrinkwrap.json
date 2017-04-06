@@ -24,6 +24,12 @@
       "from": "angular-middle-ellipses@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/angular-middle-ellipses/-/angular-middle-ellipses-1.0.0.tgz"
     },
+    "angular-mocks": {
+      "version": "1.6.1",
+      "from": "angular-mocks@1.6.1",
+      "resolved": "https://registry.npmjs.org/angular-mocks/-/angular-mocks-1.6.1.tgz",
+      "dev": true
+    },
     "angular-moment": {
       "version": "1.0.1",
       "from": "angular-moment@1.0.1",
@@ -315,9 +321,8 @@
       "resolved": "https://registry.npmjs.org/esprima/-/esprima-2.7.2.tgz"
     },
     "etcher-image-write": {
-      "version": "9.0.0",
-      "from": "etcher-image-write@9.0.0",
-      "resolved": "https://registry.npmjs.org/etcher-image-write/-/etcher-image-write-9.0.0.tgz",
+      "version": "9.0.1",
+      "resolved": "https://github.com/pine64dev/etcher-image-write/releases/download/9.0.1.1/etcher-image-write-9.0.1.1-stripped.tgz",
       "dependencies": {
         "isarray": {
           "version": "1.0.0",
@@ -1233,10 +1238,27 @@
       "from": "ms@0.7.2",
       "resolved": "https://registry.npmjs.org/ms/-/ms-0.7.2.tgz"
     },
+    "mt-downloader": {
+      "version": "2.2.2",
+      "from": "mt-downloader@latest",
+      "resolved": "https://registry.npmjs.org/mt-downloader/-/mt-downloader-2.2.2.tgz",
+      "dependencies": {
+        "graceful-fs": {
+          "version": "4.1.11",
+          "from": "graceful-fs@>=4.1.3 <5.0.0",
+          "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.1.11.tgz"
+        }
+      }
+    },
     "mute-stream": {
       "version": "0.0.5",
       "from": "mute-stream@0.0.5",
       "resolved": "https://registry.npmjs.org/mute-stream/-/mute-stream-0.0.5.tgz"
+    },
+    "muxer": {
+      "version": "1.0.1",
+      "from": "muxer@latest",
+      "resolved": "https://registry.npmjs.org/muxer/-/muxer-1.0.1.tgz"
     },
     "nan": {
       "version": "2.3.5",
@@ -1247,6 +1269,20 @@
       "version": "1.1.1",
       "from": "node-cmd@>=1.1.1",
       "resolved": "https://registry.npmjs.org/node-cmd/-/node-cmd-1.1.1.tgz"
+    },
+    "node-gyp": {
+      "version": "3.5.0",
+      "from": "node-gyp@3.5.0",
+      "resolved": "https://registry.npmjs.org/node-gyp/-/node-gyp-3.5.0.tgz",
+      "dev": true,
+      "dependencies": {
+        "graceful-fs": {
+          "version": "4.1.11",
+          "from": "graceful-fs@>=4.1.2 <5.0.0",
+          "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.1.11.tgz",
+          "dev": true
+        }
+      }
     },
     "node-ipc": {
       "version": "8.9.2",
@@ -1367,8 +1403,7 @@
     },
     "progress-stream": {
       "version": "1.2.0",
-      "from": "progress-stream@>=1.1.1 <2.0.0",
-      "resolved": "https://registry.npmjs.org/progress-stream/-/progress-stream-1.2.0.tgz"
+      "resolved": "https://github.com/pine64dev/progress-stream/tarball/v1.2.0.1"
     },
     "pseudomap": {
       "version": "1.0.2",

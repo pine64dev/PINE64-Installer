@@ -72,7 +72,7 @@ fi
 
 unzip "$ARGV_ELECTRON_PACKAGE" -d "$ARGV_OUTPUT"
 
-mv $ARGV_OUTPUT/electron $ARGV_OUTPUT/$(echo "$ARGV_APPLICATION_NAME" | tr '[:upper:]' '[:lower:]')
+mv $ARGV_OUTPUT/electron "$ARGV_OUTPUT/$ARGV_APPLICATION_NAME"
 cp $ARGV_LICENSE $ARGV_OUTPUT/LICENSE
 echo "$ARGV_VERSION" > $ARGV_OUTPUT/version
 rm $ARGV_OUTPUT/resources/default_app.asar

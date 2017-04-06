@@ -4,16 +4,6 @@
   <div class="checkbox">
     <label>
       <input type="checkbox"
-        ng-model="settings.currentData.errorReporting"
-        ng-change="settings.model.set('errorReporting', settings.currentData.errorReporting)">
-
-      <span>Report errors</span>
-    </label>
-  </div>
-
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"
         ng-model="settings.currentData.unmountOnSuccess"
         ng-change="settings.model.set('unmountOnSuccess', settings.currentData.unmountOnSuccess)">
 
@@ -28,29 +18,26 @@
         on success
       </span>
     </label>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"
+          ng-model="settings.currentData.validateWriteOnSuccess"
+          ng-change="settings.model.set('validateWriteOnSuccess', settings.currentData.validateWriteOnSuccess)">
+
+        <span>Validate write on success</span>
+      </label>
+    </div>
   </div>
 
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"
-        ng-model="settings.currentData.validateWriteOnSuccess"
-        ng-change="settings.model.set('validateWriteOnSuccess', settings.currentData.validateWriteOnSuccess)">
-
-      <span>Validate write on success</span>
-    </label>
-  </div>
-
-  <h3 class="subtitle">Advanced</h3>
-
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"
-        ng-model="settings.currentData.unsafeMode"
-        ng-change="settings.enableDangerousSetting('unsafeMode', {
-          description: 'Are you sure you want to turn this on? You will be able to overwrite your system drives if you\'re not careful.',
-          confirmationLabel: 'Enable unsafe mode'
-        })">
-      <span>Unsafe mode <span class="label label-danger">Dangerous</span></span>
-    </label>
+  <div>
+    <label class="setting-label">Download location:</label>
+    <div class="input-group">
+      <input type="text" class="form-control" ng-model="settings.currentData.downloadPath" disabled>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="settings.selectDownloadLocation()">Change...</button>
+        <button class="btn btn-default" type="button" ng-click="settings.showDownloadLocation()"><i class="glyphicon glyphicon-folder-open"></i></button>
+      </span>
+    </div>
   </div>
 </div>

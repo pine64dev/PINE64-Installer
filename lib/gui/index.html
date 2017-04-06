@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Etcher</title>
+    <title>PINE64 Installer</title>
     <link rel="stylesheet" type="text/css" href="../../node_modules/flexboxgrid/dist/flexboxgrid.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/desktop.css">
@@ -11,25 +11,13 @@
     <!-- See https://github.com/visionmedia/debug#browser-support -->
     <script>window.localStorage.debug = '*';</script>
 
-    <script>
-      window._trackJs = {
-        token: '032448bc3d9e4cffb1e9b43d29d6c142',
-        application: 'etcher'
-      };
-    </script>
-    <script src="../../node_modules/trackjs/tracker.js"></script>
-
     <script src="./app.js"></script>
   </head>
   <body ng-app="Etcher">
     <header class="section-header" ng-controller="HeaderController as header">
-      <button class="button button-link" ng-click="header.openHelpPage()">
-        <span class="glyphicon glyphicon-question-sign"></span>
-      </button>
-
-      <button class="button button-link" ui-sref="settings" hide-if-state="settings">
-        <span class="glyphicon glyphicon-cog"></span>
-      </button>
+      <div hide-if-state="settings">
+        <img alt="Product logo" class="pine64" width="151" height="39" src="assets/pine64_logo.png" />
+      </div>
 
       <button class="button button-link" ui-sref="main" show-if-state="settings">
         <span class="glyphicon glyphicon-chevron-left"></span> Back
@@ -39,23 +27,15 @@
     <main class="wrapper" ui-view></main>
 
     <footer class="section-footer">
-      <svg-icon path="../../../assets/etcher.svg"
-        width="83px"
-        height="13px"
-        os-open-external="https://etcher.io?ref=etcher_footer"></svg-icon>
-
-      <span class="caption">
-        is <span class="caption" os-open-external="https://github.com/resin-io/etcher">an open source project</span> by
-      </span>
-
-      <svg-icon path="../../../assets/resin.svg"
-        width="79px"
-        height="23px"
-        os-open-external="https://resin.io?ref=etcher"></svg-icon>
-
-      <span class="caption footer-right"
-        manifest-bind="version"
-        os-open-external="https://github.com/resin-io/etcher/blob/master/CHANGELOG.md"></span>
+      <button class="footer-left button button-link" ui-sref="settings" hide-if-state="settings">
+        <span class="glyphicon glyphicon-cog"></span>
+      </button>
+      <div class="footer-right">
+        <span class="caption">Powered by </span><svg-icon path="../../../assets/etcher.svg"
+          width="83px"
+          height="13px"
+          os-open-external="https://etcher.io?ref=etcher_footer"></svg-icon>
+      </div>
     </footer>
   </body>
 </html>

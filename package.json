@@ -1,18 +1,20 @@
 {
-  "name": "etcher",
-  "displayName": "Etcher",
-  "version": "1.0.0-beta.19",
+  "name": "pine64-installer",
+  "displayName": "PINE64 Installer",
+  "version": "2.0.0-beta.1",
   "main": "lib/start.js",
-  "description": "Flash OS images to SD cards & USB drives, safely and easily.",
-  "productDescription": "Etcher is a powerful OS image flasher built with web technologies to ensure flashing an SDCard or USB drive is a pleasant and safe experience. It protects you from accidentally writing to your hard-drives, ensures every byte of data was written correctly and much more.",
-  "homepage": "https://github.com/resin-io/etcher",
+  "description": "Flash PINE64 OS images to SD cards & USB drives, safely and easily.",
+  "productDescription": "PINE64 Installer is a project forked from Resin.io Etcher. Etcher is a powerful OS image flasher built with web technologies to ensure flashing an SDCard or USB drive is a pleasant and safe experience. It protects you from accidentally writing to your hard-drives, ensures every byte of data was written correctly and much more.",
+  "homepage": "https://github.com/pine64dev/etcher",
   "repository": {
     "type": "git",
-    "url": "git@github.com:resin-io/etcher.git"
+    "url": "git@github.com:pine64dev/etcher.git"
   },
   "scripts": {
     "test": "npm run lint && electron-mocha --recursive --renderer tests/gui -R spec && electron-mocha --recursive tests/cli tests/shared tests/child-writer tests/image-stream -R spec",
     "sass": "node-sass ./lib/gui/scss/main.scss > ./lib/gui/css/main.css",
+    "build-css": "node-sass --include-path scss lib/gui/scss/main.scss lib/gui/css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "jslint": "eslint lib tests scripts bin versionist.conf.js",
     "scsslint": "scss-lint lib/gui/scss",
     "htmllint": "node scripts/html-lint.js",
@@ -22,10 +24,10 @@
     "start": "electron lib/start.js",
     "clean-shrinkwrap": "node ./scripts/clean-shrinkwrap.js"
   },
-  "author": "Juan Cruz Viotti <juan@resin.io>",
+  "author": "Juan Cruz Viotti <juan@resin.io>, PINE64 Developer <developer@pine64.org>",
   "license": "Apache-2.0",
-  "copyright": "Copyright 2016 Resinio Ltd",
-  "companyName": "Resinio Ltd",
+  "copyright": "Copyright 2016-2017 Resinio Ltd, 2017 PINE64",
+  "companyName": "Resinio Ltd and PINE64",
   "packageIgnore": [
     "LICENSE",
     "Makefile",
@@ -50,9 +52,9 @@
   ],
   "builder": {
     "win": {
-      "title": "Etcher",
-      "version": "v1.0.0-beta.19",
-      "publisher": "Resin.io",
+      "title": "PINE64 Installer",
+      "version": "v2.0.0-beta.1",
+      "publisher": "PINE64. Powered by Resin.io",
       "icon": "assets/icon.ico",
       "verbosity": 1
     }
@@ -75,9 +77,11 @@
     "chalk": "^1.1.3",
     "drivelist": "^5.0.14",
     "electron-is-running-in-asar": "^1.0.0",
+    "error": "^7.0.2",
     "etcher-image-write": "^9.0.0",
     "etcher-latest-version": "^1.0.0",
     "file-tail": "^0.3.0",
+    "filenamify": "^2.0.0",
     "flexboxgrid": "^6.3.0",
     "gzip-uncompressed-size": "^1.0.0",
     "immutable": "^3.8.1",
@@ -85,6 +89,8 @@
     "isstream": "^0.1.2",
     "lodash": "^4.5.1",
     "lzma-native": "^1.5.2",
+    "mt-downloader": "^2.2.2",
+    "muxer": "^1.0.1",
     "node-ipc": "^8.9.2",
     "node-stream-zip": "^1.3.4",
     "path-is-inside": "^1.0.2",
@@ -117,6 +123,7 @@
     "jsonfile": "^2.3.1",
     "mochainon": "^1.0.0",
     "node-sass": "^3.8.0",
+    "nodemon": "^1.11.0",
     "tmp": "0.0.31",
     "versionist": "^2.1.0"
   }

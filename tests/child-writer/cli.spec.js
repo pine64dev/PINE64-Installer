@@ -111,6 +111,52 @@ describe('ChildWriter CLI', function() {
       ]);
     });
 
+    it('should append download-location, checksum, and checksum-type when they are specified', function() {
+      m.chai.expect(cli.getArguments({
+        image: 'path/to/image.img',
+        device: '/dev/disk2',
+        entryPoint: 'path/to/app.asar',
+        validateWriteOnSuccess: true,
+        unmountOnSuccess: true,
+        downloadLocation: '/path/to/save',
+        checksum: 'ABCDEFG123456',
+        checksumType: 'md5'
+      })).to.deep.equal([
+        'path/to/app.asar',
+        'path/to/image.img',
+        '--drive',
+        '/dev/disk2',
+        '--unmount',
+        '--check',
+        '--download-location',
+        '/path/to/save',
+        '--checksum',
+        'ABCDEFG123456',
+        '--checksum-type',
+        'md5'
+      ]);
+    });
+
+    it('should not append download-location, checksum, and checksum-type if they are empty value', function() {
+      m.chai.expect(cli.getArguments({
+        image: 'path/to/image.img',
+        device: '/dev/disk2',
+        entryPoint: 'path/to/app.asar',
+        validateWriteOnSuccess: true,
+        unmountOnSuccess: true,
+        downloadLocation: '',
+        checksum: null,
+        checksumType: undefined
+      })).to.deep.equal([
+        'path/to/app.asar',
+        'path/to/image.img',
+        '--drive',
+        '/dev/disk2',
+        '--unmount',
+        '--check'
+      ]);
+    });
+
   });
 
 });

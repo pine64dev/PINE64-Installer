@@ -79,6 +79,18 @@ describe('Browser: SelectionState', function() {
         m.chai.expect(hasImage).to.be.false;
       });
 
+      it('getOS should return undefined', function() {
+        m.chai.expect(SelectionStateModel.getOS()).to.be.undefined;
+      });
+
+      it('getOSVersion should return undefined', function() {
+        m.chai.expect(SelectionStateModel.getOSVersion()).to.be.undefined;
+      });
+
+      it('hasOS() should return false', function() {
+        m.chai.expect(SelectionStateModel.hasOS()).to.be.false;
+      });
+
     });
 
     describe('given a drive', function() {
@@ -718,6 +730,314 @@ describe('Browser: SelectionState', function() {
           m.chai.expect(SelectionStateModel.getDrive()).to.deep.equal(drive);
         });
 
+      });
+
+    });
+
+    describe('given an OS', function() {
+
+      beforeEach(function() {
+        SelectionStateModel.setOS({
+          name: 'Custom Operation System',
+          version: '1.0.0',
+          images: [
+            {
+              checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+              checksumType: 'md5',
+              recommendedDriveSize: 4000000000,
+              url: 'http://path.to/os/os.4gb.tar.gz'
+            },
+            {
+              checksum: '7b59f5efdb1bc2a9ea7f92adf3a91477',
+              checksumType: 'md5',
+              recommendedDriveSize: 2000000000,
+              url: 'http://path.to/os/os.2gb.tar.gz'
+            },
+            {
+              checksum: 'efc88c38dbba1ae202416c3330916549',
+              checksumType: 'md5',
+              recommendedDriveSize: 6000000000,
+              url: 'http://path.to/os/os.6gb.tar.gz'
+            },
+            {
+              checksum: 'aedba18eec9921a8fa4bee8bbf199b2b',
+              checksumType: 'md5',
+              recommendedDriveSize: 8000000000,
+              url: 'http://path.to/os/os.8gb.tar.gz'
+            }
+          ],
+          logo: 'http://path.to/image/logo'
+        });
+      });
+
+      describe('.hasOS()', function() {
+        it('should return true', function() {
+          m.chai.expect(SelectionStateModel.hasOS()).to.be.true;
+        });
+      });
+
+      describe('.getOS()', function() {
+        it('should return the selected OS', function() {
+          m.chai.expect(SelectionStateModel.getOS()).to.be.deep.equal({
+            name: 'Custom Operation System',
+            version: '1.0.0',
+            images: [
+              {
+                checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+                checksumType: 'md5',
+                recommendedDriveSize: 4000000000,
+                url: 'http://path.to/os/os.4gb.tar.gz'
+              },
+              {
+                checksum: '7b59f5efdb1bc2a9ea7f92adf3a91477',
+                checksumType: 'md5',
+                recommendedDriveSize: 2000000000,
+                url: 'http://path.to/os/os.2gb.tar.gz'
+              },
+              {
+                checksum: 'efc88c38dbba1ae202416c3330916549',
+                checksumType: 'md5',
+                recommendedDriveSize: 6000000000,
+                url: 'http://path.to/os/os.6gb.tar.gz'
+              },
+              {
+                checksum: 'aedba18eec9921a8fa4bee8bbf199b2b',
+                checksumType: 'md5',
+                recommendedDriveSize: 8000000000,
+                url: 'http://path.to/os/os.8gb.tar.gz'
+              }
+            ],
+            logo: 'http://path.to/image/logo'
+          });
+        });
+      });
+
+      describe('.getOSVersion()', function() {
+        it('should return current selected OS version', function() {
+          m.chai.expect(SelectionStateModel.getOSVersion()).to.be.equal('1.0.0');
+        });
+      });
+
+      describe('.getImageName()', function() {
+        it('should return current selected OS name', function() {
+          m.chai.expect(SelectionStateModel.getImageName()).to.be.equal('Custom Operation System');
+        });
+      });
+
+      describe('.getImageLogo()', function() {
+        it('should return current selected OS logo path', function() {
+          m.chai.expect(SelectionStateModel.getImageLogo()).to.be.equal('http://path.to/image/logo');
+        });
+      });
+
+      describe('.removeOS()', function() {
+        it('should remove current selected OS', function() {
+          SelectionStateModel.removeOS();
+
+          m.chai.expect(SelectionStateModel.hasOS()).to.be.false;
+          m.chai.expect(SelectionStateModel.getOS()).to.be.undefined;
+        });
+      });
+
+      describe('.getOSSmallestImage()', function() {
+        it('should return the smallest image', function() {
+          m.chai.expect(SelectionStateModel.getOSSmallestImage()).to.be.deep.equal({
+            checksum: '7b59f5efdb1bc2a9ea7f92adf3a91477',
+            checksumType: 'md5',
+            recommendedDriveSize: 2000000000,
+            url: 'http://path.to/os/os.2gb.tar.gz'
+          });
+        });
+      });
+
+      describe('.getOSMinimumSize()', function() {
+
+        it('should return the smallest size of the image', function() {
+          m.chai.expect(SelectionStateModel.getOSMinimumSize()).to.be.equal(2000000000);
+        });
+      });
+
+      describe('given a drive', function() {
+        beforeEach(function() {
+          DrivesModel.setDrives([
+            {
+              device: '/dev/disk1',
+              name: 'USB Drive',
+              size: 4000000000,
+              protected: false
+            }
+          ]);
+
+          SelectionStateModel.setDrive('/dev/disk1');
+        });
+
+        describe('.clear()', function() {
+
+          it('should clear all selections', function() {
+            m.chai.expect(SelectionStateModel.hasDrive()).to.be.true;
+            m.chai.expect(SelectionStateModel.hasOS()).to.be.true;
+
+            SelectionStateModel.clear();
+
+            m.chai.expect(SelectionStateModel.hasDrive()).to.be.false;
+            m.chai.expect(SelectionStateModel.hasOS()).to.be.false;
+          });
+
+        });
+
+        describe('given the preserveImage option', function() {
+
+          beforeEach(function() {
+            SelectionStateModel.clear({
+              preserveImage: true
+            });
+          });
+
+          it('getDrive() should return undefined', function() {
+            const drive = SelectionStateModel.getDrive();
+            m.chai.expect(drive).to.be.undefined;
+          });
+
+          it('getOS() should return previous selected OS', function() {
+            m.chai.expect(SelectionStateModel.getOS()).to.be.deep.equal({
+              name: 'Custom Operation System',
+              version: '1.0.0',
+              images: [
+                {
+                  checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+                  checksumType: 'md5',
+                  recommendedDriveSize: 4000000000,
+                  url: 'http://path.to/os/os.4gb.tar.gz'
+                },
+                {
+                  checksum: '7b59f5efdb1bc2a9ea7f92adf3a91477',
+                  checksumType: 'md5',
+                  recommendedDriveSize: 2000000000,
+                  url: 'http://path.to/os/os.2gb.tar.gz'
+                },
+                {
+                  checksum: 'efc88c38dbba1ae202416c3330916549',
+                  checksumType: 'md5',
+                  recommendedDriveSize: 6000000000,
+                  url: 'http://path.to/os/os.6gb.tar.gz'
+                },
+                {
+                  checksum: 'aedba18eec9921a8fa4bee8bbf199b2b',
+                  checksumType: 'md5',
+                  recommendedDriveSize: 8000000000,
+                  url: 'http://path.to/os/os.8gb.tar.gz'
+                }
+              ],
+              logo: 'http://path.to/image/logo'
+            });
+          });
+
+          it('hasDrive() should return false', function() {
+            const hasDrive = SelectionStateModel.hasDrive();
+            m.chai.expect(hasDrive).to.be.false;
+          });
+
+          it('hasOS() should return true', function() {
+            m.chai.expect(SelectionStateModel.hasOS()).to.be.true;
+          });
+
+        });
+
+      });
+
+      describe('given 2 drives and /dev/disk1 as selected drive', function() {
+        beforeEach(function() {
+          DrivesModel.setDrives([
+            {
+              device: '/dev/disk1',
+              name: 'USB Drive',
+              size: 4000000000,
+              protected: false
+            },
+            {
+              device: '/dev/disk2',
+              name: 'USB Drive 2',
+              size: 8000000000,
+              protected: false
+            }
+          ]);
+
+          SelectionStateModel.setDrive('/dev/disk1');
+        });
+
+        it('should able to map each drive with correct image', function() {
+          m.chai.expect(DrivesModel.getDrives()[0].recommendedImage).to.be.deep.equal({
+            checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+            checksumType: 'md5',
+            recommendedDriveSize: 4000000000,
+            url: 'http://path.to/os/os.4gb.tar.gz'
+          });
+          m.chai.expect(DrivesModel.getDrives()[1].recommendedImage).to.be.deep.equal({
+            checksum: 'aedba18eec9921a8fa4bee8bbf199b2b',
+            checksumType: 'md5',
+            recommendedDriveSize: 8000000000,
+            url: 'http://path.to/os/os.8gb.tar.gz'
+          });
+        });
+
+        it('should able to map correct image to selection image', function() {
+          m.chai.expect(SelectionStateModel.getImage()).to.be.deep.equal({
+            path: 'http://path.to/os/os.4gb.tar.gz',
+            size: 4000000000,
+            logo: 'http://path.to/image/logo',
+            version: '1.0.0',
+            downloadChecksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+            downloadChecksumType: 'md5'
+          });
+        });
+
+        it('should able to map correct image when select another drive (/dev/disk2)', function() {
+          m.chai.expect(SelectionStateModel.getImage().downloadChecksum).to.be.equal('e5b4ee5f5acf2613b197fe1edf29a80c');
+
+          SelectionStateModel.setDrive('/dev/disk2');
+
+          m.chai.expect(SelectionStateModel.getImage()).to.be.deep.equal({
+            path: 'http://path.to/os/os.8gb.tar.gz',
+            size: 8000000000,
+            logo: 'http://path.to/image/logo',
+            version: '1.0.0',
+            downloadChecksum: 'aedba18eec9921a8fa4bee8bbf199b2b',
+            downloadChecksumType: 'md5'
+          });
+        });
+
+        it('should able to map correct image while selected drive has being removed', function() {
+          DrivesModel.setDrives([
+            {
+              device: '/dev/disk2',
+              name: 'USB Drive 2',
+              size: 8000000000,
+              protected: false
+            }
+          ]);
+
+          m.chai.expect(SelectionStateModel.getDrive()).to.be.deep.equal({
+            device: '/dev/disk2',
+            name: 'USB Drive 2',
+            size: 8000000000,
+            protected: false,
+            recommendedImage: {
+              checksum: 'aedba18eec9921a8fa4bee8bbf199b2b',
+              checksumType: 'md5',
+              recommendedDriveSize: 8000000000,
+              url: 'http://path.to/os/os.8gb.tar.gz'
+            }
+          });
+
+          m.chai.expect(SelectionStateModel.getImage()).to.be.deep.equal({
+            path: 'http://path.to/os/os.8gb.tar.gz',
+            size: 8000000000,
+            logo: 'http://path.to/image/logo',
+            version: '1.0.0',
+            downloadChecksum: 'aedba18eec9921a8fa4bee8bbf199b2b',
+            downloadChecksumType: 'md5'
+          });
+        });
       });
 
     });
