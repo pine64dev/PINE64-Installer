@@ -6724,6 +6724,9 @@ body {
 .modal-instruction-modal .modal-title .glyphicon, .modal-instruction-modal .modal-title .tick {
   color: #d9534f; }
 
+.modal-instruction-modal .modal-body {
+  color: #f4f4f4; }
+
 /*
  * Copyright 2016 resin.io
  *
