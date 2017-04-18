@@ -60,6 +60,14 @@ body {
     font-size: 10px;
     margin-left: auto;
   }
+
+  .button {
+    &[disabled] {
+      @extend .button-no-hover;
+      background-color: $palette-theme-dark-background;
+      color: $palette-theme-dark-disabled-foreground;
+    }
+  }
 }
 
 .wrapper {

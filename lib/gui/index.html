@@ -26,8 +26,8 @@
 
     <main class="wrapper" ui-view></main>
 
-    <footer class="section-footer">
-      <button class="footer-left button button-link" ui-sref="settings" hide-if-state="settings">
+    <footer class="section-footer" ng-controller="FooterController as footer">
+      <button class="footer-left button button-link" ui-sref="settings" ng-disabled="footer.shouldSettingBeDisabled()" hide-if-state="settings">
         <span class="glyphicon glyphicon-cog"></span>
       </button>
       <div class="footer-right">

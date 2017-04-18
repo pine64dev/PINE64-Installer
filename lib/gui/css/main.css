@@ -6141,7 +6141,7 @@ body {
   display: block;
   width: 100%; }
 
-.button-no-hover, .button[disabled], [disabled].progress-button, .progress-button[active="true"] {
+.button-no-hover, .button[disabled], [disabled].progress-button, .progress-button[active="true"], .section-footer .button[disabled], .section-footer [disabled].progress-button {
   pointer-events: none; }
 
 .button-default,
@@ -6954,6 +6954,9 @@ body {
     display: flex;
     font-size: 10px;
     margin-left: auto; }
+  .section-footer .button[disabled], .section-footer [disabled].progress-button {
+    background-color: #161414;
+    color: #787c7f; }
 
 .wrapper {
   height: 100%;
