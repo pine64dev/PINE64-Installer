@@ -6,7 +6,8 @@
           <img alt="Tick" class="" src="assets/tick.svg"/>
           <div>
             <h3 class="title">Flash Complete!</h3>
-            <p class="description space-vertical-small" ng-show="finish.settings.currentData.unmountOnSuccess">Safely ejected and ready for use</p>
+            <p class="description space-vertical-small" ng-show="finish.settings.currentData.unmountOnSuccess && finish.settings.platform == 'win32'">Safely ejected and ready for use</p>
+            <p class="description space-vertical-small" ng-show="finish.settings.currentData.unmountOnSuccess && finish.settings.platform != 'win32'">Safely unmounted and ready for use</p>
             <p class="description space-vertical-small" ng-hide="finish.settings.currentData.unmountOnSuccess">Ready for use</p>
           </div>
         </div>
