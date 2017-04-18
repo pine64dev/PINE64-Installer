@@ -6825,7 +6825,7 @@ body {
   color: #787c7f; }
 
 .page-main .step-size {
-  color: #313339;
+  color: #4c4c4c;
   font-size: 14px; }
 
 .page-main .step-margin {
@@ -6916,6 +6916,7 @@ body {
   text-align: left; }
 
 .page-finish .description {
+  text-align: left;
   color: #5a5a5a; }
 
 .page-finish .button-label {
