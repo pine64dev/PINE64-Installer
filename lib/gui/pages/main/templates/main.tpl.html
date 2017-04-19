@@ -28,13 +28,13 @@
                 ng-bind="main.selection.getImageName() || main.selection.getImagePath() | basename | middleEllipses:23"
                 uib-tooltip="{{ main.selection.getImagePath() || main.selection.getImageName() | basename }}"></span>
             </div>
-            <div>
+            <div ng-show="main.selection.hasOS()">
               <span ng-if="main.selection.getOSVersion()" class="step-image step-size">build {{ main.selection.getOSVersion() }}</span>
-              <span> | </span>
-              <span ng-show="main.selection.getOSMinimumSize()" ng-hide="main.selection.getImageSize()" class="step-image step-size">&ge; {{ main.selection.getOSMinimumSize() | gigabyte | number:1 }} GB</span>
-              <span ng-show="main.selection.getImageSize()" ng-hide="!main.selection.hasDrive()" class="step-image step-size">{{ main.selection.getImageSize() | gigabyte | number:1 }} GB</span>
+              <span ng-show="main.selection.getImageSize()" class="step-image step-size"> | {{ main.selection.getImageSize() | gigabyte | number:1 }} GB</span>
             </div>
-
+            <div ng-show="!main.selection.hasOS()">
+              <span class="step-image step-size invisible">#</span>
+            </div>
             <button class="button button-link step-footer"
               ng-click="image.reselectImage()"
               ng-hide="main.state.isFlashing()">Change</button>
@@ -62,6 +62,9 @@
                 ng-disabled="main.shouldDriveStepBeDisabled()"
                 ng-click="drive.openDriveSelector()"
                 ng-bind="main.showDriveButtonLabel()"></button>
+              <div ng-show="main.selection.hasOS() && !main.selection.hasDrive()" class="step-footer">
+                Require more than {{ main.selection.getOSMinimumSize() | gigabyte | number:1 }} GB
+              </div>
           </div>
 
         </div>
