@@ -17,6 +17,7 @@
     <header class="section-header" ng-controller="HeaderController as header">
       <div hide-if-state="settings">
         <img alt="Product logo" class="pine64" width="151" height="39" src="assets/pine64_logo.png" />
+        <p>{{header.getVersion()}}</p>
       </div>
 
       <button class="button button-link" ui-sref="main" show-if-state="settings">
