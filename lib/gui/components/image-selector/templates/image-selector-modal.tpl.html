@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="list-group-item-info-icon">
-            <svg-icon class="{{ os.releaseNotesUrl ? '' : 'disabled' }}" path="../../../assets/info.svg" width="20px" height="20px" os-open-external="{{ os.releaseNotesUrl }}"></svg-icon>
+            <svg-icon uib-tooltip="Info" class="{{ os.releaseNotesUrl ? '' : 'disabled' }}" path="../../../assets/info.svg" width="20px" height="20px" os-open-external="{{ os.releaseNotesUrl }}"></svg-icon>
           </div>
         </li>
         <li class="list-group-item" ng-click="modal.browseLocalImage()">
