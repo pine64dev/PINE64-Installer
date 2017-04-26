@@ -321,13 +321,17 @@
       "resolved": "https://registry.npmjs.org/esprima/-/esprima-2.7.2.tgz"
     },
     "etcher-image-write": {
-      "version": "9.0.1",
-      "resolved": "https://github.com/pine64dev/etcher-image-write/releases/download/9.0.1.1/etcher-image-write-9.0.1.1-stripped.tgz",
+      "version": "9.1.2",
+      "resolved": "https://github.com/pine64dev/etcher-image-write/releases/download/9.1.2-mod.1/etcher-image-write-9.1.2-mod.1-stripped.tgz",
       "dependencies": {
         "isarray": {
           "version": "1.0.0",
           "from": "isarray@~1.0.0",
           "resolved": "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
+        },
+        "progress-stream": {
+          "version": "2.0.0",
+          "resolved": "https://github.com/pine64dev/progress-stream/tarball/v2.0.0-mod.1"
         },
         "readable-stream": {
           "version": "2.2.2",
@@ -1402,8 +1406,8 @@
       "resolved": "https://registry.npmjs.org/progress-bar-formatter/-/progress-bar-formatter-2.0.1.tgz"
     },
     "progress-stream": {
-      "version": "1.2.0",
-      "resolved": "https://github.com/pine64dev/progress-stream/tarball/v1.2.0.1"
+      "version": "2.0.0",
+      "resolved": "https://github.com/pine64dev/progress-stream/tarball/v2.0.0-mod.1"
     },
     "pseudomap": {
       "version": "1.0.2",
