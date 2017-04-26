@@ -279,7 +279,7 @@
     "drivelist": {
       "version": "5.0.19",
       "from": "drivelist@5.0.19",
-      "resolved": "https://github.com/pine64dev/drivelist/archive/v5.0.19.tar.gz",
+      "resolved": "https://github.com/pine64dev/drivelist/archive/5.0.19.tar.gz",
       "dependencies": {
         "lodash": {
           "version": "4.17.4",
