@@ -40,4 +40,17 @@
       </span>
     </div>
   </div>
+  <div>
+    <label class="setting-label">Download Sources:</label>
+    <div class="btn-group dropdown-block" uib-dropdown keyboard-nav ng-init="settings.init()">
+        <button id="simple-btn-keyboard-nav" type="button" uib-dropdown-toggle>
+            {{ settings.currentData.downloadSource ? settings.getMirrorName(settings.currentData.downloadSource) : 'Default Server (United States)' }}<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+            <li role="menuitem"
+              ng-repeat="mirror in settings.mirrors"
+              ng-click="settings.selectDownloadSource(mirror.os)"><a href="#!/settings">{{mirror.name}}</a></li>
+        </ul>
+    </div>
+  </div>
 </div>
