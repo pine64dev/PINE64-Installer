@@ -18,7 +18,7 @@ Prerequisites
 - [Asar](https://github.com/electron/asar)
 - [Codespell](https://github.com/lucasdemarchi/codespell)
 
-* Tested working on NodeJS v6.10.0, NPM v3.10.10.
+Tested working on NodeJS v6.10.0, NPM v3.10.10.
 
 ### Windows
 
