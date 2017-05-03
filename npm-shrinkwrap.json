@@ -277,9 +277,9 @@
       "resolved": "https://registry.npmjs.org/dev-null-stream/-/dev-null-stream-0.0.1.tgz"
     },
     "drivelist": {
-      "version": "5.0.19",
-      "from": "drivelist@5.0.19",
-      "resolved": "https://github.com/pine64dev/drivelist/archive/5.0.19.tar.gz",
+      "version": "5.0.20",
+      "from": "drivelist@5.0.20",
+      "resolved": "https://github.com/pine64dev/drivelist/archive/5.0.20.tar.gz",
       "dependencies": {
         "lodash": {
           "version": "4.17.4",
