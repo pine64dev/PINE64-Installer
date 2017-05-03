@@ -90,4 +90,36 @@ describe('CLI: Utils', function() {
 
   });
 
+  describe('.extractHostnameFromURL()', function() {
+
+    it('should extract host name given ordinary http link', function() {
+      m.chai.expect(utils.extractHostnameFromURL('http://www.test.url/file.img')).to.equal('www.test.url');
+    });
+
+    it('should extract host name given ordinary http link with port number', function() {
+      m.chai.expect(utils.extractHostnameFromURL('http://www.test.url:80/file.img')).to.equal('www.test.url');
+    });
+
+    it('should extract host name given ordinary https link', function() {
+      m.chai.expect(utils.extractHostnameFromURL('https://www.test.url/file.img')).to.equal('www.test.url');
+    });
+
+    it('should extract host name given link without protocol', function() {
+      m.chai.expect(utils.extractHostnameFromURL('/www.test.url/file.txt#args')).to.equal('www.test.url');
+    });
+
+    it('should extract host name given link with double slash protocol', function() {
+      m.chai.expect(utils.extractHostnameFromURL('//www.test.url/file.txt#args')).to.equal('www.test.url');
+    });
+
+    it('should extract host name given string without domain', function() {
+      m.chai.expect(_.partial(utils.extractHostnameFromURL, '//')).to.throw(Error);
+    });
+
+    it('should escape characters for invalid characters for host name', function() {
+      m.chai.expect(utils.extractHostnameFromURL('https://www<test>url/.av.<>:"|*zip?args=123')).to.equal('www!test!url');
+    });
+
+  });
+
 });

@@ -22,7 +22,7 @@ const utils = require('../../lib/cli/utils');
 const DATA_PATH = path.join(__dirname, 'data');
 const FILES_PATH = path.join(DATA_PATH, 'files');
 
-describe('CLI: Image', function() {
+describe('CLI: Checksum', function() {
 
   describe('.verify()', function() {
 
