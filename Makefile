@@ -30,7 +30,7 @@ APPLICATION_FILES = lib,assets
 S3_BUCKET = resin-production-downloads
 
 # Add the current commit to the version if release type is "snapshot"
-RELEASE_TYPE ?= snapshot
+RELEASE_TYPE ?= production
 PACKAGE_JSON_VERSION = $(shell jq -r '.version' package.json)
 ifeq ($(RELEASE_TYPE),production)
 APPLICATION_VERSION = $(PACKAGE_JSON_VERSION)
