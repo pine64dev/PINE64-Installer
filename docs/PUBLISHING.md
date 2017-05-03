@@ -1,16 +1,16 @@
-Publishing Etcher
-=================
+Publishing PINE64 Installer
+===========================
 
-This is a small guide to package and publish Etcher to all supported operating
-systems.
+This is a small guide to package and publish PINE64 Installer to all supported
+operating systems.
 
 Signing
 -------
 
 ### OS X
 
-1. Get our Apple Developer ID certificate for signing applications distributed
-outside the Mac App Store from the resin.io Apple account.
+1. Get Apple Developer ID certificate for signing applications distributed
+outside the Mac App Store from the Apple account.
 
 2. Install the Developer ID certificate to your Mac's Keychain by double
 clicking on the certificate file.
@@ -20,11 +20,14 @@ packaging for OS X.
 
 ### Windows
 
-1. Get access to our code signing certificate and decryption key as a resin.io
-employee by asking for it from the relevant people.
+1. Get access to our code signing certificate and decryption key
+from the relevant people.
 
 2. Place the certificate in the root of the Etcher repository naming it
 `certificate.p12`.
+
+3. Add `CODE_SIGN_CERTIFICATE = certificate.p12` and
+`CODE_SIGN_CERTIFICATE_PASSWORD = [PASSWORD]` on the beginning of `Makefile`.
 
 Packaging
 ---------
@@ -61,7 +64,7 @@ make electron-installer-zip
 make electron-installer-nsis
 ```
 
-The resulting installers will be saved to `etcher-release/installers`.
+The resulting installers will be saved to `release/out`.
 
 Publishing to Bintray
 ---------------------

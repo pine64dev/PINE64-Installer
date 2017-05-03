@@ -322,7 +322,7 @@
     },
     "etcher-image-write": {
       "version": "9.1.2",
-      "resolved": "https://github.com/pine64dev/etcher-image-write/releases/download/9.1.2-mod.1/etcher-image-write-9.1.2-mod.1-stripped.tgz",
+      "resolved": "https://github.com/pine64dev/etcher-image-write/releases/download/9.1.2-mod.2/etcher-image-write-9.1.2-mod.2-stripped.tgz",
       "dependencies": {
         "isarray": {
           "version": "1.0.0",

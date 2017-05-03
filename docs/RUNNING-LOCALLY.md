@@ -1,8 +1,8 @@
 Running locally
 ===============
 
-This document aims to serve as a guide to get Etcher running locally on your
-development machine.
+This document aims to serve as a guide to get PINE64 Installer running locally
+on your development machine.
 
 Prerequisites
 -------------
@@ -17,6 +17,8 @@ Prerequisites
 - [jq](https://stedolan.github.io/jq/)
 - [Asar](https://github.com/electron/asar)
 - [Codespell](https://github.com/lucasdemarchi/codespell)
+
+Tested working on NodeJS v6.10.0, NPM v3.10.10.
 
 ### Windows
 
