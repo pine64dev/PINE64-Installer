@@ -6870,6 +6870,29 @@ body {
   margin-top: 30px;
   margin-bottom: 15px; }
 
+.page-settings .dropdown-block {
+  width: 100%; }
+  .page-settings .dropdown-block .dropdown-menu {
+    width: 100%; }
+  .page-settings .dropdown-block .dropdown-menu:hover {
+    background: white; }
+  .page-settings .dropdown-block .dropdown-menu a:hover {
+    background: #ddd; }
+  .page-settings .dropdown-block button {
+    font-size: 14px;
+    color: #f4f4f4;
+    background: #2B2929;
+    padding-left: 20px;
+    border: 0px;
+    text-align: left;
+    display: block;
+    height: 50px;
+    width: 100%; }
+  .page-settings .dropdown-block .caret {
+    margin-top: 5px;
+    left: 97%;
+    position: absolute; }
+
 /*
  * Copyright 2016 resin.io
  *
@@ -6970,4 +6993,8 @@ body {
   margin: 0 30px;
   margin-top: 25px; }
   .section-header .pine64 {
-    margin-right: -25px; }
+    margin-right: -21px; }
+  .section-header p {
+    text-align: right;
+    color: #505254;
+    font-size: 12px; }
