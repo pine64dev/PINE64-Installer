@@ -322,7 +322,7 @@
     },
     "etcher-image-write": {
       "version": "9.1.2",
-      "resolved": "https://github.com/pine64dev/etcher-image-write/releases/download/9.1.2-mod.2/etcher-image-write-9.1.2-mod.2-stripped.tgz",
+      "resolved": "https://github.com/pine64dev/etcher-image-write/releases/download/9.1.2-mod.3/etcher-image-write-9.1.2-mod.3-stripped.tgz",
       "dependencies": {
         "isarray": {
           "version": "1.0.0",
@@ -331,7 +331,7 @@
         },
         "progress-stream": {
           "version": "2.0.0",
-          "resolved": "https://github.com/pine64dev/progress-stream/tarball/v2.0.0-mod.1"
+          "resolved": "https://github.com/pine64dev/progress-stream/tarball/v2.0.0-mod.2"
         },
         "readable-stream": {
           "version": "2.2.2",
@@ -1407,7 +1407,7 @@
     },
     "progress-stream": {
       "version": "2.0.0",
-      "resolved": "https://github.com/pine64dev/progress-stream/tarball/v2.0.0-mod.1"
+      "resolved": "https://github.com/pine64dev/progress-stream/tarball/v2.0.0-mod.2"
     },
     "pseudomap": {
       "version": "1.0.2",
