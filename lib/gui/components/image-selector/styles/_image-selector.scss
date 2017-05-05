@@ -23,11 +23,14 @@
   .modal-header {
     border: 0px; }
   .modal-body {
+    /* fix scroll bar not able to scroll */
+    -webkit-app-region: no-drag;
     overflow-y: overlay;
     height: 100%;
     padding-left: 60px;
     padding-right: 60px;
-    border: 0px; }
+    border: 0px;
+  }
   .modal-footer {
     padding-left: 60px;
     padding-right: 60px;

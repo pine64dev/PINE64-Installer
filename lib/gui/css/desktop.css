@@ -17,11 +17,7 @@
 /* Prevent text selection */
 body {
   -webkit-user-select: none;
-}
-
-
-/* Allow window to be dragged from anywhere */
-* {
+  /* Allow window to be dragged from anywhere */
   -webkit-app-region: drag;
 }
 

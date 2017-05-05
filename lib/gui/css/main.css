@@ -6492,6 +6492,8 @@ body {
   border: 0px; }
 
 .modal-image-selector-modal .modal-body {
+  /* fix scroll bar not able to scroll */
+  -webkit-app-region: no-drag;
   overflow-y: overlay;
   height: 100%;
   padding-left: 60px;
