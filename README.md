@@ -1,92 +1,53 @@
-Etcher
-======
+PINE64 Installer
+================
 
-> Flash OS images to SD cards & USB drives, safely and easily.
-
-Etcher is a powerful OS image flasher built with web technologies to ensure
-flashing an SDCard or USB drive is a pleasant and safe experience. It protects
-you from accidentally writing to your hard-drives, ensures every byte of data
-was written correctly and much more.
-
-[![dependencies](https://david-dm.org/resin-io/etcher.svg)](https://david-dm.org/resin-io/etcher.svg)
-[![Build Status](https://travis-ci.org/resin-io/etcher.svg?branch=master)](https://travis-ci.org/resin-io/etcher)
-[![Build status](https://ci.appveyor.com/api/projects/status/e745k1gt39nik0t7/branch/master?svg=true)](https://ci.appveyor.com/project/resin-io/etcher/branch/master)
-[![Gitter](https://badges.gitter.im/resin-io/etcher.svg)](https://gitter.im/resin-io/etcher?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Stories in Ready](https://badge.waffle.io/resin-io/etcher.svg?label=in progress&title=In Progress)](https://waffle.io/resin-io/etcher)
+This is a tool we fork from [Etcher](https://etcher.io/) (Etcher is a powerful OS image flasher built with web technologies to ensure flashing an SDCard or USB drive is a pleasant and safe experience). We added the part for user to easily select their desired PINE A64(+), SOPINE, Pinebook OS image and automatically download the OS image from server before flashing it to the MicroSD card.
 
 ***
 
-[**Download**][etcher] | [**Support**][SUPPORT] | [**Documentation**][USER-DOCUMENTATION] | [**Contributing**][CONTRIBUTING] | [**Roadmap**][milestones] | [**CLI**][CLI]
+Downloads
+---------
+> [**Latest Version**](https://github.com/pine64dev/PINE64-Installer/releases/latest)
 
-![Etcher](https://raw.githubusercontent.com/resin-io/etcher/master/screenshot.png)
 
-Supported Operating Systems
----------------------------
+Notes
+-----
+- Please disable Ext2fsd software because it is conflicting with the App.
 
-- Linux (most distros)
-- macOS 10.9 and later
-- Microsoft Windows 7 and later
 
-Note that Etcher will run on any platform officially supported by
-[Electron][electron]. Read more in their
-[documentation][electron-supported-platforms].
+Screenshots and Guidelines
+--------------------------
+![screenshot](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot.png)
+- Click on "Choose an OS"
+- For Settings, click on the left bottom icon
 
-Installers
-----------
+![screenshot select board](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot2.png)
+- Use the select box on top to select the board (e.g. PINE A64+ (1GB/2GB), SOPINE, PINEBOOK and etc)
 
-Refer to the [downloads page][etcher] for the latest pre-made
-installers for all supported operating systems.
+![screenshot select OS](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot3.png)
+- Select the OS of your choice
+	- Scroll to the bottom the select a local image file (Note that, select local gz / gz2 / xz image file name must end with .img.gz / .img.bz2 / .img.xz)
+- If you wish to flash older image version, you can use the version select box at the right of the OS list
+- Click on the "i" at the right of the version to visit the release notes or related websites
 
-#### Debian and Ubuntu based Package Repository (GNU/Linux x86/x64)
+![screenshot settings](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot4.png)
+- If "Eject on success" is ticked: After flashing or validating process, the app will try to automatically unmount or eject the MicroSD.
+  - Occasionally, the MicroSD may be accessed by some other process running on your system, then, auto umount/eject may failed. Because of that, you may need to manually umount/eject.
+- If "Validate write on success" is ticked: After flashing process, the app will run a validation process.
+- Download Location: This is where the downloaded image files stored. You can change to other directory or click on the most right button to access to the directory.
+  - Remember where your previous download location because you might want to manually delete those old downloaded image files.
+  - Default download location:
+    - Windows: C:\Users\<USER>\AppData\Roaming\pine64-installer\downloadedImage
+    - Linux: /home/<USER>/.config/pine64-installer/downloadedImage
+    - OS X: /Users/<USER>/Library/Application Support/pine64-installer/downloadedImage
+- Download Sources: Use this to choose from which server all the OS images will be downloaded from.
 
-1. Save the following as `/etc/apt/sources.list.d/etcher.list`:
-
-    ```
-    deb https://dl.bintray.com/resin-io/debian stable etcher
-    ```
-
-2. Trust Bintray.com's GPG key:
-
-    ```sh
-    sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61
-    ```
-
-3. Update and install:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install etcher-electron
-    ```
-
-#### Brew Cask (macOS)
-
-Note that the Etcher Cask has to be updated manually to point to new versions,
-so it might not refer to the latest version immediately after an Etcher
-release.
-
-```sh
-brew cask install etcher
-```
 
 Support
 -------
+Please subscribe to [this forum thread](https://forum.pine64.org/showthread.php?tid=4481) to receive latest news on the PINE64 Installer.
 
-If you're having any problem, please [raise an issue][newissue] on GitHub and
-the resin.io team will be happy to help.
 
 License
 -------
-
-Etcher is free software, and may be redistributed under the terms specified in
-the [license].
-
-[etcher]: https://etcher.io
-[electron]: http://electron.atom.io
-[electron-supported-platforms]: http://electron.atom.io/docs/tutorial/supported-platforms/
-[SUPPORT]: https://github.com/resin-io/etcher/blob/master/SUPPORT.md
-[CONTRIBUTING]: https://github.com/resin-io/etcher/blob/master/docs/CONTRIBUTING.md
-[CLI]: https://github.com/resin-io/etcher/blob/master/docs/CLI.md
-[USER-DOCUMENTATION]: https://github.com/resin-io/etcher/blob/master/docs/USER-DOCUMENTATION.md
-[milestones]: https://github.com/resin-io/etcher/milestones
-[newissue]: https://github.com/resin-io/etcher/issues/new
-[license]: https://github.com/resin-io/etcher/blob/master/LICENSE
+PINE64 Installer is free software, and may be redistributed under the terms specified in the [license](https://github.com/pine64dev/PINE64-Installer/blob/master/LICENSE).
