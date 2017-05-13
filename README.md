@@ -18,17 +18,17 @@ Notes
 Screenshots and Guidelines
 --------------------------
 ![screenshot](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot.png)
-- Click on "Choose an OS"
-- For Settings, click on the left bottom icon
+- Click on "Choose an OS".
+- For Settings, click on the left bottom icon.
 
 ![screenshot select board](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot2.png)
-- Use the select box on top to select the board (e.g. PINE A64+ (1GB/2GB), SOPINE, PINEBOOK and etc)
+- Use the select box on top to select the board (e.g. PINE A64+ (1GB/2GB), SOPINE, PINEBOOK and etc).
 
 ![screenshot select OS](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot3.png)
-- Select the OS of your choice
-	- Scroll to the bottom the select a local image file (Note that, select local gz / gz2 / xz image file name must end with .img.gz / .img.bz2 / .img.xz)
-- If you wish to flash older image version, you can use the version select box at the right of the OS list
-- Click on the "i" at the right of the version to visit the release notes or related websites
+- Select the OS of your choice.
+	- Scroll to the bottom the select a local image file (Note that, select local gz / gz2 / xz image file name must end with .img.gz / .img.bz2 / .img.xz).
+- If you wish to flash older image version, you can use the version select box at the right of the OS list.
+- Click on the "i" at the right of the version to visit the release notes or related websites.
 
 ![screenshot settings](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot4.png)
 - If "Eject on success" is ticked: After flashing or validating process, the app will try to automatically unmount or eject the MicroSD.
