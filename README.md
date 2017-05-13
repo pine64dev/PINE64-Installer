@@ -1,22 +1,25 @@
 PINE64 Installer
 ================
 
-This is a tool we fork from [Etcher](https://etcher.io/) (Etcher is a powerful OS image flasher built with web technologies to ensure flashing an SDCard or USB drive is a pleasant and safe experience). We added the part for user to easily select their desired PINE A64(+), SOPINE, Pinebook OS image and automatically download the OS image from server before flashing it to the MicroSD card.
+This is a tool we fork from [Etcher](https://etcher.io/). We added the part for user to easily select their desired PINE A64(+), SOPINE, Pinebook OS image and automatically download the OS image from server before flashing it to the MicroSD card.
 
 ***
 
-Downloads
----------
+[**Download**](#download) | [**Notes**](#notes) | [**Screenshots and Guidelines**](#screenshots-and-guidelines) | [**Support**](#support) | [**License**](#license)
+
+
+## Download
+-----------
 > [**Latest Version**](https://github.com/pine64dev/PINE64-Installer/releases/latest)
 
 
-Notes
------
+## Notes
+--------
 - Please disable Ext2fsd software because it is conflicting with the App.
 
 
-Screenshots and Guidelines
---------------------------
+## Screenshots and Guidelines
+-----------------------------
 ![screenshot](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot.png)
 - Click on "Choose an OS".
 - For Settings, click on the left bottom icon.
@@ -43,11 +46,11 @@ Screenshots and Guidelines
 - Download Sources: Use this to choose from which server all the OS images will be downloaded from.
 
 
-Support
--------
-Please subscribe to [this forum thread](https://forum.pine64.org/showthread.php?tid=4481) to receive latest news on the PINE64 Installer.
+## Support
+----------
+If you have any feedback please create new thread in [this forum](https://forum.pine64.org/forumdisplay.php?fid=21) for discussion. You also can subscribe to [this forum thread](https://forum.pine64.org/showthread.php?tid=4481) to receive latest news on the PINE64 Installer.
 
 
-License
--------
+## License
+----------
 PINE64 Installer is free software, and may be redistributed under the terms specified in the [license](https://github.com/pine64dev/PINE64-Installer/blob/master/LICENSE).
