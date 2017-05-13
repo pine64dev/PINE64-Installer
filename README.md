@@ -9,17 +9,14 @@ This is a tool we fork from [Etcher](https://etcher.io/). We added the part for 
 
 
 ## Download
------------
 > [**Latest Version**](https://github.com/pine64dev/PINE64-Installer/releases/latest)
 
 
 ## Notes
---------
 - Please disable Ext2fsd software because it is conflicting with the App.
 
 
 ## Screenshots and Guidelines
------------------------------
 ![screenshot](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot.png)
 - Click on "Choose an OS".
 - For Settings, click on the left bottom icon.
@@ -47,10 +44,8 @@ This is a tool we fork from [Etcher](https://etcher.io/). We added the part for 
 
 
 ## Support
-----------
 If you have any feedback please create new thread in [this forum](https://forum.pine64.org/forumdisplay.php?fid=21) for discussion. You also can subscribe to [this forum thread](https://forum.pine64.org/showthread.php?tid=4481) to receive latest news on the PINE64 Installer.
 
 
 ## License
-----------
 PINE64 Installer is free software, and may be redistributed under the terms specified in the [license](https://github.com/pine64dev/PINE64-Installer/blob/master/LICENSE).
