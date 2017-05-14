@@ -41,6 +41,7 @@ This is a tool we fork from [Etcher](https://etcher.io/). We added the part for 
     - Linux: /home/<USER>/.config/pine64-installer/downloadedImage
     - OS X: /Users/<USER>/Library/Application Support/pine64-installer/downloadedImage
 - Download Sources: Use this to choose from which server all the OS images will be downloaded from.
+  - Note that, pine64.uk (UK) is a mirror server, there will be some delay for new OS image to sync over to this server. Thanks for Dave for setting up this mirror server. 
 
 
 ## Support
