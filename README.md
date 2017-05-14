@@ -37,7 +37,7 @@ This is a tool we fork from [Etcher](https://etcher.io/). We added the part for 
 - Download Location: This is where the downloaded image files stored. You can change to other directory or click on the most right button to access to the directory.
   - Remember where your previous download location because you might want to manually delete those old downloaded image files.
   - Default download location:
-    - Windows: C:\Users\&lt;USER&gt;\AppData\Roaming\pine64-installer\downloadedImage
+    - Windows: C:\\Users\\&lt;USER&gt;\\AppData\\Roaming\\pine64-installer\\downloadedImage
     - Linux: /home/&lt;USER&gt;/.config/pine64-installer/downloadedImage
     - macOS: /Users/&lt;USER&gt;/Library/Application Support/pine64-installer/downloadedImage
 - Download Sources: Use this to choose from which server all the OS images will be downloaded from.
