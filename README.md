@@ -33,7 +33,7 @@ This is a tool we fork from [Etcher](https://etcher.io/). We added the part for 
 ![screenshot settings](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot4.png)
 - If "Eject on success" is ticked: After flashing or validating process, the app will try to automatically unmount or eject the MicroSD.
   - Occasionally, the MicroSD may be accessed by some other process running on your system, then, auto umount/eject may failed. Because of that, you may need to manually umount/eject.
-- If "Validate write on success" is ticked: After flashing process, the app will run a validation process.
+- If "Validate write on success" is ticked: After flashing process, the app will read back from the MicroSD and compare its final checksum with the previous flashing/writing checksum.
 - Download Location: This is where the downloaded image files stored. You can change to other directory or click on the most right button to access to the directory.
   - Remember where your previous download location because you might want to manually delete those old downloaded image files.
   - Default download location:
@@ -41,7 +41,7 @@ This is a tool we fork from [Etcher](https://etcher.io/). We added the part for 
     - Linux: /home/&lt;USER&gt;/.config/pine64-installer/downloadedImage
     - macOS: /Users/&lt;USER&gt;/Library/Application Support/pine64-installer/downloadedImage
 - Download Sources: Use this to choose from which server all the OS images will be downloaded from.
-  - Note that, pine64.uk (UK) is a mirror server, there will be some delay for new OS image to sync over to this server. Thanks for Dave for setting up this mirror server. 
+  - Note that, pine64.uk (UK) is a mirror server, there will be some delay for new OS image to sync over to this server. Thanks to Dave for setting up this mirror server. 
 
 
 ## Support
