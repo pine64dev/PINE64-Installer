@@ -79,21 +79,26 @@ describe('Browser: ImageSelector', function() {
     let controller;
     let WarningModalService;
     let AppConfigService;
+    let testResult;
 
     beforeEach(angular.mock.inject(function(_$controller_, _WarningModalService_, _AppConfigService_) {
       $controller = _$controller_;
       WarningModalService = _WarningModalService_;
       AppConfigService = _AppConfigService_;
+
+      const stubModalInstance = {
+        close: (result) => {
+          testResult = result;
+        }
+      };
+
+      controller = $controller('ImageSelectorController', {
+        $scope: {},
+        $uibModalInstance: stubModalInstance
+      });
     }));
 
     describe('Select OS or local image file only', function() {
-
-      beforeEach(() => {
-        controller = $controller('ImageSelectorController', {
-          $scope: {},
-          $uibModalInstance: modalInstance
-        });
-      });
 
       it('should reset selected OS when drop a local image file', function() {
         controller.resetSelectedOS();
@@ -121,13 +126,6 @@ describe('Browser: ImageSelector', function() {
     });
 
     describe('.getOSLogo', function() {
-      beforeEach(function() {
-        controller = $controller('ImageSelectorController', {
-          $scope: {},
-          $uibModalInstance: modalInstance
-        });
-      });
-
       it('should get absolute path to the server', function() {
         const imgPath = 'relative/path/to/image.jpg';
         const resultPath = controller.getOSLogo(imgPath);
@@ -162,11 +160,6 @@ describe('Browser: ImageSelector', function() {
 
     describe('.setCurrentOSVersion', function() {
       beforeEach(function() {
-        controller = $controller('ImageSelectorController', {
-          $scope: {},
-          $uibModalInstance: modalInstance
-        });
-
         controller.setCurrentOS(sampleOSData);
       });
 
@@ -225,12 +218,6 @@ describe('Browser: ImageSelector', function() {
     });
 
     describe('.resetSelectedOS', function() {
-      beforeEach(function() {
-        controller = $controller('ImageSelectorController', {
-          $scope: {},
-          $uibModalInstance: modalInstance
-        });
-      });
 
       it('should reset only selected OS', function() {
         controller.setCurrentOS(sampleOSData);
@@ -258,11 +245,6 @@ describe('Browser: ImageSelector', function() {
     describe('.shouldOKButtonDisabled()', function() {
 
       beforeEach(function() {
-        controller = $controller('ImageSelectorController', {
-          $scope: {},
-          $uibModalInstance: modalInstance
-        });
-
         controller.resetSelectedOS();
         controller.resetSelectedImageFile();
       });
@@ -285,19 +267,7 @@ describe('Browser: ImageSelector', function() {
     });
 
     describe('.closeModal()', function() {
-      let testResult;
       beforeEach(() => {
-        const stubModalInstance = {
-          close: (result) => {
-            testResult = result;
-          }
-        };
-
-        controller = $controller('ImageSelectorController', {
-          $scope: {},
-          $uibModalInstance: stubModalInstance
-        });
-
         controller.resetSelectedOS();
         controller.resetSelectedImageFile();
       });
