@@ -62,11 +62,6 @@ const sampleImageFile = {
   size: 999999
 };
 
-const modalInstance = {
-  close: _.noop,
-  dimiss: _.noop
-};
-
 describe('Browser: ImageSelector', function() {
 
   beforeEach(angular.mock.module(
