@@ -270,8 +270,6 @@ describe('Browser: DrivesModel', function() {
 
         describe('given a selected OS and no selected drive', function() {
           beforeEach(function() {
-            SelectionStateModel.removeDrive();
-
             SelectionStateModel.setOS({
               name: 'Custom Operation System',
               version: '1.0.0',
@@ -303,6 +301,8 @@ describe('Browser: DrivesModel', function() {
               ],
               logo: 'http://path.to/image/logo'
             });
+
+            SelectionStateModel.removeDrive();
           });
 
           afterEach(function() {
@@ -546,6 +546,13 @@ describe('Browser: DrivesModel', function() {
         DrivesModel.setDrives(this.drives);
       });
 
+      /*
+      // auto-select after image/os has being selected
+      it('should automatically select one drive', () => {
+        m.chai.expect(SelectionStateModel.hasDrive()).to.be.true;
+      });
+      */
+
       describe('given one of the drives was selected', function() {
 
         beforeEach(function() {
@@ -595,6 +602,53 @@ describe('Browser: DrivesModel', function() {
           m.chai.expect(SelectionStateModel.hasDrive()).to.be.false;
         });
 
+      });
+
+      describe('given a selected OS', function() {
+
+        beforeEach(function() {
+          SelectionStateModel.removeDrive();
+
+          SelectionStateModel.setOS({
+            name: 'Custom Operation System',
+            version: '1.0.0',
+            images: [
+              {
+                checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+                checksumType: 'md5',
+                recommendedDriveSize: 4000000000,
+                url: 'http://path.to/os/4gb.os.tar.gz'
+              },
+              {
+                checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+                checksumType: 'md5',
+                recommendedDriveSize: 5000000000,
+                url: 'http://path.to/os/5gb.os.tar.gz'
+              },
+              {
+                checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+                checksumType: 'md5',
+                recommendedDriveSize: 8000000000,
+                url: 'http://path.to/os/8gb.os.tar.gz'
+              },
+              {
+                checksum: 'e5b4ee5f5acf2613b197fe1edf29a80c',
+                checksumType: 'md5',
+                recommendedDriveSize: 10000000000,
+                url: 'http://path.to/os/10gb.os.tar.gz'
+              }
+            ],
+            logo: 'http://path.to/image/logo'
+          });
+        });
+
+        afterEach(function() {
+          SelectionStateModel.removeOS();
+        });
+
+        it('should deselect unmatched drive with selected OS', function() {
+          m.chai.expect(SelectionStateModel.hasDrive()).to.be.false;
+        });
       });
 
       describe('.hasAvailableDrives()', function() {
