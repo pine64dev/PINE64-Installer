@@ -5,10 +5,10 @@
   "main": "lib/start.js",
   "description": "Flash PINE64 OS images to SD cards & USB drives, safely and easily.",
   "productDescription": "PINE64 Installer is a project forked from Resin.io Etcher. Etcher is a powerful OS image flasher built with web technologies to ensure flashing an SDCard or USB drive is a pleasant and safe experience. It protects you from accidentally writing to your hard-drives, ensures every byte of data was written correctly and much more.",
-  "homepage": "https://github.com/pine64dev/etcher",
+  "homepage": "https://github.com/pine64dev/PINE64-Installer",
   "repository": {
     "type": "git",
-    "url": "git@github.com:pine64dev/etcher.git"
+    "url": "git@github.com:pine64dev/PINE64-Installer.git"
   },
   "scripts": {
     "test": "npm run lint && electron-mocha --recursive --renderer tests/gui -R spec && electron-mocha --recursive tests/cli tests/shared tests/child-writer tests/image-stream -R spec",
