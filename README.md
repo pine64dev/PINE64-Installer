@@ -1,7 +1,7 @@
 PINE64 Installer
 ================
 
-This is a tool we fork from [Etcher](https://etcher.io/). We added the part for user to easily select their desired PINE A64(+), SOPINE, Pinebook OS image and automatically download the OS image from server before flashing it to the MicroSD card.
+This is a tool we forked from [Etcher](https://etcher.io/) to add an easy menu for downloading the PINE A64(+), SOPINE or Pinebook OS images for flashing to the MicroSD card, saving users the extra steps of finding links on the web, downloading the image then finding the file on the local system again.
 
 ***
 
@@ -11,10 +11,8 @@ This is a tool we fork from [Etcher](https://etcher.io/). We added the part for 
 ## Download
 > [**Latest Version**](https://github.com/pine64dev/PINE64-Installer/releases/latest)
 
-
 ## Notes
-- Please disable Ext2fsd software because it is conflicting with the App.
-
+- Please disable Ext2fsd software because it can conflict with this app.
 
 ## Screenshots and Guidelines
 ![screenshot](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot.png)
@@ -27,21 +25,21 @@ This is a tool we fork from [Etcher](https://etcher.io/). We added the part for 
 ![screenshot select OS](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot3.png)
 - Select the OS of your choice.
 	- Scroll to the bottom the select a local image file (Note that, select local gz / gz2 / xz image file name must end with .img.gz / .img.bz2 / .img.xz).
-- If you wish to flash older image version, you can use the version select box at the right of the OS list.
-- Click on the "i" at the right of the version to visit the release notes or related websites.
+- If you wish to flash an older image, you can use the version select box on the right of the OS list.
+- Click on the "i" at the right of the version to view the release notes or related websites.
 
 ![screenshot settings](https://raw.githubusercontent.com/pine64dev/PINE64-Installer/master/screenshot4.png)
-- If "Eject on success" is ticked: After flashing or validating process, the app will try to automatically unmount or eject the MicroSD.
-  - Occasionally, the MicroSD may be accessed by some other process running on your system, then, auto umount/eject may failed. Because of that, you may need to manually umount/eject.
-- If "Validate write on success" is ticked: After flashing process, the app will read back from the MicroSD and compare its final checksum with the previous flashing/writing checksum.
-- Download Location: This is where the downloaded image files stored. You can change to other directory or click on the most right button to access to the directory.
-  - Remember where your previous download location because you might want to manually delete those old downloaded image files.
-  - Default download location:
+- If "Eject on success" is ticked: After the flashing or validating process, the app will try to automatically unmount or eject the MicroSD card.
+  - Occasionally, the MicroSD card may be accessed by another process running on your system, causing automatic unmounting or ejection to fail. In this case, you may need to manually unmount or eject the MicroSD card.
+- If "Validate write on success" is ticked: after flashing, the app will read the MicroSD card and compare its final checksum with the previous flashing/writing checksum to validate successful writing of the image.
+- Download Location: where the downloaded image file is stored. Click the far right button to change this location.
+  - Remember your download location if you want to manually delete any old image files later.
+  - The default download locations are:
     - Windows: C:\\Users\\&lt;USER&gt;\\AppData\\Roaming\\pine64-installer\\downloadedImage
     - Linux: /home/&lt;USER&gt;/.config/pine64-installer/downloadedImage
     - macOS: /Users/&lt;USER&gt;/Library/Application Support/pine64-installer/downloadedImage
-- Download Sources: Use this to choose from which server all the OS images will be downloaded from.
-  - Note that, pine64.uk (UK) is a mirror server, there will be some delay for new OS image to sync over to this server. Thanks to Dave for setting up this mirror server. 
+- Download Sources: Choose which server the OS images are downloaded from.
+  - Note: pine64.uk (UK) is a mirror server. New OS images may be delayed, upon initial release, whilst syncing to this server. Thanks to Dave for setting this mirror up. 
 
 
 ## Support
