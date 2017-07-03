@@ -164,20 +164,6 @@ describe('Browser: MainPage', function() {
           logo: 'http://path.to/image/logo'
         });
 
-        // at this moment, recommended image is not mapped yet to every drive
-        m.chai.expect(controller.shouldFlashStepBeDisabled()).to.be.true;
-
-        // on the next second, available drives is given again
-        DrivesModel.setDrives([
-          {
-            device: '/dev/disk2',
-            description: 'Foo',
-            size: 99999,
-            mountpoint: '/mnt/foo',
-            system: false
-          }
-        ]);
-
         // recommended image will be mapped on every drive
         // single drive is selected automatically
         m.chai.expect(SelectionStateModel.hasDrive()).to.be.true;
