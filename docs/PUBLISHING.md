@@ -15,6 +15,8 @@ outside the Mac App Store from the Apple account.
 2. Install the Developer ID certificate to your Mac's Keychain by double
 clicking on the certificate file.
 
+3. Add `CODE_SIGN_IDENTITY = [certificate id from keychain get info]` on the beginning of `Makefile`.
+
 The application will be signed automatically using this certificate when
 packaging for OS X.
 
@@ -29,17 +31,34 @@ from the relevant people.
 3. Add `CODE_SIGN_CERTIFICATE = certificate.p12` and
 `CODE_SIGN_CERTIFICATE_PASSWORD = [PASSWORD]` on the beginning of `Makefile`.
 
+Changing Info
+-------------
+
+### package.json
+
+1. Change "version".
+
+2. Change "builder" / "win" / "version".
+
+### npm-shrinkwrap.json
+
+1. Double check "drivelist" -> "resolved".
+
+2. Double check "etcher-image-write" -> "resolved".
+
+3. Double check "progress-stream" -> "resolved".
+
 Packaging
 ---------
-
 
 ### OS X
 
 Run the following command:
 
 ```sh
+make electron-develop
 make electron-installer-dmg
-make electron-installer-app-zip
+make electron-installer-app-zip  (optional)
 ```
 
 The resulting installers will be saved to `release/out`.
@@ -49,8 +68,9 @@ The resulting installers will be saved to `release/out`.
 Run the following command:
 
 ```sh
+make electron-develop
 make electron-installer-appimage
-make electron-installer-debian
+make electron-installer-debian  (optional)
 ```
 
 The resulting installers will be saved to `release/out`.
@@ -60,8 +80,9 @@ The resulting installers will be saved to `release/out`.
 Run the following command:
 
 ```sh
-make electron-installer-zip
+make electron-develop
 make electron-installer-nsis
+make electron-installer-zip  (optional)
 ```
 
 The resulting installers will be saved to `release/out`.
