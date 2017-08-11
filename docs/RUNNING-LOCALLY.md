@@ -24,11 +24,9 @@ Tested working on NodeJS v6.10.0, NPM v3.10.10.
 
 - [Rimraf](https://github.com/isaacs/rimraf)
 - [NSIS v2.51](http://nsis.sourceforge.net/Main_Page) (v3.x won't work)
-- [Visual Studio Community 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48146) (free) (other editions, like Professional and Enterprise, should work too) (To compile lzma-native module)
-  - Visual Studio 2015 doesn't install C++ by default. You have to rerun the
-    setup, select Modify and then check `Visual C++ -> Common Tools for Visual
-    C++ 2015` (see http://stackoverflow.com/a/31955339)
-  - Alternatively you can use [windows-build-tool](https://github.com/felixrieseberg/windows-build-tools).
+- To compile lzma-native module
+  - [windows-build-tool](https://github.com/felixrieseberg/windows-build-tools). This is an easier alternative.
+  - OR [Visual Studio Community 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48146) (free) (other editions, like Professional and Enterprise, should work too). Visual Studio 2015 doesn't install C++ by default. You have to rerun the setup, select Modify and then check `Visual C++ -> Common Tools for Visual C++ 2015` (see http://stackoverflow.com/a/31955339)
 - [MinGW](http://www.mingw.org) (To run Makefile)
 
 The following MinGW packages are required:
@@ -45,12 +43,21 @@ The following MinGW packages are required:
 - [XCode](https://developer.apple.com/xcode/)
 - [afsctool](https://brkirch.wordpress.com/afsctool/)
 
-Cloning the project
--------------------
+Cloning/Pulling the project
+---------------------------
 
 ```sh
-git clone https://github.com/resin-io/etcher
-cd etcher
+git clone https://github.com/pine64dev/PINE64-Installer
+```
+
+### OR pull and merge new changes to local project:
+```sh
+git pull
+```
+
+### OR fetch changes without merging:
+```sh
+git fetch
 ```
 
 Installing npm dependencies
@@ -75,14 +82,17 @@ make electron-develop
 Running the application
 -----------------------
 
-### GUI
+### Build main.css to update new GUI changes (refer package.json)
+```sh
+npm run build-css
+```
 
+### GUI (Start foreground GUI and background engine)
 ```sh
 npm start
 ```
 
-### CLI
-
+### CLI (Start background engine)
 ```sh
 electron bin/etcher
 ```
