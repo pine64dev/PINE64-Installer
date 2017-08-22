@@ -7,7 +7,7 @@ on your development machine.
 Prerequisites
 -------------
 
-Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use -g on "node install -g [module]" to install node modules into global node_modules folder for easy usage instead of local/current folder.
+Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use `-g` on "node install -g [module]" to install node modules into global node_modules folder for easy usage instead of local/current folder.
 
 ### Common
 
@@ -17,7 +17,7 @@ Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use -g on "node insta
 - [Python 2.7.x](https://www.python.org)
 - [SCSS Lint](https://github.com/brigade/scss-lint/) (You need Ruby for this)
 - [SASS](https://www.npmjs.com/package/node-sass)
-- [Bootstrap for SASS](https://github.com/twbs/bootstrap-sass#d-npm--nodejs) (Don't use -g. You need to install into the project node_modules folder)
+- [Bootstrap for SASS](https://github.com/twbs/bootstrap-sass#d-npm--nodejs) (Don't use `-g`. You need to install into the project node_modules folder)
 - [jq](https://stedolan.github.io/jq/) (Please rename to "jq" e.g. jq-win32.exe to jq.exe)
 - [Asar](https://github.com/electron/asar)
 - [Codespell](https://github.com/lucasdemarchi/codespell)
@@ -42,7 +42,7 @@ The following MinGW packages are required:
 - `msys-bash`
 - `msys-coreutils`
 
-Below are some paths to set into Windows Environment (Please change the path according to where you installed the software):
+Below are some paths to set into Windows Environment Variable named `Path` (Please change the path according to where you installed the software):
 
 - C:\MinGW\msys\1.0\bin
 - C:\Program Files\NSIS
