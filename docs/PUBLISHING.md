@@ -25,11 +25,9 @@ packaging for OS X.
 1. Get access to our code signing certificate and decryption key
 from the relevant people.
 
-2. Place the certificate in the root of the Etcher repository naming it
-`certificate.p12`.
+2. Place the certificate (e.g. www.pine64.org_code_sign.pfx) in the root of the Etcher repository and optionally renaming it to `certificate.p12`.
 
-3. Add `CODE_SIGN_CERTIFICATE = certificate.p12` and
-`CODE_SIGN_CERTIFICATE_PASSWORD = [PASSWORD]` on the beginning of `Makefile`.
+3. Add `CODE_SIGN_CERTIFICATE = certificate.p12` and `CODE_SIGN_CERTIFICATE_PASSWORD = [PASSWORD]` on the beginning of `Makefile`. Remember to escape the string values (e.g. # to \\#, $ to $$).
 
 Changing Info
 -------------
@@ -78,6 +76,8 @@ The resulting installers will be saved to `release/out`.
 ### Windows
 
 Run the following command:
+
+Note that, the rm -rf is very slow on Windows. You rather want to use Windows Explorer to manually delete the project's node_modules first before running make electron-develop.
 
 ```sh
 make electron-develop
