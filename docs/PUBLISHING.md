@@ -54,6 +54,8 @@ Packaging
 Run the following command:
 
 ```sh
+npm install bootstrap-sass
+npm run build-css
 make electron-develop
 make electron-installer-dmg
 make electron-installer-app-zip  (optional)
@@ -66,6 +68,8 @@ The resulting installers will be saved to `release/out`.
 Run the following command:
 
 ```sh
+npm install bootstrap-sass
+npm run build-css
 make electron-develop
 make electron-installer-appimage
 make electron-installer-debian  (optional)
@@ -80,6 +84,8 @@ Run the following command:
 Note that, the rm -rf is very slow on Windows. You rather want to use Windows Explorer to manually delete the project's node_modules first before running make electron-develop.
 
 ```sh
+npm install bootstrap-sass
+npm run build-css
 make electron-develop
 make electron-installer-nsis
 make electron-installer-zip  (optional)
