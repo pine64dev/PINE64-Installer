@@ -4,7 +4,7 @@ Publishing PINE64 Installer
 This is a small guide to package and publish PINE64 Installer to all supported
 operating systems.
 
-**Make sure you have all the pre-requisites listed above of [RUNNING-LOCALLY](https://github.com/pine64dev/PINE64-Installer/blob/master/docs/RUNNING-LOCALLY.md) installed in your system.**
+**Make sure you have all the pre-requisites listed above the [RUNNING-LOCALLY](https://github.com/pine64dev/PINE64-Installer/blob/master/docs/RUNNING-LOCALLY.md) installed in your system.**
 
 Signing
 -------
