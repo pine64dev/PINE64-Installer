@@ -41,7 +41,6 @@ Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use `-g` on "node ins
   - [windows-build-tool](https://github.com/felixrieseberg/windows-build-tools). This is an easier alternative.
   - OR [Visual Studio Community 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48146) (free) (other editions, like Professional and Enterprise, should work too). Visual Studio 2015 doesn't install C++ by default. You have to rerun the setup, select Modify and then check `Visual C++ -> Common Tools for Visual C++ 2015` (see http://stackoverflow.com/a/31955339)
 - [MinGW](http://www.mingw.org) (To run Makefile)
-- [Git](https://git-scm.com/)
 - [sha256sum](http://www.labtestproject.com/files/win/sha256sum/sha256sum.zip)
 
 The following MinGW packages are required:
