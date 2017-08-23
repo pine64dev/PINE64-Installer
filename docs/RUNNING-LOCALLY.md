@@ -24,7 +24,7 @@ Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use `-g` on "node ins
   - Ubuntu: sudo apt install jq
   - Windows: Please rename jq-win32.exe to jq.exe
 - [Asar](https://github.com/electron/asar)
-- [Codespell](https://github.com/lucasdemarchi/codespell) (You need Python PIP: sudo apt install python-pip; pip install -U pip)
+- [Codespell](https://github.com/lucasdemarchi/codespell) (You need Python PIP: sudo apt install python-pip && sudo pip install -U pip)
 - [Git](https://git-scm.com/)
   - Ubuntu: sudo apt install git
 
