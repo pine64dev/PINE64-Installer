@@ -25,16 +25,13 @@ Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use `-g` on "node ins
   - Ubuntu: sudo apt install jq
 - [Asar](https://github.com/electron/asar)
 - [Codespell](https://github.com/lucasdemarchi/codespell) (You need Python PIP: sudo apt install python-pip; pip install -U pip)
+- [Git](https://git-scm.com/)
+  - Ubuntu: sudo apt install git
 
 ### OS X
 
 - [XCode](https://developer.apple.com/xcode/)
 - [afsctool](https://brkirch.wordpress.com/afsctool/)
-
-### Linux
-
-- [Git](https://git-scm.com/)
-  - Ubuntu: sudo apt install git
 
 ### Windows
 
