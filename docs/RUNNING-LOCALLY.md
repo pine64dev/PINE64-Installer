@@ -12,15 +12,29 @@ Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use `-g` on "node ins
 ### Common
 
 - [NodeJS](https://nodejs.org) (at least v6)
+  - Ubuntu: sudo apt install nodejs nodejs-legacy npm
 - [Bower](http://bower.io)
 - [UPX](http://upx.sourceforge.net)
+  - Ubuntu: sudo cp upx /usr/local/bin/
 - [Python 2.7.x](https://www.python.org)
-- [SCSS Lint](https://github.com/brigade/scss-lint/) (You need Ruby for this)
+- [SCSS Lint](https://github.com/brigade/scss-lint/) (You need Ruby: sudo apt install ruby)
 - [SASS](https://www.npmjs.com/package/node-sass)
 - [Bootstrap for SASS](https://github.com/twbs/bootstrap-sass#d-npm--nodejs) (Don't use `-g`. You need to install into the project node_modules folder)
-- [jq](https://stedolan.github.io/jq/) (Please rename to "jq" e.g. jq-win32.exe to jq.exe)
+- [jq](https://stedolan.github.io/jq/)
+  - Windows: Please rename jq-win32.exe to jq.exe
+  - Ubuntu: sudo apt install jq
 - [Asar](https://github.com/electron/asar)
-- [Codespell](https://github.com/lucasdemarchi/codespell)
+- [Codespell](https://github.com/lucasdemarchi/codespell) (You need Python PIP: sudo apt install python-pip; pip install -U pip)
+
+### OS X
+
+- [XCode](https://developer.apple.com/xcode/)
+- [afsctool](https://brkirch.wordpress.com/afsctool/)
+
+### Linux
+
+- [Git](https://git-scm.com/)
+  - Ubuntu: sudo apt install git
 
 ### Windows
 
@@ -51,11 +65,6 @@ Below are some paths to set into Windows Environment Variable named `Path` (Plea
 - C:\sw\jq
 - C:\sw\sha256sum
 - C:\sw\upx394w
-
-### OS X
-
-- [XCode](https://developer.apple.com/xcode/)
-- [afsctool](https://brkirch.wordpress.com/afsctool/)
 
 Cloning/Pulling the project
 ---------------------------
