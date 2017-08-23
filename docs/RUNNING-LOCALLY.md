@@ -21,8 +21,8 @@ Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use `-g` on "node ins
 - [SASS](https://www.npmjs.com/package/node-sass)
 - [Bootstrap for SASS](https://github.com/twbs/bootstrap-sass#d-npm--nodejs) (Don't use `-g`. You need to install into the project node_modules folder)
 - [jq](https://stedolan.github.io/jq/)
-  - Windows: Please rename jq-win32.exe to jq.exe
   - Ubuntu: sudo apt install jq
+  - Windows: Please rename jq-win32.exe to jq.exe
 - [Asar](https://github.com/electron/asar)
 - [Codespell](https://github.com/lucasdemarchi/codespell) (You need Python PIP: sudo apt install python-pip; pip install -U pip)
 - [Git](https://git-scm.com/)
