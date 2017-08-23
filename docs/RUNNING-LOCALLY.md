@@ -101,6 +101,7 @@ Running the application
 
 ### Build main.css to update new GUI changes (refer package.json)
 ```sh
+npm install bootstrap-sass
 npm run build-css
 ```
 
