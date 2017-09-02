@@ -15,23 +15,31 @@ Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use `-g` on "node ins
   - Ubuntu: sudo apt install nodejs nodejs-legacy npm
 - [Bower](http://bower.io)
 - [UPX](http://upx.sourceforge.net)
+  - OS X: brew install upx
   - Ubuntu: sudo cp upx /usr/local/bin/
 - [Python 2.7.x](https://www.python.org)
-- [SCSS Lint](https://github.com/brigade/scss-lint/) (You need Ruby: sudo apt install ruby)
+- [SCSS Lint](https://github.com/brigade/scss-lint/)
+  - OS X Ruby: brew install ruby
+  - Ubuntu Ruby: sudo apt install ruby
 - [SASS](https://www.npmjs.com/package/node-sass)
 - [Bootstrap for SASS](https://github.com/twbs/bootstrap-sass#d-npm--nodejs) (Don't use `-g`. You need to install into the project node_modules folder)
 - [jq](https://stedolan.github.io/jq/)
+  - OS X: brew install jq
   - Ubuntu: sudo apt install jq
   - Windows: Please rename jq-win32.exe to jq.exe
 - [Asar](https://github.com/electron/asar)
-- [Codespell](https://github.com/lucasdemarchi/codespell) (You need Python PIP: sudo apt install python-pip && sudo pip install -U pip)
+- [Codespell](https://github.com/lucasdemarchi/codespell)
+  - OS X Python PIP: sudo easy_install pip; and sudo pip install -U pip
+  - Ubuntu Python PIP: sudo apt install python-pip && sudo pip install -U pip
 - [Git](https://git-scm.com/)
+  - OS X: brew install git
   - Ubuntu: sudo apt install git
 
 ### OS X
 
 - [XCode](https://developer.apple.com/xcode/)
 - [afsctool](https://brkirch.wordpress.com/afsctool/)
+  - brew install afsctool
 
 ### Windows
 
