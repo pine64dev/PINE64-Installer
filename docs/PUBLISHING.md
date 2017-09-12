@@ -14,10 +14,9 @@ Signing
 1. Get Apple Developer ID certificate for signing applications distributed
 outside the Mac App Store from the Apple account.
 
-2. Install the Developer ID certificate to your Mac's Keychain by double
-clicking on the certificate file.
+2. Install the Developer ID certificate to your Mac's Keychain by double clicking on the certificate file (e.g. PINE64_Installer_developerID_application.p12 and PINE64_Installer_developerID_installer.p12). After installed, make sure both certificates contains private keys by going to Applications -> Utilities -> Keychain Access.app -> login -> Certificates -> expanding both certificates.
 
-3. Add `CODE_SIGN_IDENTITY = [certificate id from keychain get info]` on the beginning of `Makefile`.
+3. Add `CODE_SIGN_IDENTITY = [certificate common name]` on the beginning of `Makefile`. You can obtain the certificate common name by going to Applications -> Utilities -> Keychain Access.app -> login -> Certificates -> double click on the certificates. Do not include `Developer ID Application: ` and `Developer ID Installer: ` infront of the common name. Both certificates should have same common name.
 
 The application will be signed automatically using this certificate when
 packaging for OS X.
