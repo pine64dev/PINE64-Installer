@@ -7,7 +7,9 @@ on your development machine.
 Prerequisites
 -------------
 
-Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use `-g` on "node install -g [module]" to install node modules into global node_modules folder for easy usage instead of local/current folder.
+Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use `-g` on "npm install -g [module]" to install node modules into global node_modules folder for easy usage instead of local/current folder.
+
+Note that, for Windows you probably need to run all the commands on Command Prompt (Admin). To build x86 (32-bit) on x64 (64-bit) on Windows, please find and download all the installer, software and build tools below in x86 (32-bit) instead of x64.
 
 ### Common
 
@@ -21,6 +23,7 @@ Tested working on NodeJS v6.10.0, NPM v3.10.10. Note that, use `-g` on "node ins
 - [SCSS Lint](https://github.com/brigade/scss-lint/)
   - OS X Ruby: brew install ruby
   - Ubuntu Ruby: sudo apt install ruby
+  - Windows Ruby: required to set Windows Environment Variable named `Path` (e.g. C:\Ruby24\bin)
 - [SASS](https://www.npmjs.com/package/node-sass)
 - [Bootstrap for SASS](https://github.com/twbs/bootstrap-sass#d-npm--nodejs) (Don't use `-g`. You need to install into the project node_modules folder)
 - [jq](https://stedolan.github.io/jq/)
@@ -63,8 +66,8 @@ The following MinGW packages are required:
 Below are some paths to set into Windows Environment Variable named `Path` (Please change the path according to where you installed the software):
 
 - C:\MinGW\msys\1.0\bin
-- C:\Program Files\NSIS
-- C:\Program Files\Windows Kits\8.1\bin\x86  (For signtool)
+- C:\Program Files (x86)\NSIS
+- C:\Program Files (x86)\Windows Kits\8.1\bin\x86  (For signtool)
 - C:\Ruby24\bin
 - C:\sw\jq
 - C:\sw\sha256sum
