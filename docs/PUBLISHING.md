@@ -82,6 +82,12 @@ The resulting installers will be saved to `release/out`.
 
 Run the following command:
 
+To build x86 (32-bit) on x64 (64-bit) Windows, you need to change the Makefile first.
+
+1. Find all HOST_ARCH under: ifeq ($(OS),Windows_NT)
+
+2. Change: HOST_ARCH = x64  to  HOST_ARCH = x86
+
 Note that, the rm -rf is very slow on Windows. You rather want to use Windows Explorer to manually delete the project's node_modules first before running make electron-develop.
 
 ```sh
